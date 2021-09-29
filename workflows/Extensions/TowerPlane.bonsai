@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.5.1"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Draw3DStim</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="TranslationZ" />
+        <Property Name="TranslationX" />
+        <Property Name="TranslationY" />
+        <Property Name="RotationZ" />
+        <Property Name="RotationY" />
+        <Property Name="RotationX" />
+        <Property Name="ScaleX" />
+        <Property Name="ScaleY" />
+        <Property Name="frequency" />
+        <Property Name="Color" />
+        <Property Name="BackColor" />
+        <Property Name="ShaderName" />
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="TextureName" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:BindTexture">
+          <gl:TextureSlot>Texture0</gl:TextureSlot>
+          <gl:ShaderName>TexturedModel</gl:ShaderName>
+          <gl:TextureName>fwn3</gl:TextureName>
+          <gl:TextureTarget>Texture2D</gl:TextureTarget>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawStripeShaderModel.bonsai">
+        <TranslationX>10.56</TranslationX>
+        <TranslationY>30</TranslationY>
+        <TranslationZ>155.5</TranslationZ>
+        <ScaleX>12</ScaleX>
+        <ScaleY>66</ScaleY>
+        <ScaleZ>0</ScaleZ>
+        <RotationZ>0</RotationZ>
+        <RotationY>0</RotationY>
+        <RotationX>0</RotationX>
+        <ShaderName>TileModel</ShaderName>
+        <MeshName>Plane</MeshName>
+        <frequency>
+          <X>1</X>
+          <Y>8</Y>
+        </frequency>
+        <Color>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+          <W>1</W>
+        </Color>
+        <BackColor>
+          <X>1</X>
+          <Y>1</Y>
+          <Z>1</Z>
+          <W>1</W>
+        </BackColor>
+      </Expression>
+      <Expression xsi:type="WorkflowOutput" />
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="3" Label="Source1" />
+      <Edge From="1" To="4" Label="Source2" />
+      <Edge From="2" To="3" Label="Source2" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
