@@ -1,3 +1,4 @@
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 if (!(Test-Path "./Bonsai.exe")) {
     Invoke-WebRequest "https://github.com/bonsai-rx/bonsai/releases/download/2.6.3/Bonsai.zip" -OutFile "temp.zip"
     Expand-Archive "temp.zip" -DestinationPath "." -Force
