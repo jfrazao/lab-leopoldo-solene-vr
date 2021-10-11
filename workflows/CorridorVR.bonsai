@@ -41,11 +41,11 @@
               </Combinator>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="Gain" />
+              <Property Name="Value" DisplayName="WheelPerimeter(cm)" />
             </Expression>
             <Expression xsi:type="Multiply">
               <Operand xsi:type="DoubleProperty">
-                <Value>20</Value>
+                <Value>62.832</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="PublishSubject">
@@ -72,14 +72,10 @@
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
               <MemberName>TextureName</MemberName>
-              <Value>vertGrat</Value>
+              <Value>fwn1</Value>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
               <Name>tex0</Name>
-            </Expression>
-            <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
-              <MemberName>TextureName</MemberName>
-              <Value>vertGrat</Value>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
               <Name>tex1</Name>
@@ -121,25 +117,19 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>1000</Value>
+                <Value>70</Value>
               </Combinator>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:IgnoreElements" />
-            </Expression>
             <Expression xsi:type="BehaviorSubject">
-              <Name>StimulusLocation0</Name>
+              <Name>PopUpLocation0</Name>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>1000</Value>
+                <Value>210</Value>
               </Combinator>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:IgnoreElements" />
-            </Expression>
             <Expression xsi:type="BehaviorSubject">
-              <Name>StimulusLocation1</Name>
+              <Name>PopUpLocation1</Name>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:CommandSubject.bonsai">
               <Name>BehaviorCommandBoardA</Name>
@@ -286,6 +276,22 @@
             <Expression xsi:type="BehaviorSubject">
               <Name>HitsTrialsNumber</Name>
             </Expression>
+            <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
+              <MemberName>TextureName</MemberName>
+              <Value>fwn1</Value>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:IgnoreElements" />
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>TempTex0</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:IgnoreElements" />
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>TempTex1</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -298,19 +304,21 @@
             <Edge From="11" To="12" Label="Source1" />
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="20" To="21" Label="Source1" />
-            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="14" To="16" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
             <Edge From="24" To="25" Label="Source1" />
-            <Edge From="25" To="26" Label="Source1" />
-            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
             <Edge From="28" To="29" Label="Source1" />
-            <Edge From="30" To="31" Label="Source1" />
-            <Edge From="31" To="32" Label="Source1" />
-            <Edge From="35" To="36" Label="Source1" />
-            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="36" To="37" Label="Source1" />
+            <Edge From="38" To="39" Label="Source1" />
+            <Edge From="38" To="41" Label="Source1" />
             <Edge From="39" To="40" Label="Source1" />
+            <Edge From="41" To="42" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -995,7 +1003,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                             <gl:Order>Prepend</gl:Order>
                             <gl:X>0</gl:X>
                             <gl:Y>-3</gl:Y>
-                            <gl:Z>400.137817</gl:Z>
+                            <gl:Z>133.51239</gl:Z>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="ExternalizedMapping">
@@ -1254,7 +1262,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>365.137817</TranslationZ>
+                          <TranslationZ>98.51239</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1322,14 +1330,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>vertGrat</gl:TextureName>
+                            <gl:TextureName>horGrat</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>295.137817</TranslationZ>
+                          <TranslationZ>28.51239</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1404,7 +1412,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>225.137817</TranslationZ>
+                          <TranslationZ>-41.48761</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1480,14 +1488,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>horGrat</gl:TextureName>
+                            <gl:TextureName>fwn1</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>155.137817</TranslationZ>
+                          <TranslationZ>-111.48761</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1562,7 +1570,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>85.13782</TranslationZ>
+                          <TranslationZ>-181.48761</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1637,7 +1645,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>40.1378174</TranslationZ>
+                          <TranslationZ>-226.48761</TranslationZ>
                           <ScaleX>20</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1712,7 +1720,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>15.1378174</TranslationZ>
+                          <TranslationZ>-251.48761</TranslationZ>
                           <ScaleX>30</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1787,7 +1795,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-149.862183</TranslationZ>
+                          <TranslationZ>-416.4876</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1943,7 +1951,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>365.137817</TranslationZ>
+                          <TranslationZ>98.51239</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2011,14 +2019,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>vertGrat</gl:TextureName>
+                            <gl:TextureName>horGrat</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>295.137817</TranslationZ>
+                          <TranslationZ>28.51239</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2093,7 +2101,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>225.137817</TranslationZ>
+                          <TranslationZ>-41.48761</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2169,14 +2177,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>horGrat</gl:TextureName>
+                            <gl:TextureName>fwn1</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>155.137817</TranslationZ>
+                          <TranslationZ>-111.48761</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2251,7 +2259,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>85.13782</TranslationZ>
+                          <TranslationZ>-181.48761</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2326,7 +2334,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>40.1378174</TranslationZ>
+                          <TranslationZ>-226.48761</TranslationZ>
                           <ScaleX>20</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2401,7 +2409,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>15.1378174</TranslationZ>
+                          <TranslationZ>-251.48761</TranslationZ>
                           <ScaleX>30</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2476,7 +2484,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-149.862183</TranslationZ>
+                          <TranslationZ>-416.4876</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3980,7 +3988,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                                     </Expression>
                                     <Expression xsi:type="LessThanOrEqual">
                                       <Operand xsi:type="IntProperty">
-                                        <Value>310</Value>
+                                        <Value>4950</Value>
                                       </Operand>
                                     </Expression>
                                     <Expression xsi:type="WorkflowOutput" />
@@ -4009,7 +4017,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                                     </Expression>
                                     <Expression xsi:type="LessThan">
                                       <Operand xsi:type="FloatProperty">
-                                        <Value>360</Value>
+                                        <Value>5000</Value>
                                       </Operand>
                                     </Expression>
                                     <Expression xsi:type="WorkflowOutput" />
@@ -4226,7 +4234,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
-                            <Value>2</Value>
+                            <Value>0</Value>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Add">
@@ -4295,8 +4303,13 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                             </Edges>
                           </Workflow>
                         </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Skip">
+                            <rx:Count>1</rx:Count>
+                          </Combinator>
+                        </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>StimulusLocation0</Name>
+                          <Name>PopUpLocation0</Name>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:DistinctUntilChanged" />
@@ -4308,7 +4321,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="GreaterThanOrEqual">
                           <Operand xsi:type="FloatProperty">
-                            <Value>290</Value>
+                            <Value>70</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="Condition">
@@ -4358,8 +4371,10 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:First" />
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:DistinctUntilChanged" />
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
+                            <Combinator xsi:type="rx:DistinctUntilChanged" />
+                          </Builder>
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>stimulusOnset</Name>
@@ -4368,10 +4383,22 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                               <Expression xsi:type="WorkflowInput">
                                 <Name>Source1</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>TempTex0</Name>
+                              </Expression>
+                              <Expression xsi:type="MulticastSubject">
+                                <Name>tex0</Name>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:SubscribeWhen" />
+                              </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
                             <Edges>
-                              <Edge From="0" To="1" Label="Source1" />
+                              <Edge From="0" To="3" Label="Source2" />
+                              <Edge From="1" To="2" Label="Source1" />
+                              <Edge From="2" To="3" Label="Source1" />
+                              <Edge From="3" To="4" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -4391,35 +4418,39 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                             </Workflow>
                           </Builder>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:First" />
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
+                            <Combinator xsi:type="rx:First" />
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Sink">
-                          <Name>StimOff</Name>
-                          <Workflow>
-                            <Nodes>
-                              <Expression xsi:type="WorkflowInput">
-                                <Name>Source1</Name>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="BooleanProperty">
-                                  <Value>false</Value>
-                                </Combinator>
-                              </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>StimOn</Name>
-                              </Expression>
-                              <Expression xsi:type="WorkflowOutput" />
-                            </Nodes>
-                            <Edges>
-                              <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="1" To="2" Label="Source1" />
-                              <Edge From="2" To="3" Label="Source1" />
-                            </Edges>
-                          </Workflow>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Sink">
+                            <Name>StimOff</Name>
+                            <Workflow>
+                              <Nodes>
+                                <Expression xsi:type="WorkflowInput">
+                                  <Name>Source1</Name>
+                                </Expression>
+                                <Expression xsi:type="Combinator">
+                                  <Combinator xsi:type="BooleanProperty">
+                                    <Value>false</Value>
+                                  </Combinator>
+                                </Expression>
+                                <Expression xsi:type="MulticastSubject">
+                                  <Name>StimOn</Name>
+                                </Expression>
+                                <Expression xsi:type="WorkflowOutput" />
+                              </Nodes>
+                              <Edges>
+                                <Edge From="0" To="1" Label="Source1" />
+                                <Edge From="1" To="2" Label="Source1" />
+                                <Edge From="2" To="3" Label="Source1" />
+                              </Edges>
+                            </Workflow>
+                          </Builder>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>StimulusLocation1</Name>
+                          <Name>PopUpLocation1</Name>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:DistinctUntilChanged" />
@@ -4431,7 +4462,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="GreaterThanOrEqual">
                           <Operand xsi:type="FloatProperty">
-                            <Value>290</Value>
+                            <Value>210</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="Condition">
@@ -4491,10 +4522,22 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                               <Expression xsi:type="WorkflowInput">
                                 <Name>Source1</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>TempTex1</Name>
+                              </Expression>
+                              <Expression xsi:type="MulticastSubject">
+                                <Name>tex1</Name>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:SubscribeWhen" />
+                              </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
                             <Edges>
-                              <Edge From="0" To="1" Label="Source1" />
+                              <Edge From="0" To="3" Label="Source2" />
+                              <Edge From="1" To="2" Label="Source1" />
+                              <Edge From="2" To="3" Label="Source1" />
+                              <Edge From="3" To="4" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -4544,8 +4587,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="6" Label="Source1" />
-                        <Edge From="0" To="27" Label="Source2" />
-                        <Edge From="0" To="39" Label="Source2" />
+                        <Edge From="0" To="24" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
                         <Edge From="2" To="5" Label="Source1" />
@@ -4570,7 +4612,8 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Edge From="20" To="21" Label="Source1" />
                         <Edge From="21" To="22" Label="Source1" />
                         <Edge From="22" To="23" Label="Source1" />
-                        <Edge From="24" To="25" Label="Source1" />
+                        <Edge From="24" To="28" Label="Source2" />
+                        <Edge From="24" To="40" Label="Source2" />
                         <Edge From="25" To="26" Label="Source1" />
                         <Edge From="26" To="27" Label="Source1" />
                         <Edge From="27" To="28" Label="Source1" />
@@ -4581,7 +4624,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Edge From="32" To="33" Label="Source1" />
                         <Edge From="33" To="34" Label="Source1" />
                         <Edge From="34" To="35" Label="Source1" />
-                        <Edge From="36" To="37" Label="Source1" />
+                        <Edge From="35" To="36" Label="Source1" />
                         <Edge From="37" To="38" Label="Source1" />
                         <Edge From="38" To="39" Label="Source1" />
                         <Edge From="39" To="40" Label="Source1" />
@@ -4592,6 +4635,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Edge From="44" To="45" Label="Source1" />
                         <Edge From="45" To="46" Label="Source1" />
                         <Edge From="46" To="47" Label="Source1" />
+                        <Edge From="47" To="48" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -4604,10 +4648,24 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                     <Selector>Item2</Selector>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
+                    <Name>TempTex0</Name>
+                  </Expression>
+                  <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
+                    <MemberName>TextureName</MemberName>
+                    <Value>fwn1</Value>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
                     <Name>tex0</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Item3</Selector>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>TempTex1</Name>
+                  </Expression>
+                  <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
+                    <MemberName>TextureName</MemberName>
+                    <Value>fwn1</Value>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
                     <Name>tex1</Name>
@@ -4651,7 +4709,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="Add">
                           <Operand xsi:type="DoubleProperty">
-                            <Value>-10</Value>
+                            <Value>0</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="scr:ExpressionTransform">
@@ -4755,18 +4813,22 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="0" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="2" To="5" Label="Source1" />
                   <Edge From="2" To="7" Label="Source1" />
+                  <Edge From="2" To="11" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
                   <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
                   <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="10" To="12" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source2" />
-                  <Edge From="12" To="13" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
                   <Edge From="13" To="14" Label="Source1" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="15" To="16" Label="Source1" />
+                  <Edge From="14" To="16" Label="Source1" />
+                  <Edge From="15" To="16" Label="Source2" />
+                  <Edge From="16" To="17" Label="Source1" />
+                  <Edge From="17" To="18" Label="Source1" />
+                  <Edge From="18" To="19" Label="Source1" />
+                  <Edge From="19" To="20" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
