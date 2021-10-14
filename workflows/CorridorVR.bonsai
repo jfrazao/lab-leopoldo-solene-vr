@@ -30,15 +30,16 @@
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Extensions\NidaqEncoder.bonsai">
               <Name>rawData</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>rawData</Name>
+              <minValueNormalization>0.0819716981081552</minValueNormalization>
+              <scaleNormalization>1.02419429447844</scaleNormalization>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Extensions\TurnPositionCalculation.bonsai" />
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="dsp:Difference">
-                <dsp:Order>1</dsp:Order>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="dsp:Difference">
+                  <dsp:Order>1</dsp:Order>
+                </Combinator>
+              </Builder>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="Value" DisplayName="WheelPerimeter(cm)" />
@@ -46,6 +47,11 @@
             <Expression xsi:type="Multiply">
               <Operand xsi:type="DoubleProperty">
                 <Value>62.832</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="Add">
+              <Operand xsi:type="DoubleProperty">
+                <Value>1</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="PublishSubject">
@@ -134,123 +140,125 @@
             <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:CommandSubject.bonsai">
               <Name>BehaviorCommandBoardA</Name>
             </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>HarpDeviceAndLogger</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="SubscribeSubject">
-                      <Name>MissTrialsNumber</Name>
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>z pos</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>BehaviorCommandBoardA</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="harp:Device">
-                      <harp:DeviceState>Active</harp:DeviceState>
-                      <harp:DumpRegisters>true</harp:DumpRegisters>
-                      <harp:LedState>On</harp:LedState>
-                      <harp:VisualIndicators>On</harp:VisualIndicators>
-                      <harp:Heartbeat>Disable</harp:Heartbeat>
-                      <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM11</harp:PortName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="harp:FilterMessage">
-                      <harp:Address xsi:nil="true" />
-                      <harp:MessageType xsi:nil="true" />
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="harp:DeviceEvent">
-                    <harp:Type>MessageTimestamp</harp:Type>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>RewOn</Name>
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Name>Convert Bool</scr:Name>
-                    <scr:Expression>it? 1 : 0</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>TrialNumber</Name>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="Combinator">
-                      <Combinator xsi:type="rx:CombineLatest" />
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="Subtract" />
-                  </Expression>
-                  <Expression xsi:type="Add">
-                    <Operand xsi:type="IntProperty">
-                      <Value>1</Value>
-                    </Operand>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
-                  <Expression xsi:type="p1:BehaviorEvent">
-                    <p1:Type>AnalogInput</p1:Type>
-                    <p1:Mask>Port0</p1:Mask>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>StimOn</Name>
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Name>Convert Bool</scr:Name>
-                    <scr:Expression>it? 1 : 0</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="io:CsvWriter">
-                      <io:Append>false</io:Append>
-                      <io:Overwrite>false</io:Overwrite>
-                      <io:Suffix>FileCount</io:Suffix>
-                      <io:IncludeHeader>false</io:IncludeHeader>
-                    </Builder>
-                  </Expression>
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="9" Label="Source2" />
-                  <Edge From="1" To="13" Label="Source2" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="3" To="15" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="12" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="14" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="8" To="11" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source2" />
-                  <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="14" Label="Source1" />
-                  <Edge From="14" To="18" Label="Source1" />
-                  <Edge From="15" To="19" Label="Source2" />
-                  <Edge From="16" To="17" Label="Source1" />
-                  <Edge From="17" To="18" Label="Source2" />
-                  <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source1" />
-                </Edges>
-              </Workflow>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="GroupWorkflow">
+                <Name>HarpDeviceAndLogger</Name>
+                <Workflow>
+                  <Nodes>
+                    <Expression xsi:type="Disable">
+                      <Builder xsi:type="SubscribeSubject">
+                        <Name>MissTrialsNumber</Name>
+                      </Builder>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>z pos</Name>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>BehaviorCommandBoardA</Name>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="harp:Device">
+                        <harp:DeviceState>Active</harp:DeviceState>
+                        <harp:DumpRegisters>true</harp:DumpRegisters>
+                        <harp:LedState>On</harp:LedState>
+                        <harp:VisualIndicators>On</harp:VisualIndicators>
+                        <harp:Heartbeat>Disable</harp:Heartbeat>
+                        <harp:IgnoreErrors>false</harp:IgnoreErrors>
+                        <harp:PortName>COM11</harp:PortName>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="harp:FilterMessage">
+                        <harp:Address xsi:nil="true" />
+                        <harp:MessageType xsi:nil="true" />
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="harp:DeviceEvent">
+                      <harp:Type>MessageTimestamp</harp:Type>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>RewOn</Name>
+                    </Expression>
+                    <Expression xsi:type="scr:ExpressionTransform">
+                      <scr:Name>Convert Bool</scr:Name>
+                      <scr:Expression>it? 1 : 0</scr:Expression>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>TrialNumber</Name>
+                    </Expression>
+                    <Expression xsi:type="Disable">
+                      <Builder xsi:type="Combinator">
+                        <Combinator xsi:type="rx:CombineLatest" />
+                      </Builder>
+                    </Expression>
+                    <Expression xsi:type="Disable">
+                      <Builder xsi:type="Subtract" />
+                    </Expression>
+                    <Expression xsi:type="Add">
+                      <Operand xsi:type="IntProperty">
+                        <Value>1</Value>
+                      </Operand>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Expression>
+                    <Expression xsi:type="p1:BehaviorEvent">
+                      <p1:Type>AnalogInput</p1:Type>
+                      <p1:Mask>Port0</p1:Mask>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>StimOn</Name>
+                    </Expression>
+                    <Expression xsi:type="scr:ExpressionTransform">
+                      <scr:Name>Convert Bool</scr:Name>
+                      <scr:Expression>it? 1 : 0</scr:Expression>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Expression>
+                    <Expression xsi:type="Disable">
+                      <Builder xsi:type="io:CsvWriter">
+                        <io:Append>false</io:Append>
+                        <io:Overwrite>false</io:Overwrite>
+                        <io:Suffix>FileCount</io:Suffix>
+                        <io:IncludeHeader>false</io:IncludeHeader>
+                      </Builder>
+                    </Expression>
+                  </Nodes>
+                  <Edges>
+                    <Edge From="0" To="9" Label="Source2" />
+                    <Edge From="1" To="13" Label="Source2" />
+                    <Edge From="2" To="3" Label="Source1" />
+                    <Edge From="3" To="4" Label="Source1" />
+                    <Edge From="3" To="15" Label="Source1" />
+                    <Edge From="4" To="5" Label="Source1" />
+                    <Edge From="5" To="12" Label="Source1" />
+                    <Edge From="6" To="7" Label="Source1" />
+                    <Edge From="7" To="14" Label="Source2" />
+                    <Edge From="8" To="9" Label="Source1" />
+                    <Edge From="8" To="11" Label="Source1" />
+                    <Edge From="9" To="10" Label="Source1" />
+                    <Edge From="11" To="12" Label="Source2" />
+                    <Edge From="12" To="13" Label="Source1" />
+                    <Edge From="13" To="14" Label="Source1" />
+                    <Edge From="14" To="18" Label="Source1" />
+                    <Edge From="15" To="19" Label="Source2" />
+                    <Edge From="16" To="17" Label="Source1" />
+                    <Edge From="17" To="18" Label="Source2" />
+                    <Edge From="18" To="19" Label="Source1" />
+                    <Edge From="19" To="20" Label="Source1" />
+                  </Edges>
+                </Workflow>
+              </Builder>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="IntProperty">
@@ -296,9 +304,9 @@
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
-            <Edge From="5" To="7" Label="Source1" />
-            <Edge From="6" To="7" Label="Source2" />
+            <Edge From="4" To="6" Label="Source1" />
+            <Edge From="5" To="6" Label="Source2" />
+            <Edge From="6" To="7" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
             <Edge From="11" To="12" Label="Source1" />
@@ -1003,7 +1011,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                             <gl:Order>Prepend</gl:Order>
                             <gl:X>0</gl:X>
                             <gl:Y>-3</gl:Y>
-                            <gl:Z>133.51239</gl:Z>
+                            <gl:Z>400.57</gl:Z>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="ExternalizedMapping">
@@ -1262,7 +1270,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>98.51239</TranslationZ>
+                          <TranslationZ>365.57</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1330,14 +1338,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>horGrat</gl:TextureName>
+                            <gl:TextureName>vertGrat</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>28.51239</TranslationZ>
+                          <TranslationZ>295.57</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1412,7 +1420,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-41.48761</TranslationZ>
+                          <TranslationZ>225.57</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1488,14 +1496,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>fwn1</gl:TextureName>
+                            <gl:TextureName>horGrat</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-111.48761</TranslationZ>
+                          <TranslationZ>155.57</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1570,7 +1578,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-181.48761</TranslationZ>
+                          <TranslationZ>85.57001</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1645,7 +1653,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-226.48761</TranslationZ>
+                          <TranslationZ>40.5700073</TranslationZ>
                           <ScaleX>20</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1720,7 +1728,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-251.48761</TranslationZ>
+                          <TranslationZ>15.5700073</TranslationZ>
                           <ScaleX>30</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1795,7 +1803,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-416.4876</TranslationZ>
+                          <TranslationZ>-149.43</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1951,7 +1959,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>98.51239</TranslationZ>
+                          <TranslationZ>365.57</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2019,14 +2027,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>horGrat</gl:TextureName>
+                            <gl:TextureName>vertGrat</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>28.51239</TranslationZ>
+                          <TranslationZ>295.57</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2101,7 +2109,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-41.48761</TranslationZ>
+                          <TranslationZ>225.57</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2177,14 +2185,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>fwn1</gl:TextureName>
+                            <gl:TextureName>horGrat</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-111.48761</TranslationZ>
+                          <TranslationZ>155.57</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2259,7 +2267,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-181.48761</TranslationZ>
+                          <TranslationZ>85.57001</TranslationZ>
                           <ScaleX>70</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2334,7 +2342,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-226.48761</TranslationZ>
+                          <TranslationZ>40.5700073</TranslationZ>
                           <ScaleX>20</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2409,7 +2417,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-251.48761</TranslationZ>
+                          <TranslationZ>15.5700073</TranslationZ>
                           <ScaleX>30</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2484,7 +2492,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-416.4876</TranslationZ>
+                          <TranslationZ>-149.43</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3988,7 +3996,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                                     </Expression>
                                     <Expression xsi:type="LessThanOrEqual">
                                       <Operand xsi:type="IntProperty">
-                                        <Value>4950</Value>
+                                        <Value>310</Value>
                                       </Operand>
                                     </Expression>
                                     <Expression xsi:type="WorkflowOutput" />
@@ -4017,7 +4025,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                                     </Expression>
                                     <Expression xsi:type="LessThan">
                                       <Operand xsi:type="FloatProperty">
-                                        <Value>5000</Value>
+                                        <Value>360</Value>
                                       </Operand>
                                     </Expression>
                                     <Expression xsi:type="WorkflowOutput" />
@@ -4683,7 +4691,9 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>Encoder</Name>
                         </Expression>
-                        <Expression xsi:type="rx:Accumulate" />
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="rx:Accumulate" />
+                        </Expression>
                         <Expression xsi:type="TakeWhile">
                           <Workflow>
                             <Nodes>
@@ -4709,7 +4719,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="Add">
                           <Operand xsi:type="DoubleProperty">
-                            <Value>0</Value>
+                            <Value>1</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="scr:ExpressionTransform">

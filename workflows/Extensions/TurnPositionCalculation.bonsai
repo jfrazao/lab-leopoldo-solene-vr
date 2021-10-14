@@ -1,19 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.5.1"
+<WorkflowBuilder Version="2.6.2"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
-      <Expression xsi:type="WorkflowInput">
-        <Name>Source1</Name>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>rawData</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Difference">
+          <dsp:Order>1</dsp:Order>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>it &gt; 0.1 ? 1.0 : it &lt; -0.1 ? -1.0 : 0.0</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>(Item1 != 0.0) ? (Item2 &gt;= 2.5 ? 5.0f : 0.0f ) : Item2
+</scr:Expression>
       </Expression>
       <Expression xsi:type="scr:ExpressionTransform">
         <scr:Expression>new(
 it as Position,
-0.0 as Diference,
 0 as Turns)</scr:Expression>
       </Expression>
       <Expression xsi:type="Scan">
@@ -39,8 +53,7 @@ it as Position,
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>new(
 Item2.Value.Position as Position,
-Item1 as Diference,
-Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 &gt; 0 ? -1 : (Item1 &lt; 0 ? 1 : 0)))) as Turns)</scr:Expression>
+Item2.Accumulation.Turns + (Item1 &gt; 0 ? -1 : (Item1 &lt; 0 ? 1 : 0)) as Turns)</scr:Expression>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
           </Nodes>
@@ -56,25 +69,51 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
         </Workflow>
       </Expression>
       <Expression xsi:type="scr:ExpressionTransform">
-        <scr:Expression>(Position/4.919)+Turns</scr:Expression>
+        <scr:Expression>(Position/5)+Turns</scr:Expression>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="dsp:Butterworth">
-          <dsp:SampleRate>1000</dsp:SampleRate>
-          <dsp:Cutoff1>10</dsp:Cutoff1>
-          <dsp:Cutoff2>0</dsp:Cutoff2>
-          <dsp:FilterOrder>3</dsp:FilterOrder>
-          <dsp:FilterType>LowPass</dsp:FilterType>
+        <Combinator xsi:type="rx:First" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:WithLatestFrom" />
+      </Expression>
+      <Expression xsi:type="Subtract" />
+      <Expression xsi:type="WorkflowOutput" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Take">
+          <rx:Count>2000</rx:Count>
         </Combinator>
       </Expression>
-      <Expression xsi:type="WorkflowOutput" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Max" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Take">
+          <rx:Count>2000</rx:Count>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Min" />
+      </Expression>
     </Nodes>
     <Edges>
+      <Edge From="0" To="3" Label="Source2" />
       <Edge From="0" To="1" Label="Source1" />
+      <Edge From="0" To="12" Label="Source1" />
+      <Edge From="0" To="14" Label="Source1" />
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
       <Edge From="3" To="4" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="7" To="9" Label="Source1" />
+      <Edge From="8" To="9" Label="Source2" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
