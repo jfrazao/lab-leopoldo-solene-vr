@@ -78,6 +78,21 @@ Item2.Accumulation.Turns + (Item1 &gt; 0 ? -1 : (Item1 &lt; 0 ? 1 : 0)) as Turns
         <Combinator xsi:type="rx:WithLatestFrom" />
       </Expression>
       <Expression xsi:type="Subtract" />
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="dsp:Difference">
+            <dsp:Order>1</dsp:Order>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Value" DisplayName="WheelPerimeter(cm)" />
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="DoubleProperty">
+          <Value>62.832</Value>
+        </Operand>
+      </Expression>
       <Expression xsi:type="WorkflowOutput" />
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Take">
@@ -99,8 +114,8 @@ Item2.Accumulation.Turns + (Item1 &gt; 0 ? -1 : (Item1 &lt; 0 ? 1 : 0)) as Turns
     <Edges>
       <Edge From="0" To="3" Label="Source2" />
       <Edge From="0" To="1" Label="Source1" />
-      <Edge From="0" To="12" Label="Source1" />
-      <Edge From="0" To="14" Label="Source1" />
+      <Edge From="0" To="15" Label="Source1" />
+      <Edge From="0" To="17" Label="Source1" />
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
       <Edge From="3" To="4" Label="Source1" />
@@ -112,8 +127,11 @@ Item2.Accumulation.Turns + (Item1 &gt; 0 ? -1 : (Item1 &lt; 0 ? 1 : 0)) as Turns
       <Edge From="8" To="9" Label="Source2" />
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
-      <Edge From="12" To="13" Label="Source1" />
-      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="11" To="13" Label="Source1" />
+      <Edge From="12" To="13" Label="Source2" />
+      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

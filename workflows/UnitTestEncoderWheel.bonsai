@@ -60,7 +60,9 @@
           <rx:Period>PT1S</rx:Period>
         </Combinator>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\TurnPositionCalculation.bonsai" />
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\TurnPositionCalculation.bonsai">
+        <WheelPerimeter_x0028_cm_x0029_>62.832</WheelPerimeter_x0028_cm_x0029_>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="dsp:Difference">
           <dsp:Order>1</dsp:Order>
