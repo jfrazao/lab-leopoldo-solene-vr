@@ -58,10 +58,12 @@
                 <Name>rawData</Name>
               </Builder>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="Extensions\NidaqEncoder.bonsai">
-              <Name>rawData</Name>
-              <minValueNormalization>0.0819716981081552</minValueNormalization>
-              <scaleNormalization>1.02419429447844</scaleNormalization>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="IncludeWorkflow" Path="Extensions\NidaqEncoder.bonsai">
+                <Name>rawData</Name>
+                <minValueNormalization>0.0819716981081552</minValueNormalization>
+                <scaleNormalization>1.02419429447844</scaleNormalization>
+              </Builder>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
@@ -366,7 +368,7 @@ Item2.Accumulation.Turns + (Item1 &gt; 0 ? -1 : (Item1 &lt; 0 ? 1 : 0)) as Turns
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disable</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM11</harp:PortName>
+                      <harp:PortName>COM3</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">

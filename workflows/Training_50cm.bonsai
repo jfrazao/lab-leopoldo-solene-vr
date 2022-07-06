@@ -123,7 +123,7 @@
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disable</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM5</harp:PortName>
+                      <harp:PortName>COM3</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">

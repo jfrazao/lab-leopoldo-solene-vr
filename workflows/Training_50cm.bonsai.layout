@@ -20,8 +20,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>1506</Width>
-        <Height>903</Height>
+        <Width>521</Width>
+        <Height>635</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -53,12 +53,12 @@
       <DialogSettings>
         <Visible>true</Visible>
         <Location>
-          <X>603</X>
-          <Y>522</Y>
+          <X>182</X>
+          <Y>182</Y>
         </Location>
         <Size>
-          <Width>523</Width>
-          <Height>412</Height>
+          <Width>336</Width>
+          <Height>279</Height>
         </Size>
         <WindowState>Normal</WindowState>
         <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
@@ -110,8 +110,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>1506</Width>
-        <Height>903</Height>
+        <Width>521</Width>
+        <Height>635</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -158,8 +158,8 @@
             <Y>3</Y>
           </Location>
           <Size>
-            <Width>1506</Width>
-            <Height>903</Height>
+            <Width>521</Width>
+            <Height>635</Height>
           </Size>
           <WindowState>Normal</WindowState>
         </EditorDialogSettings>
@@ -1467,12 +1467,12 @@
   <DialogSettings>
     <Visible>true</Visible>
     <Location>
-      <X>1125</X>
-      <Y>501</Y>
+      <X>104</X>
+      <Y>104</Y>
     </Location>
     <Size>
-      <Width>532</Width>
-      <Height>420</Height>
+      <Width>336</Width>
+      <Height>279</Height>
     </Size>
     <WindowState>Normal</WindowState>
     <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
@@ -1498,8 +1498,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>1506</Width>
-        <Height>903</Height>
+        <Width>521</Width>
+        <Height>635</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -1678,8 +1678,8 @@
             <Y>3</Y>
           </Location>
           <Size>
-            <Width>1506</Width>
-            <Height>903</Height>
+            <Width>521</Width>
+            <Height>635</Height>
           </Size>
           <WindowState>Normal</WindowState>
         </EditorDialogSettings>
@@ -2016,8 +2016,8 @@
             <Y>3</Y>
           </Location>
           <Size>
-            <Width>1506</Width>
-            <Height>903</Height>
+            <Width>521</Width>
+            <Height>635</Height>
           </Size>
           <WindowState>Normal</WindowState>
         </EditorDialogSettings>
