@@ -7,12 +7,10 @@
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="IncludeWorkflow" Path="Extensions\NidaqEncoder.bonsai">
-          <Name>rawData</Name>
-          <minValueNormalization>0.0819716981081552</minValueNormalization>
-          <scaleNormalization>1.02419429447844</scaleNormalization>
-        </Builder>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\NidaqEncoder.bonsai">
+        <Name>rawData</Name>
+        <minValueNormalization>0.0819716981081552</minValueNormalization>
+        <scaleNormalization>1.02419429447844</scaleNormalization>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="io:CsvWriter">
@@ -23,10 +21,12 @@
           <io:IncludeHeader>false</io:IncludeHeader>
         </Builder>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\HarpEncoder.bonsai">
-        <Name>rawData</Name>
-        <minValueNormalization>0.0819716981081552</minValueNormalization>
-        <scaleNormalization>1.02419429447844</scaleNormalization>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="Extensions\HarpEencoder.bonsai">
+          <Name>rawData</Name>
+          <minValueNormalization>0.0819716981081552</minValueNormalization>
+          <scaleNormalization>1.02419429447844</scaleNormalization>
+        </Builder>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="io:CsvWriter">

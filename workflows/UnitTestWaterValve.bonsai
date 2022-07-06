@@ -2,6 +2,7 @@
 <WorkflowBuilder Version="2.6.2"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:p1="clr-namespace:Bonsai.Harp.CF;assembly=Bonsai.Harp.CF"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -18,18 +19,18 @@
           <harp:VisualIndicators>On</harp:VisualIndicators>
           <harp:Heartbeat>Disable</harp:Heartbeat>
           <harp:IgnoreErrors>false</harp:IgnoreErrors>
-          <harp:PortName>COM11</harp:PortName>
+          <harp:PortName>COM3</harp:PortName>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT0.5S</rx:Period>
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>A</wie:Filter>
+          <wie:SuppressRepetitions>true</wie:SuppressRepetitions>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Take">
-          <rx:Count>100</rx:Count>
+          <rx:Count>300</rx:Count>
         </Combinator>
       </Expression>
       <Expression xsi:type="p1:BehaviorCommand">
@@ -41,7 +42,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Delay">
-          <rx:DueTime>PT0.2S</rx:DueTime>
+          <rx:DueTime>PT0.3S</rx:DueTime>
         </Combinator>
       </Expression>
       <Expression xsi:type="p1:BehaviorCommand">
@@ -51,8 +52,17 @@
       <Expression xsi:type="MulticastSubject">
         <Name>BehaviorCommand</Name>
       </Expression>
+      <Expression xsi:type="WorkflowOutput" />
       <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:CommandSubject.bonsai">
         <Name>BehaviorCommand</Name>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timer">
+            <rx:DueTime>PT0S</rx:DueTime>
+            <rx:Period>PT1S</rx:Period>
+          </Combinator>
+        </Builder>
       </Expression>
     </Nodes>
     <Edges>
@@ -63,6 +73,7 @@
       <Edge From="5" To="6" Label="Source1" />
       <Edge From="6" To="7" Label="Source1" />
       <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
