@@ -1,0 +1,2 @@
+Scale Normalization - BHV4 Setup
+((Position-0.032729100000000)/4.895518900000000)+Turns
