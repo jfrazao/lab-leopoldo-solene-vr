@@ -73,7 +73,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>12.5</Value>
+                <Value>3</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -98,7 +98,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>41</Value>
+                <Value>28</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -123,7 +123,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>62.5</Value>
+                <Value>60</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -148,7 +148,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="BooleanProperty">
-                <Value>true</Value>
+                <Value>false</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Condition">
