@@ -88,7 +88,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="FloatProperty">
-          <Value>22.0408173</Value>
+          <Value>0</Value>
         </Combinator>
       </Expression>
       <Expression xsi:type="Disable">
@@ -144,7 +144,7 @@
                     <LocationX>0</LocationX>
                     <LocationY>0</LocationY>
                     <Layer>0</Layer>
-                    <Angle>7787.549</Angle>
+                    <Angle>4840.90869</Angle>
                     <SpatialFrequency>5</SpatialFrequency>
                     <TemporalFrequency>1</TemporalFrequency>
                     <Phase>0</Phase>
@@ -176,7 +176,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="TimeSpanProperty">
-                      <Value>PT0.7143256S</Value>
+                      <Value>PT1.0306836S</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -186,15 +186,10 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT0.7143256S</rx:DueTime>
+                      <rx:DueTime>PT1.0306836S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="DateTimeProperty">
-                      <Value>0001-01-01T00:00:00</Value>
-                    </Combinator>
-                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="4" Label="Source1" />
