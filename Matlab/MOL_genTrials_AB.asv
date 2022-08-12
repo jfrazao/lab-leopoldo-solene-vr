@@ -1,0 +1,57 @@
+
+%% Define number of trials
+par.number_trials   = 1000;
+par.stim_loc_int    = [100 250];
+par.frac_trial_A    = 0.5;
+par.frac_trial_B    = 0.5;
+par.rewardedstim    = 'A';
+
+%% Generate CSV
+variable_names = {'tex_Stim_Left_0','tex_Stim_Left_1','tex_Stim_Right_0','tex_Stim_Right_1','StimLocation0','StimLocation1','reward'};
+
+%Uncomment the line with desired spatial frequency
+tex_A = 'stim_parametric_1_1';
+tex_B = 'stim_parametric_1_5';
+tex_C = 'stim_parametric_5_1';
+tex_D = 'stim_parametric_5_5';
+
+trials = struct();
+trials.StimLocation0 = randi(par.stim_loc_int,[par.number_trials,1]);
+trials.StimLocation1 = trials.StimLocation0;
+
+% trials = cell(3,7);
+% trials(1,:) = {1, text0, text1, text2, 1, 380, 170};
+% trials(2,:) = {2, text0, text1, text2, 1, 380, 275};
+% trials(3,:) = {3, text0, 'fwn1', text2, 1, 380, 170};
+
+%% Generate block-shuffled trial types:
+trials.trialtype = '';
+block                   = 10;
+for bl = 1:ceil(par.number_trials/block)
+    seq = '';
+    seq = [seq repmat('A',1,floor(par.frac_trial_A * block) + double(rand<mod(par.frac_trial_A * block,1)))]; %#ok<*AGROW>
+    seq = [seq repmat('B',1,floor(par.frac_trial_A * block) + double(rand<mod(par.frac_trial_A * block,1)))]; %#ok<*AGROW>
+
+    seq = seq(1:block); %Trim until 10 trials
+    
+    trials.trialtype = [trials.trialtype seq(randperm(10))]; %Add trials to trialType vector in randomized order (block-scrambled)
+end
+trials.trialtype = trials.trialtype';
+
+%% Set reward availability per trial:
+trials.reward = ismember(trials.trialtype,par.rewardedstim);
+
+%% Set stimuli per trial type: 
+
+trials.
+
+
+
+
+%% Create and Save table
+%Table
+table_trials = cell2table(sequence, 'VariableNames', variable_names);
+
+%Save
+writetable(table_trials,'TrialSequence_Goncalo_ultimate.csv')
+
