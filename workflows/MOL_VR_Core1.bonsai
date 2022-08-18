@@ -663,6 +663,20 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="io:CsvReader">
+        <io:FileName>Param_TrainRig1.csv</io:FileName>
+        <io:ListSeparator />
+        <io:ScanPattern>%s,%s,%f</io:ScanPattern>
+        <io:SkipRows>1</io:SkipRows>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Item1</Selector>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="PortName" />
+        </PropertyMappings>
+      </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>EssaySetup</Name>
         <Workflow>
@@ -677,16 +691,6 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
               <Name>z pos</Name>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="IncludeWorkflow" Path="Extensions\MouseEncoder.bonsai">
-                <Gain>4</Gain>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="PublishSubject">
-                <Name>Encoder</Name>
-              </Builder>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="IntProperty">
@@ -867,6 +871,9 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
             <Expression xsi:type="BehaviorSubject">
               <Name>RewardZoneOffset</Name>
             </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="PortName" />
+            </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>HarpDevice</Name>
               <Workflow>
@@ -887,6 +894,17 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>BehaviorCommandBoard</Name>
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="Value" DisplayName="minValueNormalization" />
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="ExternalizedMapping">
+                      <Property Name="Value" DisplayName="scaleNormalization" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="PortName" />
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:Device">
@@ -947,19 +965,11 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                     <p1:Type>AnalogInput</p1:Type>
                     <p1:Mask>Port0</p1:Mask>
                   </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="Value" DisplayName="minValueNormalization" />
-                  </Expression>
                   <Expression xsi:type="Disable">
                     <Builder xsi:type="Subtract">
                       <Operand xsi:type="DoubleProperty">
                         <Value>0.1032226</Value>
                       </Operand>
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="scaleNormalization" />
                     </Builder>
                   </Expression>
                   <Expression xsi:type="Disable">
@@ -974,31 +984,32 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="9" Label="Source2" />
-                  <Edge From="0" To="12" Label="Source1" />
+                  <Edge From="0" To="12" Label="Source2" />
+                  <Edge From="0" To="15" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="8" Label="Source2" />
+                  <Edge From="2" To="11" Label="Source2" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="10" Label="Source1" />
-                  <Edge From="5" To="16" Label="Source1" />
-                  <Edge From="5" To="18" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="5" To="22" Label="Source2" />
+                  <Edge From="6" To="23" Label="Source2" />
+                  <Edge From="7" To="8" Label="Source2" />
                   <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source1" />
-                  <Edge From="10" To="11" Label="Source2" />
-                  <Edge From="11" To="14" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
+                  <Edge From="8" To="13" Label="Source1" />
+                  <Edge From="8" To="19" Label="Source1" />
+                  <Edge From="8" To="21" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="14" Label="Source1" />
                   <Edge From="13" To="14" Label="Source2" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="16" To="17" Label="Source1" />
-                  <Edge From="18" To="20" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source2" />
-                  <Edge From="20" To="22" Label="Source1" />
-                  <Edge From="21" To="22" Label="Source2" />
+                  <Edge From="14" To="17" Label="Source1" />
+                  <Edge From="15" To="16" Label="Source1" />
+                  <Edge From="16" To="17" Label="Source2" />
+                  <Edge From="17" To="18" Label="Source1" />
+                  <Edge From="19" To="20" Label="Source1" />
+                  <Edge From="21" To="22" Label="Source1" />
                   <Edge From="22" To="23" Label="Source1" />
+                  <Edge From="23" To="24" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -1141,25 +1152,33 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             <Expression xsi:type="BehaviorSubject">
               <Name>Encoder</Name>
             </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="TimeSpanProperty">
+                <Value>PT0.15S</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>RewardDuration</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="3" To="4" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
-            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
             <Edge From="10" To="11" Label="Source1" />
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
             <Edge From="19" To="20" Label="Source1" />
-            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
-            <Edge From="24" To="25" Label="Source1" />
-            <Edge From="25" To="26" Label="Source1" />
-            <Edge From="25" To="27" Label="Source1" />
-            <Edge From="25" To="28" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="23" To="25" Label="Source1" />
+            <Edge From="23" To="26" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
             <Edge From="29" To="30" Label="Source1" />
             <Edge From="31" To="32" Label="Source1" />
             <Edge From="33" To="34" Label="Source1" />
@@ -1169,15 +1188,231 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             <Edge From="41" To="42" Label="Source1" />
             <Edge From="43" To="44" Label="Source1" />
             <Edge From="45" To="46" Label="Source1" />
-            <Edge From="47" To="48" Label="Source1" />
+            <Edge From="46" To="47" Label="Source1" />
             <Edge From="48" To="49" Label="Source1" />
-            <Edge From="50" To="51" Label="Source1" />
+            <Edge From="49" To="50" Label="Source1" />
             <Edge From="51" To="52" Label="Source1" />
-            <Edge From="54" To="56" Label="Source2" />
+            <Edge From="53" To="55" Label="Source2" />
+            <Edge From="54" To="55" Label="Source1" />
             <Edge From="55" To="56" Label="Source1" />
-            <Edge From="56" To="57" Label="Source1" />
+            <Edge From="57" To="58" Label="Source1" />
           </Edges>
         </Workflow>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Item2</Selector>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="OutputDir" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Item3</Selector>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>RewardDuration</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="MouseName" />
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="GroupWorkflow">
+          <Name>Logger</Name>
+          <Workflow>
+            <Nodes>
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="Value" DisplayName="OutputDir" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>BonsaiData\</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="Value" DisplayName="MouseName" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>LPE08344</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>LPE08344</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>LPE08344</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>LPE08344</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>cameracsv.csv</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:CombineLatest" />
+              </Expression>
+              <Expression xsi:type="Add" />
+              <Expression xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="FileName" />
+                </PropertyMappings>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>camera.avi</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>CameraImage</Name>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>CameraMetadata</Name>
+              </Expression>
+              <Expression xsi:type="io:CsvWriter">
+                <io:FileName>BonsaiData\GF010cameracsv.csv</io:FileName>
+                <io:Append>false</io:Append>
+                <io:Overwrite>false</io:Overwrite>
+                <io:Suffix>Timestamp</io:Suffix>
+                <io:IncludeHeader>true</io:IncludeHeader>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>BonsaiData\</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:CombineLatest" />
+              </Expression>
+              <Expression xsi:type="Add" />
+              <Expression xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="FileName" />
+                </PropertyMappings>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="cv:VideoWriter">
+                  <cv:FileName>BonsaiData\GF010camera.avi</cv:FileName>
+                  <cv:Suffix>Timestamp</cv:Suffix>
+                  <cv:Buffered>true</cv:Buffered>
+                  <cv:Overwrite>true</cv:Overwrite>
+                  <cv:FourCC>FMP4</cv:FourCC>
+                  <cv:FrameRate>30</cv:FrameRate>
+                  <cv:FrameSize>
+                    <cv:Width>0</cv:Width>
+                    <cv:Height>0</cv:Height>
+                  </cv:FrameSize>
+                  <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>BonsaiData\</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>HarpData</Name>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>RawHarpData</Name>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>harp.csv</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:CombineLatest" />
+              </Expression>
+              <Expression xsi:type="Add" />
+              <Expression xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="FileName" />
+                </PropertyMappings>
+              </Expression>
+              <Expression xsi:type="io:CsvWriter">
+                <io:FileName>BonsaiData\GF010harp.csv</io:FileName>
+                <io:Append>false</io:Append>
+                <io:Overwrite>false</io:Overwrite>
+                <io:Suffix>Timestamp</io:Suffix>
+                <io:IncludeHeader>true</io:IncludeHeader>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>BonsaiData\</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>rawharp.bin</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:CombineLatest" />
+              </Expression>
+              <Expression xsi:type="Add" />
+              <Expression xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="Path" />
+                </PropertyMappings>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="dsp:MatrixWriter">
+                  <dsp:Path>BonsaiData\GF010rawharp.bin</dsp:Path>
+                  <dsp:Suffix>Timestamp</dsp:Suffix>
+                  <dsp:Overwrite>false</dsp:Overwrite>
+                  <dsp:Layout>ColumnMajor</dsp:Layout>
+                </Combinator>
+              </Expression>
+            </Nodes>
+            <Edges>
+              <Edge From="0" To="1" Label="Source1" />
+              <Edge From="0" To="15" Label="Source1" />
+              <Edge From="0" To="20" Label="Source1" />
+              <Edge From="0" To="28" Label="Source1" />
+              <Edge From="1" To="8" Label="Source1" />
+              <Edge From="2" To="3" Label="Source1" />
+              <Edge From="2" To="4" Label="Source1" />
+              <Edge From="2" To="5" Label="Source1" />
+              <Edge From="2" To="6" Label="Source1" />
+              <Edge From="3" To="8" Label="Source2" />
+              <Edge From="4" To="16" Label="Source2" />
+              <Edge From="5" To="24" Label="Source2" />
+              <Edge From="6" To="30" Label="Source2" />
+              <Edge From="7" To="8" Label="Source3" />
+              <Edge From="8" To="9" Label="Source1" />
+              <Edge From="9" To="10" Label="Source1" />
+              <Edge From="10" To="14" Label="Source2" />
+              <Edge From="11" To="16" Label="Source3" />
+              <Edge From="12" To="19" Label="Source1" />
+              <Edge From="13" To="14" Label="Source1" />
+              <Edge From="15" To="16" Label="Source1" />
+              <Edge From="16" To="17" Label="Source1" />
+              <Edge From="17" To="18" Label="Source1" />
+              <Edge From="18" To="19" Label="Source2" />
+              <Edge From="20" To="24" Label="Source1" />
+              <Edge From="21" To="27" Label="Source1" />
+              <Edge From="22" To="33" Label="Source1" />
+              <Edge From="23" To="24" Label="Source3" />
+              <Edge From="24" To="25" Label="Source1" />
+              <Edge From="25" To="26" Label="Source1" />
+              <Edge From="26" To="27" Label="Source2" />
+              <Edge From="28" To="30" Label="Source1" />
+              <Edge From="29" To="30" Label="Source3" />
+              <Edge From="30" To="31" Label="Source1" />
+              <Edge From="31" To="32" Label="Source1" />
+              <Edge From="32" To="33" Label="Source2" />
+            </Edges>
+          </Workflow>
+        </Builder>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>MainRoom</Name>
@@ -3270,9 +3505,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                             <Name>Reward</Name>
                             <Workflow>
                               <Nodes>
-                                <Expression xsi:type="ExternalizedMapping">
-                                  <Property Name="DueTime" DisplayName="RewardDuration" />
-                                </Expression>
                                 <Expression xsi:type="WorkflowInput">
                                   <Name>Source1</Name>
                                 </Expression>
@@ -3314,6 +3546,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                                       <Edge From="2" To="3" Label="Source1" />
                                     </Edges>
                                   </Workflow>
+                                </Expression>
+                                <Expression xsi:type="SubscribeSubject">
+                                  <Name>RewardDuration</Name>
+                                </Expression>
+                                <Expression xsi:type="PropertyMapping">
+                                  <PropertyMappings>
+                                    <Property Name="DueTime" />
+                                  </PropertyMappings>
                                 </Expression>
                                 <Expression xsi:type="Combinator">
                                   <Combinator xsi:type="rx:Delay">
@@ -3359,18 +3599,19 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                                 <Expression xsi:type="WorkflowOutput" />
                               </Nodes>
                               <Edges>
-                                <Edge From="0" To="7" Label="Source2" />
-                                <Edge From="1" To="3" Label="Source1" />
-                                <Edge From="2" To="3" Label="Source2" />
+                                <Edge From="0" To="2" Label="Source1" />
+                                <Edge From="1" To="2" Label="Source2" />
+                                <Edge From="2" To="3" Label="Source1" />
                                 <Edge From="3" To="4" Label="Source1" />
                                 <Edge From="4" To="5" Label="Source1" />
-                                <Edge From="5" To="6" Label="Source1" />
+                                <Edge From="5" To="8" Label="Source1" />
                                 <Edge From="6" To="7" Label="Source1" />
-                                <Edge From="7" To="8" Label="Source1" />
+                                <Edge From="7" To="8" Label="Source2" />
                                 <Edge From="8" To="9" Label="Source1" />
                                 <Edge From="9" To="10" Label="Source1" />
                                 <Edge From="10" To="11" Label="Source1" />
                                 <Edge From="11" To="12" Label="Source1" />
+                                <Edge From="12" To="13" Label="Source1" />
                               </Edges>
                             </Workflow>
                           </Builder>
@@ -3758,207 +3999,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="ExternalizedMapping">
-        <Property Name="MouseName" />
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="GroupWorkflow">
-          <Name>Logger</Name>
-          <Workflow>
-            <Nodes>
-              <Expression xsi:type="ExternalizedMapping">
-                <Property Name="Value" DisplayName="OutputDir" />
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>BonsaiData\</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="ExternalizedMapping">
-                <Property Name="Value" DisplayName="MouseName" />
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>LPE08344</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>LPE08344</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>LPE08344</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>LPE08344</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>cameracsv.csv</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:CombineLatest" />
-              </Expression>
-              <Expression xsi:type="Add" />
-              <Expression xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="FileName" />
-                </PropertyMappings>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>camera.avi</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>CameraImage</Name>
-              </Expression>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>CameraMetadata</Name>
-              </Expression>
-              <Expression xsi:type="io:CsvWriter">
-                <io:FileName>BonsaiData\GF010cameracsv.csv</io:FileName>
-                <io:Append>false</io:Append>
-                <io:Overwrite>false</io:Overwrite>
-                <io:Suffix>Timestamp</io:Suffix>
-                <io:IncludeHeader>true</io:IncludeHeader>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>BonsaiData\</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:CombineLatest" />
-              </Expression>
-              <Expression xsi:type="Add" />
-              <Expression xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="FileName" />
-                </PropertyMappings>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="cv:VideoWriter">
-                  <cv:FileName>BonsaiData\GF010camera.avi</cv:FileName>
-                  <cv:Suffix>Timestamp</cv:Suffix>
-                  <cv:Buffered>true</cv:Buffered>
-                  <cv:Overwrite>true</cv:Overwrite>
-                  <cv:FourCC>FMP4</cv:FourCC>
-                  <cv:FrameRate>30</cv:FrameRate>
-                  <cv:FrameSize>
-                    <cv:Width>0</cv:Width>
-                    <cv:Height>0</cv:Height>
-                  </cv:FrameSize>
-                  <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>BonsaiData\</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>HarpData</Name>
-              </Expression>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>RawHarpData</Name>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>harp.csv</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:CombineLatest" />
-              </Expression>
-              <Expression xsi:type="Add" />
-              <Expression xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="FileName" />
-                </PropertyMappings>
-              </Expression>
-              <Expression xsi:type="io:CsvWriter">
-                <io:FileName>BonsaiData\GF010harp.csv</io:FileName>
-                <io:Append>false</io:Append>
-                <io:Overwrite>false</io:Overwrite>
-                <io:Suffix>Timestamp</io:Suffix>
-                <io:IncludeHeader>true</io:IncludeHeader>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>BonsaiData\</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="StringProperty">
-                  <Value>rawharp.bin</Value>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:CombineLatest" />
-              </Expression>
-              <Expression xsi:type="Add" />
-              <Expression xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="Path" />
-                </PropertyMappings>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="dsp:MatrixWriter">
-                  <dsp:Path>BonsaiData\GF010rawharp.bin</dsp:Path>
-                  <dsp:Suffix>Timestamp</dsp:Suffix>
-                  <dsp:Overwrite>false</dsp:Overwrite>
-                  <dsp:Layout>ColumnMajor</dsp:Layout>
-                </Combinator>
-              </Expression>
-            </Nodes>
-            <Edges>
-              <Edge From="0" To="1" Label="Source1" />
-              <Edge From="0" To="15" Label="Source1" />
-              <Edge From="0" To="20" Label="Source1" />
-              <Edge From="0" To="28" Label="Source1" />
-              <Edge From="1" To="8" Label="Source1" />
-              <Edge From="2" To="3" Label="Source1" />
-              <Edge From="2" To="4" Label="Source1" />
-              <Edge From="2" To="5" Label="Source1" />
-              <Edge From="2" To="6" Label="Source1" />
-              <Edge From="3" To="8" Label="Source2" />
-              <Edge From="4" To="16" Label="Source2" />
-              <Edge From="5" To="24" Label="Source2" />
-              <Edge From="6" To="30" Label="Source2" />
-              <Edge From="7" To="8" Label="Source3" />
-              <Edge From="8" To="9" Label="Source1" />
-              <Edge From="9" To="10" Label="Source1" />
-              <Edge From="10" To="14" Label="Source2" />
-              <Edge From="11" To="16" Label="Source3" />
-              <Edge From="12" To="19" Label="Source1" />
-              <Edge From="13" To="14" Label="Source1" />
-              <Edge From="15" To="16" Label="Source1" />
-              <Edge From="16" To="17" Label="Source1" />
-              <Edge From="17" To="18" Label="Source1" />
-              <Edge From="18" To="19" Label="Source2" />
-              <Edge From="20" To="24" Label="Source1" />
-              <Edge From="21" To="27" Label="Source1" />
-              <Edge From="22" To="33" Label="Source1" />
-              <Edge From="23" To="24" Label="Source3" />
-              <Edge From="24" To="25" Label="Source1" />
-              <Edge From="25" To="26" Label="Source1" />
-              <Edge From="26" To="27" Label="Source2" />
-              <Edge From="28" To="30" Label="Source1" />
-              <Edge From="29" To="30" Label="Source3" />
-              <Edge From="30" To="31" Label="Source1" />
-              <Edge From="31" To="32" Label="Source1" />
-              <Edge From="32" To="33" Label="Source2" />
-            </Edges>
-          </Workflow>
-        </Builder>
-      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -3979,13 +4019,21 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
       <Edge From="16" To="17" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
       <Edge From="19" To="20" Label="Source1" />
+      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="22" To="26" Label="Source1" />
+      <Edge From="22" To="28" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
       <Edge From="24" To="25" Label="Source1" />
-      <Edge From="25" To="26" Label="Source1" />
-      <Edge From="26" To="28" Label="Source1" />
-      <Edge From="27" To="28" Label="Source2" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="31" Label="Source1" />
       <Edge From="28" To="29" Label="Source1" />
-      <Edge From="29" To="30" Label="Source1" />
-      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="30" To="31" Label="Source2" />
+      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="34" To="35" Label="Source1" />
+      <Edge From="35" To="37" Label="Source1" />
+      <Edge From="36" To="37" Label="Source2" />
+      <Edge From="37" To="38" Label="Source1" />
+      <Edge From="38" To="39" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
