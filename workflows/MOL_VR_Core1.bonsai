@@ -14,6 +14,7 @@
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:bv="clr-namespace:BonVision;assembly=BonVision"
                  xmlns:p3="clr-namespace:OpenTK;assembly=OpenTK"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -5910,6 +5911,34 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
           </Workflow>
         </Builder>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>A</wie:Filter>
+          <wie:SuppressRepetitions>true</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="p1:BehaviorCommand">
+        <p1:Type>SetOutput</p1:Type>
+        <p1:Mask>Digital2</p1:Mask>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>BehaviorCommandBoard</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Delay">
+          <rx:DueTime>PT0.3S</rx:DueTime>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="p1:BehaviorCommand">
+        <p1:Type>ClearOutput</p1:Type>
+        <p1:Mask>Digital2</p1:Mask>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>BehaviorCommandBoard</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Repeat" />
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -5945,6 +5974,12 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
       <Edge From="35" To="36" Label="Source2" />
       <Edge From="36" To="37" Label="Source1" />
       <Edge From="37" To="38" Label="Source1" />
+      <Edge From="41" To="42" Label="Source1" />
+      <Edge From="42" To="43" Label="Source1" />
+      <Edge From="43" To="44" Label="Source1" />
+      <Edge From="44" To="45" Label="Source1" />
+      <Edge From="45" To="46" Label="Source1" />
+      <Edge From="46" To="47" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
