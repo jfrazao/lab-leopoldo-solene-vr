@@ -128,32 +128,6 @@
         <Combinator xsi:type="gl:TextureResources">
           <gl:Textures>
             <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-              <gl:Name>plaid</gl:Name>
-              <gl:Width xsi:nil="true" />
-              <gl:Height xsi:nil="true" />
-              <gl:InternalFormat>Rgba</gl:InternalFormat>
-              <gl:WrapS>Repeat</gl:WrapS>
-              <gl:WrapT>Repeat</gl:WrapT>
-              <gl:MinFilter>Linear</gl:MinFilter>
-              <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\plaid.jpg</gl:FileName>
-              <gl:ColorType>Unchanged</gl:ColorType>
-              <gl:FlipMode>Vertical</gl:FlipMode>
-            </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-              <gl:Name>vertGrat</gl:Name>
-              <gl:Width xsi:nil="true" />
-              <gl:Height xsi:nil="true" />
-              <gl:InternalFormat>Rgba</gl:InternalFormat>
-              <gl:WrapS>Repeat</gl:WrapS>
-              <gl:WrapT>Repeat</gl:WrapT>
-              <gl:MinFilter>Linear</gl:MinFilter>
-              <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\vertGrat.jpg</gl:FileName>
-              <gl:ColorType>Unchanged</gl:ColorType>
-              <gl:FlipMode>Vertical</gl:FlipMode>
-            </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
               <gl:Name>fwn1</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
@@ -414,32 +388,6 @@
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
             <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-              <gl:Name>grid</gl:Name>
-              <gl:Width xsi:nil="true" />
-              <gl:Height xsi:nil="true" />
-              <gl:InternalFormat>Rgba</gl:InternalFormat>
-              <gl:WrapS>Repeat</gl:WrapS>
-              <gl:WrapT>Repeat</gl:WrapT>
-              <gl:MinFilter>Linear</gl:MinFilter>
-              <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\grid.jpg</gl:FileName>
-              <gl:ColorType>Unchanged</gl:ColorType>
-              <gl:FlipMode>Vertical</gl:FlipMode>
-            </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-              <gl:Name>clouds_1</gl:Name>
-              <gl:Width xsi:nil="true" />
-              <gl:Height xsi:nil="true" />
-              <gl:InternalFormat>Rgba</gl:InternalFormat>
-              <gl:WrapS>Repeat</gl:WrapS>
-              <gl:WrapT>Repeat</gl:WrapT>
-              <gl:MinFilter>Linear</gl:MinFilter>
-              <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\sky_clouds_1.jpg</gl:FileName>
-              <gl:ColorType>Unchanged</gl:ColorType>
-              <gl:FlipMode>Vertical</gl:FlipMode>
-            </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
               <gl:Name>stim_parametric_1_1</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
@@ -448,7 +396,7 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\stimspace\stim_parametric_1_1.png</gl:FileName>
+              <gl:FileName>Textures\stimspace_rect\stim_parametric_1_1.png</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
@@ -461,7 +409,7 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\stimspace\stim_parametric_1_5.png</gl:FileName>
+              <gl:FileName>Textures\stimspace_rect\stim_parametric_1_5.png</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
@@ -474,7 +422,7 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\stimspace\stim_parametric_5_1.png</gl:FileName>
+              <gl:FileName>Textures\stimspace_rect\stim_parametric_5_1.png</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
@@ -487,7 +435,7 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\stimspace\stim_parametric_5_5.png</gl:FileName>
+              <gl:FileName>Textures\stimspace_rect\stim_parametric_5_5.png</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
@@ -527,19 +475,6 @@
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
               <gl:FileName>Textures\fwn1_75.jpg</gl:FileName>
-              <gl:ColorType>Unchanged</gl:ColorType>
-              <gl:FlipMode>Vertical</gl:FlipMode>
-            </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-              <gl:Name>grass1</gl:Name>
-              <gl:Width xsi:nil="true" />
-              <gl:Height xsi:nil="true" />
-              <gl:InternalFormat>Rgba</gl:InternalFormat>
-              <gl:WrapS>Repeat</gl:WrapS>
-              <gl:WrapT>Repeat</gl:WrapT>
-              <gl:MinFilter>Linear</gl:MinFilter>
-              <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\grass1.jpg</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
@@ -1356,7 +1291,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>126</TranslationZ>
+                          <TranslationZ>-54</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1433,7 +1368,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-174</TranslationZ>
+                          <TranslationZ>-354</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1510,7 +1445,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-474</TranslationZ>
+                          <TranslationZ>-654</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1548,7 +1483,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>235</Value>
+                      <Value>239</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -1587,7 +1522,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-9.99</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>41</TranslationZ>
+                          <TranslationZ>-143</TranslationZ>
                           <ScaleX>40</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1789,7 +1724,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>126</TranslationZ>
+                          <TranslationZ>-54</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1866,7 +1801,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-174</TranslationZ>
+                          <TranslationZ>-354</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1943,7 +1878,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-474</TranslationZ>
+                          <TranslationZ>-654</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1981,7 +1916,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>235</Value>
+                      <Value>239</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -2013,14 +1948,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>stim_parametric_1_5</gl:TextureName>
+                            <gl:TextureName>stim_parametric_5_5</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>9.99</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>41</TranslationZ>
+                          <TranslationZ>-143</TranslationZ>
                           <ScaleX>40</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2178,7 +2113,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>9</TranslationY>
-                    <TranslationZ>-126</TranslationZ>
+                    <TranslationZ>54</TranslationZ>
                     <ScaleX>20</ScaleX>
                     <ScaleY>10000</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -2801,7 +2736,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>126</TranslationZ>
+                          <TranslationZ>-54</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>300</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2878,7 +2813,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>-174</TranslationZ>
+                          <TranslationZ>-354</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>300</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2955,7 +2890,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>-474</TranslationZ>
+                          <TranslationZ>-654</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>300</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3152,7 +3087,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
               <Property Name="FileName" />
             </Expression>
             <Expression xsi:type="io:CsvReader">
-              <io:FileName>Protocols\MOL\MOL_trialseq_AB_discr.csv</io:FileName>
+              <io:FileName>Protocols\VR_TextureDiscrimination\MOL_trialseq_AB_distractorCD_full.csv</io:FileName>
               <io:ListSeparator />
               <io:ScanPattern>%f,%s,%s,%s,%f,%f</io:ScanPattern>
               <io:SkipRows>1</io:SkipRows>
@@ -3557,7 +3492,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="GreaterThan">
                           <Operand xsi:type="FloatProperty">
-                            <Value>235</Value>
+                            <Value>239</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -3570,7 +3505,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="LessThan">
                           <Operand xsi:type="FloatProperty">
-                            <Value>295</Value>
+                            <Value>299</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -3614,7 +3549,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="GreaterThan">
                           <Operand xsi:type="FloatProperty">
-                            <Value>295</Value>
+                            <Value>299</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -3937,7 +3872,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
       </Expression>
       <Expression xsi:type="GreaterThan">
         <Operand xsi:type="FloatProperty">
-          <Value>20</Value>
+          <Value>22</Value>
         </Operand>
       </Expression>
       <Expression xsi:type="MulticastSubject">
