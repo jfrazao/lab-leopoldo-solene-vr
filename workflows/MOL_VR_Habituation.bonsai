@@ -572,21 +572,27 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
           <gl:RegionOfInterest xsi:nil="true" />
         </Combinator>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT0S</rx:Period>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timer">
+            <rx:DueTime>PT0S</rx:DueTime>
+            <rx:Period>PT0S</rx:Period>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="p1:BehaviorCommand">
-        <p1:Type>StopCamera</p1:Type>
-        <p1:Mask>Digital0</p1:Mask>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="p1:BehaviorCommand">
+          <p1:Type>StopCamera</p1:Type>
+          <p1:Mask>Digital0</p1:Mask>
+        </Builder>
       </Expression>
-      <Expression xsi:type="MulticastSubject">
-        <Name>BehaviorCommandBoard</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MulticastSubject">
+          <Name>BehaviorCommandBoard</Name>
+        </Builder>
       </Expression>
       <Expression xsi:type="io:CsvReader">
-        <io:FileName>PCVars\PCVars_TrainRig3.csv</io:FileName>
+        <io:FileName>PCVars\PCVars_TrainRig1.csv</io:FileName>
         <io:ListSeparator />
         <io:ScanPattern>%s,%s,%f</io:ScanPattern>
         <io:SkipRows>1</io:SkipRows>
@@ -717,7 +723,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disable</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM5</harp:PortName>
+                      <harp:PortName>COM11</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1403,7 +1409,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         </Expression>
                         <Expression xsi:type="GreaterThanOrEqual">
                           <Operand xsi:type="FloatProperty">
-                            <Value>120</Value>
+                            <Value>50</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1452,7 +1458,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Delay">
-                                  <rx:DueTime>PT0.15S</rx:DueTime>
+                                  <rx:DueTime>PT0.4S</rx:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="p1:BehaviorCommand">
@@ -1674,6 +1680,76 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>A</wie:Filter>
+          <wie:SuppressRepetitions>true</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="p1:BehaviorCommand">
+        <p1:Type>SetOutput</p1:Type>
+        <p1:Mask>Digital2</p1:Mask>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>BehaviorCommandBoard</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>RewardDuration</Name>
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>int32(it)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="DueTime" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Delay">
+          <rx:DueTime>PT3.4S</rx:DueTime>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="p1:BehaviorCommand">
+        <p1:Type>ClearOutput</p1:Type>
+        <p1:Mask>Digital2</p1:Mask>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>BehaviorCommandBoard</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Repeat" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>Camera</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p2:FlyCapture">
+                <p2:Index>0</p2:Index>
+                <p2:ColorProcessing>Default</p2:ColorProcessing>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Image</Selector>
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>CameraImage</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Metadata.embeddedTimeStamp,Metadata.embeddedFrameCounter</Selector>
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>CameraMetadata</Name>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="0" To="3" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>MainRoom</Name>
         <Workflow>
@@ -1836,7 +1912,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-79.56742</TranslationZ>
+                          <TranslationZ>-149.971</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1913,7 +1989,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-379.5674</TranslationZ>
+                          <TranslationZ>-449.970978</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1990,7 +2066,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-679.567444</TranslationZ>
+                          <TranslationZ>-749.971</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2163,7 +2239,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-79.56742</TranslationZ>
+                          <TranslationZ>-149.971</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2240,7 +2316,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-379.5674</TranslationZ>
+                          <TranslationZ>-449.970978</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2317,7 +2393,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-679.567444</TranslationZ>
+                          <TranslationZ>-749.971</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2465,7 +2541,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>9</TranslationY>
-                    <TranslationZ>79.56742</TranslationZ>
+                    <TranslationZ>149.971</TranslationZ>
                     <ScaleX>20</ScaleX>
                     <ScaleY>10000</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -2600,7 +2676,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>-79.56742</TranslationZ>
+                          <TranslationZ>-149.971</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>300</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2677,7 +2753,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>-379.5674</TranslationZ>
+                          <TranslationZ>-449.970978</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>300</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2754,7 +2830,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>-679.567444</TranslationZ>
+                          <TranslationZ>-749.971</TranslationZ>
                           <ScaleX>300</ScaleX>
                           <ScaleY>300</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2871,81 +2947,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>A</wie:Filter>
-          <wie:SuppressRepetitions>true</wie:SuppressRepetitions>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="p1:BehaviorCommand">
-        <p1:Type>SetOutput</p1:Type>
-        <p1:Mask>Digital2</p1:Mask>
-      </Expression>
-      <Expression xsi:type="MulticastSubject">
-        <Name>BehaviorCommandBoard</Name>
-      </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>RewardDuration</Name>
-      </Expression>
-      <Expression xsi:type="scr:ExpressionTransform">
-        <scr:Expression>int32(it)</scr:Expression>
-      </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="DueTime" />
-        </PropertyMappings>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Delay">
-          <rx:DueTime>PT0.005S</rx:DueTime>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="p1:BehaviorCommand">
-        <p1:Type>ClearOutput</p1:Type>
-        <p1:Mask>Digital2</p1:Mask>
-      </Expression>
-      <Expression xsi:type="MulticastSubject">
-        <Name>BehaviorCommandBoard</Name>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Repeat" />
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="TimeSpanProperty">
-          <Value>PT0S</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="GroupWorkflow">
-        <Name>Camera</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p2:FlyCapture">
-                <p2:Index>0</p2:Index>
-                <p2:ColorProcessing>Default</p2:ColorProcessing>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Image</Selector>
-            </Expression>
-            <Expression xsi:type="BehaviorSubject">
-              <Name>CameraImage</Name>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Metadata.embeddedTimeStamp,Metadata.embeddedFrameCounter</Selector>
-            </Expression>
-            <Expression xsi:type="BehaviorSubject">
-              <Name>CameraMetadata</Name>
-            </Expression>
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="0" To="3" Label="Source1" />
-            <Edge From="1" To="2" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
-          </Edges>
-        </Workflow>
-      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -2981,16 +2982,15 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
       <Edge From="34" To="35" Label="Source2" />
       <Edge From="35" To="36" Label="Source1" />
       <Edge From="36" To="37" Label="Source1" />
+      <Edge From="38" To="39" Label="Source1" />
       <Edge From="39" To="40" Label="Source1" />
-      <Edge From="40" To="41" Label="Source1" />
-      <Edge From="41" To="45" Label="Source1" />
+      <Edge From="40" To="44" Label="Source1" />
+      <Edge From="41" To="42" Label="Source1" />
       <Edge From="42" To="43" Label="Source1" />
-      <Edge From="42" To="49" Label="Source1" />
-      <Edge From="43" To="44" Label="Source1" />
-      <Edge From="44" To="45" Label="Source2" />
+      <Edge From="43" To="44" Label="Source2" />
+      <Edge From="44" To="45" Label="Source1" />
       <Edge From="45" To="46" Label="Source1" />
       <Edge From="46" To="47" Label="Source1" />
-      <Edge From="47" To="48" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
