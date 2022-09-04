@@ -87,6 +87,18 @@ for iX = 1:Nparamresol
     end
 end
 
+%% Save contrast versions: 
+for iX = [1 Nparamresol]
+    for iY = [1 Nparamresol]
+        for iC = [25 50 75 100]
+            filename = fullfile(rootDir,'stimspace_contr',sprintf('stim_%d_%d_%d.png',iX,iY,iC));
+            temp = squeeze(imBase(iX,iY,:,:));
+            temp = (temp - 128)*(iC/100)+128;
+            imwrite(uint8(temp),filename);
+        end
+    end
+end
+
 %% Compute perceptual similarity matrix: 
 
 net_params = load('weights/net_param.mat');

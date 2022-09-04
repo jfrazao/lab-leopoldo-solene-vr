@@ -6,6 +6,7 @@ par.frac_trial_A    = 0.5;
 par.frac_trial_B    = 0.5;
 par.rewardedstim    = 'A';
 par.blocksize       = 50;
+par.contrastlevels  = [25 50 75 100];
 
 par.tex_A           = 'stim_parametric_1_1';
 par.tex_B           = 'stim_parametric_1_5';
@@ -67,9 +68,22 @@ trials.reward = ismember(trials.trialtype,par.rewardedstim);
 table_trials = struct2table(trials);
 writetable(table_trials,'MOL_trialseq_AB_distractorCD_full.csv')
 
-% %% Create and Save table
-% %Table
-% table_trials = cell2table(sequence, 'VariableNames', variable_names);
-% %Save
-% writetable(table_trials,'TrialSequence_Goncalo_ultimate.csv')
+%% Parameters for contrast versions:
+par.tex_A_contr           = 'stim_1_1';
+par.tex_B_contr           = 'stim_1_5';
+par.tex_C_contr           = 'stim_5_1';
+par.tex_D_contr           = 'stim_5_5';
+
+backuptrials = trials;
+for iC = par.contrastlevels
+    trials = backuptrials;
+    trials.tex_Stim_Left(ismember(trials.tex_Stim_Left,par.tex_C)) = {sprintf('%s_%d',par.tex_C_contr,iC)};
+    trials.tex_Stim_Left(ismember(trials.tex_Stim_Left,par.tex_D)) = {sprintf('%s_%d',par.tex_D_contr,iC)};
+    trials.tex_Stim_Right(ismember(trials.tex_Stim_Right,par.tex_C)) = {sprintf('%s_%d',par.tex_C_contr,iC)};
+    trials.tex_Stim_Right(ismember(trials.tex_Stim_Right,par.tex_D)) = {sprintf('%s_%d',par.tex_D_contr,iC)};
+    %Create and save the table:
+    table_trials = struct2table(trials);
+    writetable(table_trials,sprintf('MOL_trialseq_AB_distractorCD_%d.csv',iC))
+end
+
 

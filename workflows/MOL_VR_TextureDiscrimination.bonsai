@@ -479,6 +479,214 @@
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_1_1_25</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_1_1_25.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_1_1_50</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_1_1_50.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_1_1_75</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_1_1_75.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_1_1_100</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_1_1_100.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_1_5_25</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_1_5_25.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_1_5_50</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_1_5_50.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_1_5_75</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_1_5_75.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_1_5_100</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_1_5_100.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_5_1_25</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_5_1_25.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_5_1_50</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_5_1_50.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_5_1_75</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_5_1_75.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_5_1_100</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_5_1_100.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_5_5_25</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_5_5_25.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_5_5_50</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_5_5_50.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_5_5_75</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_5_5_75.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim_5_5_100</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\stimspace_contr\stim_5_5_100.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
           </gl:Textures>
         </Combinator>
       </Expression>
