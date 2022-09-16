@@ -1,7 +1,7 @@
 
 %% Define parameters:
 par.number_trials   = 1000;
-par.stim_loc_int    = [100 150];
+par.stim_loc_int    = [140 170];
 par.frac_trial_A    = 1;
 par.frac_trial_B    = 0;
 par.rewardedstim    = 'A';
