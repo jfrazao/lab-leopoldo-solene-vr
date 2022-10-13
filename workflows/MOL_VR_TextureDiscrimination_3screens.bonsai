@@ -891,7 +891,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>200</Value>
+                <Value>300</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -1539,7 +1539,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
               <Property Name="FileName" />
             </Expression>
             <Expression xsi:type="io:CsvReader">
-              <io:FileName>Protocols\VR_TextureDiscrimination\MOL_trialseq_A_short_2sided.csv</io:FileName>
+              <io:FileName>Protocols\VR_TextureDiscrimination\MOL_trialseq_AB_2sided.csv</io:FileName>
               <io:ListSeparator />
               <io:ScanPattern>%f,%s,%s,%s,%f,%f</io:ScanPattern>
               <io:SkipRows>1</io:SkipRows>
@@ -1735,7 +1735,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="FloatProperty">
-                                  <Value>200</Value>
+                                  <Value>300</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -1975,7 +1975,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="GreaterThan">
                           <Operand xsi:type="FloatProperty">
-                            <Value>140</Value>
+                            <Value>171</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1988,7 +1988,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="LessThan">
                           <Operand xsi:type="FloatProperty">
-                            <Value>200</Value>
+                            <Value>231</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -2032,7 +2032,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="GreaterThan">
                           <Operand xsi:type="FloatProperty">
-                            <Value>200</Value>
+                            <Value>231</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -2260,7 +2260,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="GreaterThanOrEqual">
                           <Operand xsi:type="FloatProperty">
-                            <Value>190</Value>
+                            <Value>221</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -2609,7 +2609,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Subtract">
               <Operand xsi:type="FloatProperty">
-                <Value>0.0113293054</Value>
+                <Value>0.0176233631</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -2635,7 +2635,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Add">
               <Operand xsi:type="FloatProperty">
-                <Value>24</Value>
+                <Value>30</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2855,7 +2855,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>100</Value>
+                      <Value>150</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -2921,8 +2921,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-12.4349823</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-66.7966156</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -2959,7 +2959,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>300</Value>
+                      <Value>450</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -2998,8 +2998,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-212.434982</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-366.796631</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -3036,7 +3036,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>500</Value>
+                      <Value>750</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3075,8 +3075,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-412.435</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-666.796631</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -3113,7 +3113,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>170</Value>
+                      <Value>201</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3145,14 +3145,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>stim_parametric_1_1</gl:TextureName>
+                            <gl:TextureName>stim_parametric_1_5</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-9.99</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-82.43498</TranslationZ>
+                          <TranslationZ>-117.796616</TranslationZ>
                           <ScaleX>80</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3288,7 +3288,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>100</Value>
+                      <Value>150</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3354,8 +3354,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-12.4349823</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-66.7966156</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -3392,7 +3392,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>300</Value>
+                      <Value>450</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3431,8 +3431,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-212.434982</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-366.796631</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -3469,7 +3469,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>500</Value>
+                      <Value>750</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3508,8 +3508,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-412.435</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-666.796631</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -3546,7 +3546,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>170</Value>
+                      <Value>201</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3578,14 +3578,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>stim_parametric_1_1</gl:TextureName>
+                            <gl:TextureName>stim_parametric_1_5</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>9.99</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-82.43498</TranslationZ>
+                          <TranslationZ>-117.796616</TranslationZ>
                           <ScaleX>80</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3743,7 +3743,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>9</TranslationY>
-                    <TranslationZ>62.4349823</TranslationZ>
+                    <TranslationZ>66.7966156</TranslationZ>
                     <ScaleX>20</ScaleX>
                     <ScaleY>10000</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -4304,7 +4304,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>100</Value>
+                      <Value>150</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -4362,8 +4362,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>-12.4349823</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-66.7966156</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>20</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -4400,7 +4400,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>300</Value>
+                      <Value>450</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -4439,8 +4439,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>-212.434982</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-366.796631</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>20</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -4477,7 +4477,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>500</Value>
+                      <Value>750</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -4516,8 +4516,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-3</TranslationY>
-                          <TranslationZ>-412.435</TranslationZ>
-                          <ScaleX>200</ScaleX>
+                          <TranslationZ>-666.796631</TranslationZ>
+                          <ScaleX>300</ScaleX>
                           <ScaleY>20</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -4737,7 +4737,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Subtract">
               <Operand xsi:type="DoubleProperty">
-                <Value>6.3155892255892248</Value>
+                <Value>6.2702525252525252</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
