@@ -1,7 +1,7 @@
 
 %% Define parameters:
 par.number_trials   = 1000;
-par.stim_loc_int    = [150 250];
+par.stim_loc_int    = [170 220]; %start loc; corridor length=300cm stimsize = 80 cm
 par.frac_trial_A    = 0.5;
 par.frac_trial_B    = 0.5;
 par.rewardedstim    = 'A';
