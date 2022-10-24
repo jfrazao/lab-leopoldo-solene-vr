@@ -1,33 +1,33 @@
 
-% im1 = pgmRead('nuts.pgm');	% Warning: im0 is a double float matrix!
-% im2 = pgmRead('reptil_skin.pgm');	% Warning: im0 is a double float matrix!
+% imA = pgmRead('nuts.pgm');	% Warning: im0 is a double float matrix!
+% imB = pgmRead('reptil_skin.pgm');	% Warning: im0 is a double float matrix!
 
-% im1 = double(imread('T:\PostDoc\Textures\checkerboard.o.jpg'));	%Square, large scale
-% im2 = double(imread('T:\PostDoc\Textures\sd1000_5472.o.jpg'));	%square, small scale
-% im3 = double(imread('T:\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	%round, large scale
-% im4 = double(imread('T:\PostDoc\Textures\D75_s.o.jpg'));        %round small scale	
+% imA = double(imread('T:\PostDoc\Textures\checkerboard.o.jpg'));	%Square, large scale
+% imB = double(imread('T:\PostDoc\Textures\sd1000_5472.o.jpg'));	%square, small scale
+% imC = double(imread('T:\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	%round, large scale
+% imD = double(imread('T:\PostDoc\Textures\D75_s.o.jpg'));        %round small scale	
 
 rootDir = 'T:\PostDoc\Textures';
 
-im1 = double(imread('T:\PostDoc\Textures\sd1000_5472.o.jpg'));	
-im2 = double(imread('T:\PostDoc\Textures\sawtooth-grating.o.jpg'));	
-im3 = double(imread('T:\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	
-im4 = double(imread('T:\PostDoc\Textures\disc-lattice.o.jpg'));       
+imA = double(imread('T:\PostDoc\Textures\sd1000_5472.o.jpg'));	
+imB = double(imread('T:\PostDoc\Textures\sawtooth-grating.o.jpg'));	
+imC = double(imread('T:\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	
+imD = double(imread('T:\PostDoc\Textures\disc-lattice.o.jpg'));       
 
-im1 = squeeze(im1(:,:,1));
-im2 = squeeze(im2(:,:,1));
-im3 = squeeze(im3(:,:,1));
-im4 = squeeze(im4(:,:,1));
+imA = squeeze(imA(:,:,1));
+imB = squeeze(imB(:,:,1));
+imC = squeeze(imC(:,:,1));
+imD = squeeze(imD(:,:,1));
 
 Nsc = 4; % Number of scales
 Nor = 4; % Number of orientations
 Na  = 7;  % Spatial neighborhood is Na x Na coefficients
 	 % It must be an odd number!
 
-params1 = textureAnalysis(im1, Nsc, Nor, Na);
-params2 = textureAnalysis(im2, Nsc, Nor, Na);
-params3 = textureAnalysis(im3, Nsc, Nor, Na);
-params4 = textureAnalysis(im4, Nsc, Nor, Na);
+params1 = textureAnalysis(imA, Nsc, Nor, Na);
+params2 = textureAnalysis(imB, Nsc, Nor, Na);
+params3 = textureAnalysis(imC, Nsc, Nor, Na);
+params4 = textureAnalysis(imD, Nsc, Nor, Na);
 
 close all
 
@@ -79,6 +79,16 @@ for iX = 1:Nparamresol
     end
 end
 
+%% Upsample figures:
+% [Xq,Yq] = meshgrid(linspace(1,size(imA,1),1000),linspace(1,size(imA,1),1000));
+% imA = interp2(imA,Xq,Yq);
+% [Xq,Yq] = meshgrid(linspace(1,size(imB,1),1000),linspace(1,size(imB,1),1000));
+% imB = interp2(imB,Xq,Yq);
+% [Xq,Yq] = meshgrid(linspace(1,size(imC,1),1000),linspace(1,size(imC,1),1000));
+% imC = interp2(imC,Xq,Yq);
+% [Xq,Yq] = meshgrid(linspace(1,size(imD,1),1000),linspace(1,size(imD,1),1000));
+% imD = interp2(imD,Xq,Yq);
+
 %% Save figures: 
 for iX = 1:Nparamresol
     for iY = 1:Nparamresol
@@ -124,6 +134,11 @@ imagesc(simmat)
 caxis([0 1])
 colorbar;
 
-
+%%
+for iX = 1:Nparamresol
+    for iY = 1:Nparamresol
+        mean(reshape(imBase(iX,iY,:,:),Nsy*Nsx,1))
+    end
+end
 
 
