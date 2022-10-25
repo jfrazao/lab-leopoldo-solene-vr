@@ -2,17 +2,12 @@
 % imA = pgmRead('nuts.pgm');	% Warning: im0 is a double float matrix!
 % imB = pgmRead('reptil_skin.pgm');	% Warning: im0 is a double float matrix!
 
-% imA = double(imread('T:\PostDoc\Textures\checkerboard.o.jpg'));	%Square, large scale
-% imB = double(imread('T:\PostDoc\Textures\sd1000_5472.o.jpg'));	%square, small scale
-% imC = double(imread('T:\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	%round, large scale
-% imD = double(imread('T:\PostDoc\Textures\D75_s.o.jpg'));        %round small scale	
+rootDir = 'T:\OneDrive\PostDoc\Textures';
 
-rootDir = 'T:\PostDoc\Textures';
-
-imA = double(imread('T:\PostDoc\Textures\sd1000_5472.o.jpg'));	
-imB = double(imread('T:\PostDoc\Textures\sawtooth-grating.o.jpg'));	
-imC = double(imread('T:\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	
-imD = double(imread('T:\PostDoc\Textures\disc-lattice.o.jpg'));       
+imA = double(imread('T:\OneDrive\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	
+imB = double(imread('T:\OneDrive\PostDoc\Textures\sawtooth-grating.o.jpg'));	
+imC = double(imread('T:\OneDrive\PostDoc\Textures\d30_1923.o.jpg'));	
+imD = double(imread('T:\OneDrive\PostDoc\Textures\quilt_s.o.jpg'));       
 
 imA = squeeze(imA(:,:,1));
 imB = squeeze(imB(:,:,1));
@@ -41,7 +36,6 @@ Nparamresol     = 5;
 imBase          = NaN(Nparamresol,Nparamresol,Nsy,Nsx);
 
 %% Loop:
-
 for iX = 1:Nparamresol
     for iY = 1:Nparamresol
         fprintf('%d/%d\n',(iX-1)*Nparamresol+iY,Nparamresol^2)
@@ -65,12 +59,33 @@ for iX = 1:Nparamresol
     end
 end
 
-%% Figure:
-close all
-figure; set(gcf,'units','normalized','Position',[0.1 0.3 0.3 0.55],'color','w')
+
+%% Upsample figures:
+imBase_up       = NaN(Nparamresol,Nparamresol,2*Nsy,2*Nsx);
+[Xq,Yq]         = meshgrid(linspace(1,Nsx,Nsx*2),linspace(1,Nsy,Nsy*2));
+
 for iX = 1:Nparamresol
     for iY = 1:Nparamresol
-%         subplot(Nparamresol,Nparamresol,(iY-1)*Nparamresol+iX)
+        imBase_up(iX,iY,:,:) = interp2(squeeze(imBase(iX,iY,:,:)),Xq,Yq);
+    end
+end
+
+imBase = imBase_up;
+
+%% Scale figures by black and white:
+
+for iX = 1:Nparamresol
+    for iY = 1:Nparamresol
+        temp = squeeze(imBase(iX,iY,:,:));
+        imBase(iX,iY,:,:) = normalize(temp,'range',[0 255]);
+    end
+end
+
+%% Figure:
+close all
+figure; set(gcf,'units','normalized','Position',[0.1 0.25 0.8 0.56],'color','w')
+for iX = 1:Nparamresol
+    for iY = 1:Nparamresol
         subplot('Position',[(iX-1)/(Nparamresol)+0.01 (iY-1)/(Nparamresol)+0.01 0.9/Nparamresol 0.9/Nparamresol])
 %         showIm(squeeze(imBase(iX,iY,:,:)), 'auto', 1, 'Synthesized texture');
 %         showIm(squeeze(imBase(iX,iY,:,:)));
@@ -79,15 +94,18 @@ for iX = 1:Nparamresol
     end
 end
 
-%% Upsample figures:
-% [Xq,Yq] = meshgrid(linspace(1,size(imA,1),1000),linspace(1,size(imA,1),1000));
-% imA = interp2(imA,Xq,Yq);
-% [Xq,Yq] = meshgrid(linspace(1,size(imB,1),1000),linspace(1,size(imB,1),1000));
-% imB = interp2(imB,Xq,Yq);
-% [Xq,Yq] = meshgrid(linspace(1,size(imC,1),1000),linspace(1,size(imC,1),1000));
-% imC = interp2(imC,Xq,Yq);
-% [Xq,Yq] = meshgrid(linspace(1,size(imD,1),1000),linspace(1,size(imD,1),1000));
-% imD = interp2(imD,Xq,Yq);
+%% Take four proto stimuli;
+im_VR(1,:,:) = squeeze(imBase(1,1,:,:)); %A
+im_VR(2,:,:) = squeeze(imBase(5,1,:,:)); %B
+im_VR(3,:,:) = squeeze(imBase(1,5,:,:)); %C
+im_VR(4,:,:) = squeeze(imBase(5,5,:,:)); %D
+
+%% Save figures:
+for i=1:4
+    filename = fullfile(rootDir,'stim',sprintf('stim%s.png',char(64+i)));
+    imwrite(uint8(squeeze(im_VR(i,:,:))),filename);
+end
+
 
 %% Save figures: 
 for iX = 1:Nparamresol
@@ -97,15 +115,13 @@ for iX = 1:Nparamresol
     end
 end
 
-%% Save contrast versions: 
-for iX = [1 Nparamresol]
-    for iY = [1 Nparamresol]
-        for iC = [25 50 75 100]
-            filename = fullfile(rootDir,'stimspace_contr',sprintf('stim_%d_%d_%d.png',iX,iY,iC));
-            temp = squeeze(imBase(iX,iY,:,:));
-            temp = (temp - 128)*(iC/100)+128;
-            imwrite(uint8(temp),filename);
-        end
+%% Save contrast versions:
+for i=1:4
+    for iC = [25 50 75 100]
+        filename = fullfile(rootDir,'stimspace_contr',sprintf('stim%s_%d.png',char(64+i),iC));
+        temp = squeeze(im_VR(i,:,:));
+        temp = (temp - 128)*(iC/100)+128;
+        imwrite(uint8(temp),filename);
     end
 end
 
@@ -119,10 +135,13 @@ use_gpu = 0;
 
 simmat = NaN(4,4);
 
+%license problem: %execute on Matlab installation with neural network license
 for iX = 1:4
     for iY = 1:4
-        eval(sprintf('ref = im%d;',iX));
-        eval(sprintf('dist = im%d;',iY)); 
+%         eval(sprintf('ref = im%d;',iX));
+%         eval(sprintf('dist = im%d;',iY));
+        ref = im_VR(iX,:,:);
+        dist = im_VR(iY,:,:);
         simmat(iX,iY) = DISTS(ref, dist,net_params,weights, resize_img, use_gpu);
     end
 end
@@ -140,5 +159,3 @@ for iX = 1:Nparamresol
         mean(reshape(imBase(iX,iY,:,:),Nsy*Nsx,1))
     end
 end
-
-
