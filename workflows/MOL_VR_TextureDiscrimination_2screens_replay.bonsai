@@ -1687,7 +1687,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="wie:KeyDown">
-                <wie:Filter>LButton RButton Cancel A B C Control</wie:Filter>
+                <wie:Filter>LButton ShiftKey ControlKey A P Q Control</wie:Filter>
                 <wie:SuppressRepetitions>true</wie:SuppressRepetitions>
               </Combinator>
             </Expression>
