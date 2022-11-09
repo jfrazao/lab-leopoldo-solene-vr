@@ -628,7 +628,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
         </Combinator>
       </Expression>
       <Expression xsi:type="io:CsvReader">
-        <io:FileName>PCVars\PCVars_Behavior5.csv</io:FileName>
+        <io:FileName>PCVars\PCVars_Behavior6.csv</io:FileName>
         <io:ListSeparator />
         <io:ScanPattern>%s,%s,%f</io:ScanPattern>
         <io:SkipRows>1</io:SkipRows>
@@ -830,7 +830,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disable</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM8</harp:PortName>
+                      <harp:PortName>COM5</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1511,7 +1511,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
               <Property Name="FileName" />
             </Expression>
             <Expression xsi:type="io:CsvReader">
-              <io:FileName>Protocols\VR_TextureDiscrimination\Trialseq_2sided_stimA.csv</io:FileName>
+              <io:FileName>Protocols\VR_TextureDiscrimination\Trialseq_onlyGO_short_2sided_stimA.csv</io:FileName>
               <io:ListSeparator />
               <io:ScanPattern>%f,%s,%s,%s,%f,%f</io:ScanPattern>
               <io:SkipRows>1</io:SkipRows>
@@ -1693,7 +1693,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="FloatProperty">
-                                  <Value>165</Value>
+                                  <Value>137</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -1919,7 +1919,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Subtract">
               <Operand xsi:type="FloatProperty">
-                <Value>0.08056395</Value>
+                <Value>0.1</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -1932,7 +1932,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Divide">
               <Operand xsi:type="FloatProperty">
-                <Value>4.70040274</Value>
+                <Value>4.7</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="MemberSelector">
@@ -1945,7 +1945,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Add">
               <Operand xsi:type="FloatProperty">
-                <Value>1</Value>
+                <Value>0</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -4460,7 +4460,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="GreaterThan">
               <Operand xsi:type="FloatProperty">
-                <Value>115</Value>
+                <Value>87</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -4473,7 +4473,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="LessThan">
               <Operand xsi:type="FloatProperty">
-                <Value>155</Value>
+                <Value>127</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
