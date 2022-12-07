@@ -815,7 +815,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>4096</gl:Width>
+          <gl:Width>6144</gl:Width>
           <gl:Height>1536</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
