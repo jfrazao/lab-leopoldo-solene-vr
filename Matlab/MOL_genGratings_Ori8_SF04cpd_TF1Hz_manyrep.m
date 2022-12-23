@@ -2,6 +2,7 @@
 %% Define parameters:
 par.nrep            = 300;
 par.ori             = [0 : 45 : 315]; %orientations degrees
+par.ori             = [0 0 0 0 0 0 0 0]; %orientations degrees
 par.TF              = 1; %Hz
 par.SF              = 0.04; %cpd
 par.Contrast        = 0.8; %Hz

@@ -9,4 +9,5 @@ Packages
 *.exe.settings
 GratingSeries
 WIP
-PCVars
+COMport
+RewardCalibration

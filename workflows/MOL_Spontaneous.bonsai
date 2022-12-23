@@ -4,8 +4,8 @@
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:p1="clr-namespace:Bonsai.Harp.CF;assembly=Bonsai.Harp.CF"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
-                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
@@ -35,17 +35,6 @@
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>BehaviorCommandBoard</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>RunSpeed</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>ComPort</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="PortName" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:Device">
@@ -80,12 +69,6 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
-                  <Expression xsi:type="BehaviorSubject">
-                    <Name>HarpData</Name>
-                  </Expression>
                   <Expression xsi:type="PublishSubject">
                     <Name>rawData</Name>
                   </Expression>
@@ -95,41 +78,35 @@
                   <Expression xsi:type="BehaviorSubject">
                     <Name>RawHarpData</Name>
                   </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>RunSpeed</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="BehaviorSubject">
+                    <Name>HarpData</Name>
+                  </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="12" Label="Source2" />
+                  <Edge From="0" To="9" Label="Source2" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="6" Label="Source1" />
-                  <Edge From="3" To="13" Label="Source2" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="3" To="7" Label="Source1" />
+                  <Edge From="3" To="11" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source2" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="6" To="10" Label="Source1" />
-                  <Edge From="6" To="16" Label="Source1" />
+                  <Edge From="5" To="8" Label="Source2" />
+                  <Edge From="5" To="6" Label="Source1" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="8" To="11" Label="Source2" />
+                  <Edge From="7" To="10" Label="Source1" />
                   <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="10" To="15" Label="Source1" />
+                  <Edge From="9" To="14" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="14" Label="Source1" />
-                  <Edge From="16" To="17" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source2" />
+                  <Edge From="14" To="15" Label="Source1" />
                 </Edges>
               </Workflow>
-            </Expression>
-            <Expression xsi:type="io:CsvReader">
-              <io:FileName>PCVars\PCVars.csv</io:FileName>
-              <io:ListSeparator />
-              <io:ScanPattern>%s,%s,%f</io:ScanPattern>
-              <io:SkipRows>1</io:SkipRows>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item1</Selector>
-            </Expression>
-            <Expression xsi:type="ReplaySubject">
-              <Name>ComPort</Name>
-              <BufferSize xsi:nil="true" />
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
@@ -190,14 +167,12 @@
           </Nodes>
           <Edges>
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
-            <Edge From="5" To="6" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
-            <Edge From="9" To="10" Label="Source1" />
-            <Edge From="11" To="12" Label="Source1" />
-            <Edge From="13" To="14" Label="Source1" />
-            <Edge From="15" To="16" Label="Source1" />
-            <Edge From="17" To="18" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -213,12 +188,12 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>test</Value>
+                <Value>NSH07429</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>test</Value>
+                <Value>NSH07429</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -267,7 +242,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2022_12_7\SP_testharp.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\NSH07429\2022_12_21\SP_NSH07429harp.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -291,7 +266,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\test\2022_12_7\SP_testrawharp.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\NSH07429\2022_12_21\SP_NSH07429rawharp.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -315,7 +290,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\test\2022_12_7\SP_testcamera.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\NSH07429\2022_12_21\SP_NSH07429camera.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -351,7 +326,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2022_12_7\SP_testcameracsv.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\NSH07429\2022_12_21\SP_NSH07429cameracsv.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -374,7 +349,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2022_12_7\SP_testtriggerdata.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\NSH07429\2022_12_21\SP_NSH07429triggerdata.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -711,7 +686,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>0.1</Value>
+                      <Value>0.01510574</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -724,7 +699,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Divide">
                     <Operand xsi:type="FloatProperty">
-                      <Value>4.7</Value>
+                      <Value>4.928248</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
@@ -737,7 +712,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Add">
                     <Operand xsi:type="FloatProperty">
-                      <Value>0</Value>
+                      <Value>1</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="Combinator">
