@@ -1,13 +1,12 @@
-%% MOL_genGratings_Ori8_SF04cpd_TF1Hz_manyrep
+%% MOL_genGratings_Ori16_SF04cpd_TF1Hz_rep200
 %% Define parameters:
-par.nrep            = 300;
-par.ori             = [0 : 45 : 315]; %orientations degrees
-par.ori             = [0 0 0 0 0 0 0 0]; %orientations degrees
+par.nrep            = 200;
+par.ori             = 0 : 22.5 : 337.5; %orientations degrees
 par.TF              = 1; %Hz
 par.SF              = 0.04; %cpd
 par.Contrast        = 0.8; %Hz
 
-nOris  = 8;
+nOris               = length(par.ori);
 par.ntrials = nOris  * par.nrep ;
 
 % Output is .csv like this:
@@ -45,7 +44,7 @@ trials.Contrast = repmat(par.Contrast,par.ntrials,1);
 
 %% Create and save the table:
 table_trials = struct2table(trials);
-writetable(table_trials,'MOL_OriGrating_Ori8_SF04cpd_TF1Hz_manyrep.csv')
+writetable(table_trials,'MOL_OriGrating_Ori16_SF04cpd_TF1Hz_rep200.csv')
 
 
 %%
