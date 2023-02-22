@@ -260,12 +260,12 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>NSH07432</Value>
+                <Value>test</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>NSH07432</Value>
+                <Value>test</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -319,7 +319,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_02_10\\GR\Behavior\GR_test_harp_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_02_17\\GR\Behavior\GR_test_harp_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -343,7 +343,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\test\2023_02_10\\GR\Behavior\GR_test_rawharp_.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\test\2023_02_17\\GR\Behavior\GR_test_rawharp_.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -372,7 +372,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_02_10\\GR\Behavior\GR_test_cameracsv_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_02_17\\GR\Behavior\GR_test_cameracsv_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -395,7 +395,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_02_10\\GR\Behavior\GR_test_triggerdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_02_17\\GR\Behavior\GR_test_triggerdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -477,7 +477,7 @@
     Item2 as tOffset)</scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_02_10\\GR\Behavior\GR_test_trialdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_02_17\\GR\Behavior\GR_test_trialdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -501,7 +501,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\test\2023_02_10\\GR\Behavior\GR_test_camera_.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\test\2023_02_17\\GR\Behavior\GR_test_camera_.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -885,7 +885,7 @@
               <Property Name="FileName" />
             </Expression>
             <Expression xsi:type="io:CsvReader">
-              <io:FileName>Protocols\OriGratings\MOL_OriGrating_Ori8_SF04cpd_TF1Hz_manyrep.csv</io:FileName>
+              <io:FileName>Protocols\OriGratings\MOL_OriGrating_Ori8_SF04cpd_TF1Hz_rep300.csv</io:FileName>
               <io:ListSeparator />
               <io:ScanPattern>%f,%f,%f,%f,%f</io:ScanPattern>
               <io:SkipRows>1</io:SkipRows>
@@ -983,7 +983,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Timer">
-                      <rx:DueTime>PT0.75S</rx:DueTime>
+                      <rx:DueTime>PT0.05S</rx:DueTime>
                       <rx:Period>PT0S</rx:Period>
                     </Combinator>
                   </Expression>
@@ -995,7 +995,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT2.25S</rx:DueTime>
+                      <rx:DueTime>PT0.25S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
