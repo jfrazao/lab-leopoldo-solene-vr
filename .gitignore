@@ -9,5 +9,7 @@ Packages
 *.exe.settings
 GratingSeries
 WIP
-COMport
-RewardCalibration
+*COMport
+*RewardCalibration
+workflows/PCVars/PCVars.csv
+workflows/PCVars/RewardCalibration.csv
