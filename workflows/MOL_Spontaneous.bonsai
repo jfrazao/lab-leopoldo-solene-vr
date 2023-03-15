@@ -188,12 +188,12 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>NSH07429</Value>
+                <Value>NSH07422</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>NSH07429</Value>
+                <Value>NSH07422</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -247,7 +247,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\NSH07429\2023_03_03\\SP\Behavior\SP_NSH07429_harp_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_03_13\\SP\Behavior\SP_test_harp_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -271,7 +271,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\NSH07429\2023_03_03\\SP\Behavior\SP_NSH07429_rawharp_.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\test\2023_03_13\\SP\Behavior\SP_test_rawharp_.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -295,7 +295,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\NSH07429\2023_03_03\\SP\Behavior\SP_NSH07429_camera_.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\test\2023_03_13\\SP\Behavior\SP_test_camera_.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -331,7 +331,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\NSH07429\2023_03_03\\SP\Behavior\SP_NSH07429_cameracsv_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_03_13\\SP\Behavior\SP_test_cameracsv_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -354,7 +354,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\NSH07429\2023_03_03\\SP\Behavior\SP_NSH07429_triggerdata.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_03_13\\SP\Behavior\SP_test_triggerdata.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
