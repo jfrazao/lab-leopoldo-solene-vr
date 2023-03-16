@@ -4,10 +4,17 @@
 
 rootDir = 'T:\OneDrive\PostDoc\Textures';
 
+%Image set from Jun 2022 to Mar 2023:
+% imA = double(imread('T:\OneDrive\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	
+% imB = double(imread('T:\OneDrive\PostDoc\Textures\sawtooth-grating.o.jpg'));	
+% imC = double(imread('T:\OneDrive\PostDoc\Textures\d30_1923.o.jpg'));	
+% imD = double(imread('T:\OneDrive\PostDoc\Textures\quilt_s.o.jpg'));  
+
+%Image set from Mar 2023 to ???:
 imA = double(imread('T:\OneDrive\PostDoc\Textures\seamless-circle-pattern-6543320.jpg'));	
 imB = double(imread('T:\OneDrive\PostDoc\Textures\sawtooth-grating.o.jpg'));	
 imC = double(imread('T:\OneDrive\PostDoc\Textures\d30_1923.o.jpg'));	
-imD = double(imread('T:\OneDrive\PostDoc\Textures\quilt_s.o.jpg'));       
+imD = double(imread('T:\OneDrive\PostDoc\Textures\30D_3500.o.jpg')); 
 
 imA = squeeze(imA(:,:,1));
 imB = squeeze(imB(:,:,1));
@@ -16,7 +23,7 @@ imD = squeeze(imD(:,:,1));
 
 Nsc = 4; % Number of scales
 Nor = 4; % Number of orientations
-Na  = 7;  % Spatial neighborhood is Na x Na coefficients
+Na  = 9;  % Spatial neighborhood is Na x Na coefficients
 	 % It must be an odd number!
 
 params1 = textureAnalysis(imA, Nsc, Nor, Na);
@@ -31,6 +38,7 @@ close all
 Niter           = 25;	% Number of iterations of synthesis loop
 Nsx             = 192;	% Size of synthetic image is Nsy x Nsx
 Nsy             = 64;	% WARNING: Both dimensions must be multiple of 2^(Nsc+2)
+
 Nparamresol     = 5;
 
 imBase          = NaN(Nparamresol,Nparamresol,Nsy,Nsx);
@@ -116,7 +124,7 @@ for iX = 1:Nparamresol
 end
 
 %% Save contrast versions:
-for i=1:4
+for i=4
     for iC = [25 50 75 100]
         filename = fullfile(rootDir,'stimspace_contr',sprintf('stim%s_%d.png',char(64+i),iC));
         temp = squeeze(im_VR(i,:,:));
