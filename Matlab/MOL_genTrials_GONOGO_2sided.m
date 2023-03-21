@@ -1,8 +1,8 @@
 %% Define parameters:
-par.number_trials   = 1000;
+par.number_trials   = 2000;
 par.stim_loc_int    = [150 210]; %start loc; corridor length=300cm stimsize = 80 cm
-par.frac_GO         = 0.5;
-par.frac_NOGO       = 0.5;
+par.frac_GO         = 0.3;
+par.frac_NOGO       = 0.7;
 
 par.GOtextures      = {'stimA' 'stimB' 'stimC' 'stimD'};
 par.NOGOtextures    = {'stimB' 'stimC' 'stimD' 'stimA'};
@@ -50,6 +50,6 @@ for i = 1:length(par.GOtextures)
     
     % Create and save the table:
     table_trials = struct2table(trials);
-    writetable(table_trials,sprintf('Trialseq_2sided_%s.csv',par.GOtextures{i}))
+    writetable(table_trials,sprintf('Trialseq_2sided_Sparse_%s.csv',par.GOtextures{i}))
 end
 

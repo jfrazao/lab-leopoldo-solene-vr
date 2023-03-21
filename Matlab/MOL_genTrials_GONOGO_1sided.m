@@ -1,8 +1,8 @@
 %% Define parameters:
 par.number_trials   = 2000;
 par.stim_loc_int    = [150 210]; %start loc; corridor length=300cm stimsize = 80 cm
-par.frac_GO         = 0.2;
-par.frac_NOGO       = 0.8;
+par.frac_GO         = 0.3;
+par.frac_NOGO       = 0.7;
 
 par.blocksize       = 50;
 
