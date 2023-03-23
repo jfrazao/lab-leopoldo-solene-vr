@@ -234,12 +234,12 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>NSH07422</Value>
+                <Value>test</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>NSH07422</Value>
+                <Value>test</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -293,7 +293,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\NSH07422\2023_03_14\\IM\Behavior\IM_NSH07422_harp_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\LPE09665\2023_03_23\\IM\Behavior\IM_LPE09665_harp_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -317,7 +317,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\NSH07422\2023_03_14\\IM\Behavior\IM_NSH07422_rawharp_.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\LPE09665\2023_03_23\\IM\Behavior\IM_LPE09665_rawharp_.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -346,7 +346,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\NSH07422\2023_03_14\\IM\Behavior\IM_NSH07422_cameracsv_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\LPE09665\2023_03_23\\IM\Behavior\IM_LPE09665_cameracsv_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -369,7 +369,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\NSH07422\2023_03_14\\IM\Behavior\IM_NSH07422_triggerdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\LPE09665\2023_03_23\\IM\Behavior\IM_LPE09665_triggerdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -431,7 +431,7 @@
 </scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\NSH07422\2023_03_14\\IM\Behavior\IM_NSH07422_trialdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\LPE09665\2023_03_23\\IM\Behavior\IM_LPE09665_trialdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -455,7 +455,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\NSH07422\2023_03_14\\IM\Behavior\IM_NSH07422_camera_.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\LPE09665\2023_03_23\\IM\Behavior\IM_LPE09665_camera_.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -673,6 +673,12 @@
       <Expression xsi:type="BehaviorSubject">
         <Name>DrawStimuli</Name>
       </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.GammaCorrection.bonsai">
+          <ClearColor>Gray</ClearColor>
+          <GammaLut>UtilWorkflows\GammaCalibration\gammalut.bmp</GammaLut>
+        </Builder>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:ReadPixels">
           <gl:RegionOfInterest xsi:nil="true" />
@@ -834,7 +840,7 @@
                       <gl:ShaderName>Image</gl:ShaderName>
                       <gl:TextureName>Database</gl:TextureName>
                       <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                      <gl:Index>1370</gl:Index>
+                      <gl:Index>891</gl:Index>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
@@ -904,7 +910,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="TimeSpanProperty">
-                      <Value>PT0.5053593S</Value>
+                      <Value>PT0.6201187S</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -914,7 +920,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT0.5053593S</rx:DueTime>
+                      <rx:DueTime>PT0.6201187S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
@@ -1112,7 +1118,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>0.0100704934</Value>
+                      <Value>0.0276938565</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -1125,7 +1131,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Divide">
                     <Operand xsi:type="FloatProperty">
-                      <Value>4.928248</Value>
+                      <Value>4.7</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
@@ -1138,7 +1144,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Add">
                     <Operand xsi:type="FloatProperty">
-                      <Value>379</Value>
+                      <Value>0</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1417,14 +1423,15 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
       <Edge From="11" To="12" Label="Source1" />
-      <Edge From="13" To="15" Label="Source1" />
-      <Edge From="14" To="15" Label="Source2" />
-      <Edge From="15" To="16" Label="Source1" />
-      <Edge From="16" To="18" Label="Source1" />
-      <Edge From="17" To="18" Label="Source2" />
-      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="14" To="16" Label="Source1" />
+      <Edge From="15" To="16" Label="Source2" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="17" To="19" Label="Source1" />
+      <Edge From="18" To="19" Label="Source2" />
       <Edge From="19" To="20" Label="Source1" />
       <Edge From="20" To="21" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
