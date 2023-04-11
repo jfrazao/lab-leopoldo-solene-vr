@@ -76,7 +76,7 @@ for i = 1:length(par.GOtextures)
 
     % Create and save the table:
     table_trials = struct2table(trials);
-    writetable(table_trials,sprintf('Trialseq_Distr_Full_%s.csv',par.GOtextures{i}))
+    writetable(table_trials,sprintf('Trialseq_Distr_Full_Sparse_%s.csv',par.GOtextures{i}))
 end
 
 %% Create scripts with different parameters for contrast versions of distractor stimuli:
