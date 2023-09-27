@@ -5,6 +5,7 @@ par.ori             = 0 : 22.5 : 337.5; %orientations degrees
 par.TF              = 1; %Hz
 par.SF              = 0.04; %cpd
 par.Contrast        = 0.8; %Hz
+par.Phase           = 0; %
 
 nOris               = length(par.ori);
 par.ntrials = nOris  * par.nrep ;
@@ -40,7 +41,7 @@ end
 trials.TF = repmat(par.TF,par.ntrials,1);
 trials.SF = repmat(par.SF,par.ntrials,1);
 trials.Contrast = repmat(par.Contrast,par.ntrials,1);
-
+trials.Phase = repmat(par.Phase,par.ntrials,1);
 
 %% Create and save the table:
 table_trials = struct2table(trials);
