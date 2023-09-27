@@ -6,8 +6,8 @@ par.barwidth        = 15;   %retinal deg
 par.barspeed        = 15;   %deg/s
 par.xmin            = 0     - par.barwidth/2;  %retinal deg
 par.xmax            = 135   + par.barwidth/2;  %retinal deg
-par.ymin            = -30   - par.barwidth/2;  %retinal deg
-par.ymax            = 50 	+ par.barwidth/2;  %retinal deg
+par.ymin            = -15   - par.barwidth/2;  %retinal deg
+par.ymax            = 45 	+ par.barwidth/2;  %retinal deg
 
 nOris               = length(par.ori);
 par.ntrials = nOris  * par.nrep;
@@ -29,11 +29,11 @@ for iRep = 1:par.nrep
     trials.Orientation = [trials.Orientation; par.ori(randperm(nOris))']; %Add trials to trialType vector in randomized order (block-scrambled)
 end
 
-%% Rest:
-trials.xstart       = zeros(par.ntrials,1);
-trials.xend         = zeros(par.ntrials,1);
-trials.ystart       = zeros(par.ntrials,1);
-trials.yend         = zeros(par.ntrials,1);
+%% Bar position start and end:
+trials.xstart       = repmat(mean([par.xmin,par.xmax]),par.ntrials,1);
+trials.xend         = repmat(mean([par.xmin,par.xmax]),par.ntrials,1);
+trials.ystart       = repmat(mean([par.ymin,par.ymax]),par.ntrials,1);
+trials.yend         = repmat(mean([par.ymin,par.ymax]),par.ntrials,1);
 
 trials.xstart(trials.Orientation==0) = par.xmin;
 trials.xend(trials.Orientation==0) = par.xmax;
