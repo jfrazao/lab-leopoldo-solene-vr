@@ -2,7 +2,7 @@
 
 %% Define parameters:
 % par.ori             = 0 : 22.5 : 337.5; %orientations degrees
-par.ori             = 0 : 90 : 270; %orientations degrees
+par.ori             = 0 : 60 : 120; %orientations degrees
 par.TF              = 1.5; %Hz
 par.SF              = 0.08; %cpd
 par.Contrast        = 0.7; %0-1 contrast
