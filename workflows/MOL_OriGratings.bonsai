@@ -269,12 +269,12 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>test</Value>
+                <Value>LPE10885</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>test</Value>
+                <Value>LPE10885</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -328,7 +328,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_08_08\\GR\Behavior\GR_test_harp_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_09_28\\GR\Behavior\GR_test_harp_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -352,7 +352,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\test\2023_08_08\\GR\Behavior\GR_test_rawharp_.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\test\2023_09_28\\GR\Behavior\GR_test_rawharp_.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -381,7 +381,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_08_08\\GR\Behavior\GR_test_cameracsv_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_09_28\\GR\Behavior\GR_test_cameracsv_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -404,7 +404,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_08_08\\GR\Behavior\GR_test_triggerdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_09_28\\GR\Behavior\GR_test_triggerdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -492,7 +492,7 @@
     Item2 as tOffset)</scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_08_08\\GR\Behavior\GR_test_trialdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_09_28\\GR\Behavior\GR_test_trialdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -516,7 +516,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\test\2023_08_08\\GR\Behavior\GR_test_camera_.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\test\2023_09_28\\GR\Behavior\GR_test_camera_.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -1029,7 +1029,7 @@
                     <LocationX>0</LocationX>
                     <LocationY>0</LocationY>
                     <Layer>0</Layer>
-                    <Angle>67.5</Angle>
+                    <Angle>225</Angle>
                     <SpatialFrequency>0.04</SpatialFrequency>
                     <TemporalFrequency>1</TemporalFrequency>
                     <Phase>0</Phase>
@@ -1359,7 +1359,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>0.0176233631</Value>
+                      <Value>0.18</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -1372,7 +1372,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Divide">
                     <Operand xsi:type="FloatProperty">
-                      <Value>4.837613</Value>
+                      <Value>4.7</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
@@ -1385,7 +1385,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Add">
                     <Operand xsi:type="FloatProperty">
-                      <Value>6</Value>
+                      <Value>0</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="Combinator">

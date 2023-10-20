@@ -234,12 +234,12 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>test</Value>
+                <Value>LPE10885</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>test</Value>
+                <Value>LPE10885</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
