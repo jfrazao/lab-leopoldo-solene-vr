@@ -233,6 +233,12 @@
             <Expression xsi:type="SubscribeSubject">
               <Name>HarpData</Name>
             </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(Item1.Item1.Item1 as rawvoltage, 
+    Item1.Item1.Item2 as ts, 
+    Item1.Item2 as zpos,
+    Item2 as runspeed)</scr:Expression>
+            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>SaveFilename</Name>
             </Expression>
@@ -340,6 +346,10 @@
             <Expression xsi:type="SubscribeSubject">
               <Name>TriggerData</Name>
             </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(Item1 as trigger, 
+    Item2 as ts)</scr:Expression>
+            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>SaveFilename</Name>
             </Expression>
@@ -375,28 +385,30 @@
             <Edge From="8" To="9" Label="Source3" />
             <Edge From="9" To="10" Label="Source1" />
             <Edge From="10" To="11" Label="Source1" />
-            <Edge From="12" To="16" Label="Source1" />
-            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="17" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
-            <Edge From="15" To="16" Label="Source2" />
-            <Edge From="17" To="21" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source2" />
+            <Edge From="18" To="22" Label="Source1" />
             <Edge From="19" To="20" Label="Source1" />
-            <Edge From="20" To="21" Label="Source2" />
-            <Edge From="22" To="26" Label="Source1" />
-            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source2" />
+            <Edge From="23" To="27" Label="Source1" />
             <Edge From="24" To="25" Label="Source1" />
-            <Edge From="25" To="26" Label="Source2" />
-            <Edge From="27" To="29" Label="Source1" />
-            <Edge From="28" To="29" Label="Source2" />
-            <Edge From="29" To="33" Label="Source1" />
-            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="27" Label="Source2" />
+            <Edge From="28" To="30" Label="Source1" />
+            <Edge From="29" To="30" Label="Source2" />
+            <Edge From="30" To="34" Label="Source1" />
             <Edge From="31" To="32" Label="Source1" />
-            <Edge From="32" To="33" Label="Source2" />
-            <Edge From="34" To="38" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="33" To="34" Label="Source2" />
             <Edge From="35" To="36" Label="Source1" />
-            <Edge From="36" To="37" Label="Source1" />
-            <Edge From="37" To="38" Label="Source2" />
+            <Edge From="36" To="40" Label="Source1" />
+            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="38" To="39" Label="Source1" />
+            <Edge From="39" To="40" Label="Source2" />
           </Edges>
         </Workflow>
       </Expression>
@@ -406,7 +418,7 @@
           <gl:Height>2194</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
-          <gl:ClearColor>Black</gl:ClearColor>
+          <gl:ClearColor>DimGray</gl:ClearColor>
           <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
           <gl:CursorVisible>true</gl:CursorVisible>
           <gl:Location xsi:nil="true" />
@@ -543,6 +555,18 @@
         <Combinator xsi:type="gl:RenderFrame" />
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawQuad.bonsai">
+        <ExtentX>200</ExtentX>
+        <ExtentY>200</ExtentY>
+        <LocationX>0</LocationX>
+        <LocationY>0</LocationY>
+        <Layer>0</Layer>
+        <Angle>0</Angle>
+        <ColorR>0.2</ColorR>
+        <ColorG>0.2</ColorG>
+        <ColorB>0.2</ColorB>
+        <ColorA>1</ColorA>
+      </Expression>
       <Expression xsi:type="BehaviorSubject">
         <Name>DrawStimuli</Name>
       </Expression>
@@ -554,7 +578,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT15M</rx:DueTime>
+          <rx:DueTime>PT10M</rx:DueTime>
           <rx:Period>PT0S</rx:Period>
         </Combinator>
       </Expression>
@@ -984,11 +1008,12 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
       <Edge From="7" To="8" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
-      <Edge From="12" To="14" Label="Source2" />
-      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="13" To="15" Label="Source2" />
       <Edge From="14" To="15" Label="Source1" />
       <Edge From="15" To="16" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

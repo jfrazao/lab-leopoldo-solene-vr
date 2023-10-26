@@ -7,9 +7,9 @@ par.ori             = [30 90 150]; %orientations degrees
 par.TF              = 1.5; %Hz
 par.SF              = 0.08; %cpd
 
-par.TF              = [1.5 3 6]; %Hz
+par.TF              = [1.5 3  6]; %Hz
 % par.SF              = [0.02 0.06 0.12]; %cpd
-par.SF              = [0.10 0.05 0.02]; %cpd
+par.SF              = [0.12 0.06 0.03]; %cpd
 
 par.Contrast        = 0.7; %0-1 contrast
 par.Phase           = 0; %0-1 starting phase
@@ -29,7 +29,7 @@ nSpeeds             = length(par.TF);
 % par.ntrials         = 3200;
 % par.nrep            = par.ntrials / nOris;
 
-par.nrep            = 400;
+par.nrep            = 300;
 par.ntrials         = nOris * nSpeeds * par.nrep;
 
 % par.nrep            = par.ntrials / nOris;
@@ -88,9 +88,11 @@ trials.Speed = trials.TF ./ trials.SF;
 %% Rest:
 % trials.TF           = repmat(par.TF,par.ntrials,1)          + normrnd(0,par.stdTF,par.ntrials,1);
 % trials.SF           = repmat(par.SF,par.ntrials,1)          + normrnd(0,par.stdSF,par.ntrials,1);
-trials.Contrast     = repmat(par.Contrast,par.ntrials,1)    + normrnd(0,par.stdContr,par.ntrials,1);
+% trials.Contrast     = repmat(par.Contrast,par.ntrials,1)    + normrnd(0,par.stdContr,par.ntrials,1);
+trials.Contrast     = repmat(par.Contrast,par.ntrials,1)    + (rand(par.ntrials,1)-0.5) * 2 * par.stdContr;
 trials.Contrast(trials.Contrast>1) = 1;
-trials.Phase        = repmat(par.Phase,par.ntrials,1)    + normrnd(0,par.stdPhase,par.ntrials,1);
+% trials.Phase        = repmat(par.Phase,par.ntrials,1)    + normrnd(0,par.stdPhase,par.ntrials,1);
+trials.Phase        = repmat(par.Phase,par.ntrials,1)    + (rand(par.ntrials,1)-0.5) * 2 * par.stdPhase;
 
 %% Create and save the table:
 table_trials = struct2table(trials);
