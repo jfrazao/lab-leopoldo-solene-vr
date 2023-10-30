@@ -12,7 +12,7 @@ Nwindow         = 50;
 
 % Texture params:
 rootDir         = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
-
+rootDir = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
 % imagefiles = {'seamless-circle-pattern-6543320.jpg','sawtooth-grating.o.jpg','d30_1923.o.jpg','30D_3500.o.jpg'};
 
 % imagefiles = {'seamless-circle-pattern-6543320.jpg','sd1000_5472.o.jpg', 'poly_grad.o.jpg', 'D20_c.o.jpg'};
@@ -60,7 +60,6 @@ end
 plot(0:254,histcounts(BGnoise,0:255,'normalization','pdf'),'linewidth',2,'color','k'); 
 title('Pixel intensities','fontsize',15)
 
-
 %% Generate stimuli as merge between background and stim: 
 figure; set(gcf,'color','w','units','normalized','Position',[0.2,0.5,0.46,0.35])
 contrasts = [0,0.02,0.05,0.1,0.25,0.5,1];
@@ -88,16 +87,14 @@ for iC = 1:length(contrasts)
         if ~exist(fullfile(rootDir,char(iM + 64)),'dir')
             mkdir(fullfile(rootDir,char(iM + 64)))
         end
-        filename = fullfile(rootDir,char(iM + 64),sprintf('%s_%d.png',char(iM + 64),iC-1));
+        filename = fullfile(rootDir,char(iM + 64),sprintf('%s_%03.0f.jpg',char(iM + 64),iC-1));
         imwrite(uint8(iMerge)',filename);
     end
 end
 
-
-
 %% Save background:
 iMerge = uint8(0 * double(imdata(:,:,iM)) + 1 * double(BGnoise));
-filename = fullfile(rootDir,'BG.png');
+filename = fullfile(rootDir,'BG_Textures.jpg');
 imwrite(uint8(iMerge)',filename);
 
 

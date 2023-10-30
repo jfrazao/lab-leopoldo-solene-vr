@@ -10,6 +10,7 @@ Nwindow         = 50;
 % Texture params:
 rootDir         = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
 rootDir         = 'E:\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
+rootDir = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
 
 oris            = [45 135];
 
@@ -117,14 +118,14 @@ for iC = 1:length(contrasts)
         if ~exist(fullfile(rootDir,sprintf('Ori%d',oris(iOri))),'dir')
             mkdir(fullfile(rootDir,sprintf('Ori%d',oris(iOri))))
         end
-        filename = fullfile(rootDir,sprintf('Ori%d',oris(iOri)),sprintf('Ori%d_%d.png',oris(iOri),iC-1));
+        filename = fullfile(rootDir,sprintf('Ori%d',oris(iOri)),sprintf('Ori%d_%03.0f.jpg',oris(iOri),iC-1));
         imwrite(uint8(iMerge)',filename);
     end
 end
 
 %% Save background:
-iMerge = uint8(0 * double(imdata(:,:,iM)) + 1 * double(BGnoise));
-filename = fullfile(rootDir,'BG_gratings.png');
+iMerge = uint8(0 * double(imdata(:,:,iOri)) + 1 * double(BGnoise));
+filename = fullfile(rootDir,'BG_gratings.jpg');
 imwrite(uint8(iMerge)',filename);
 
 
