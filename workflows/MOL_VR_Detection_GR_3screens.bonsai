@@ -252,7 +252,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>5</Value>
+                <Value>0</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -293,7 +293,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>20</Value>
+                <Value>25</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -304,7 +304,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>20</Value>
+                <Value>25</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -379,7 +379,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>30</Value>
+                <Value>25</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -390,7 +390,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>30</Value>
+                <Value>50</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -401,7 +401,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>60</Value>
+                <Value>80</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -1000,560 +1000,6 @@
           </gl:Shaders>
         </Combinator>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:TextureResources">
-            <gl:Textures>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>fwn1</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\fwn1.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>fwn2</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\fwn2.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>fwn3</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\fwn3.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>fwn4</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\fwn4.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>grayEnd</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\grayEnd.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>gray</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\gray.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>gratings45Degrees</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\gratings45Degrees.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>gratingsMinus45Degrees</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\gratingsMinus45Degrees.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>gratings_90degrees</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\gratings_90degrees.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>gratings_15degrees</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\gratings_15degrees.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>gratings_30degrees</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\gratings_30degrees.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>0_sf1_10</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\0_sf1_10.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>0_sf1_20</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\0_sf1_20.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>0_sf1_40</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\0_sf1_40.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>15_sf1_10</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\15_sf1_10.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>15_sf1_20</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\15_sf1_20.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>15_sf1_40</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\15_sf1_40.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>minus15_sf1_10</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\minus15_sf1_10.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>minus15_sf1_20</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\minus15_sf1_20.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>minus15_sf1_40</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\minus15_sf1_40.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>fwn1_25</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\fwn1_25.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>fwn1_50</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\fwn1_50.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>fwn1_75</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\fwn1_75.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimA</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stim\stimA.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimB</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stim\stimB.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimC</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stim\stimC.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimD</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stim\stimD.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimA_25</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimA_25.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimB_25</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimB_25.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimC_25</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimC_25.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimD_25</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimD_25.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimA_50</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimA_50.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimB_50</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimB_50.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimC_50</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimC_50.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimD_50</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimD_50.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimA_75</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimA_75.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimB_75</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimB_75.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimC_75</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimC_75.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>stimD_75</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\stimspace_contr\stimD_75.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>white</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\white.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>red</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\red.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>BG</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\BG.png</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-            </gl:Textures>
-          </Combinator>
-        </Builder>
-      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:TextureResources">
           <gl:Textures>
@@ -1597,8 +1043,113 @@
               <gl:FrameCount xsi:nil="true" />
               <gl:StartPosition>0</gl:StartPosition>
             </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+              <gl:Name>B</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\B\B_%03d.jpg</gl:FileName>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+              <gl:FrameCount xsi:nil="true" />
+              <gl:StartPosition>0</gl:StartPosition>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+              <gl:Name>C</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\C\C_%03d.jpg</gl:FileName>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+              <gl:FrameCount xsi:nil="true" />
+              <gl:StartPosition>0</gl:StartPosition>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+              <gl:Name>D</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\D\D_%03d.jpg</gl:FileName>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+              <gl:FrameCount xsi:nil="true" />
+              <gl:StartPosition>0</gl:StartPosition>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+              <gl:Name>Ori45</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\Ori45\Ori45_%03d.jpg</gl:FileName>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+              <gl:FrameCount xsi:nil="true" />
+              <gl:StartPosition>0</gl:StartPosition>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+              <gl:Name>Ori135</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\Ori135\Ori135_%03d.jpg</gl:FileName>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+              <gl:FrameCount xsi:nil="true" />
+              <gl:StartPosition>0</gl:StartPosition>
+            </gl:TextureConfiguration>
           </gl:Textures>
         </Combinator>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="gl:TextureResources">
+            <gl:Textures>
+              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+                <gl:Name>gray</gl:Name>
+                <gl:Width xsi:nil="true" />
+                <gl:Height xsi:nil="true" />
+                <gl:InternalFormat>Rgba</gl:InternalFormat>
+                <gl:WrapS>Repeat</gl:WrapS>
+                <gl:WrapT>Repeat</gl:WrapT>
+                <gl:MinFilter>Linear</gl:MinFilter>
+                <gl:MagFilter>Linear</gl:MagFilter>
+                <gl:FileName>Textures\gray.jpg</gl:FileName>
+                <gl:ColorType>Unchanged</gl:ColorType>
+                <gl:FlipMode>Vertical</gl:FlipMode>
+              </gl:TextureConfiguration>
+              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+                <gl:Name>Database</gl:Name>
+                <gl:Width xsi:nil="true" />
+                <gl:Height xsi:nil="true" />
+                <gl:InternalFormat>Rgba</gl:InternalFormat>
+                <gl:WrapS>Repeat</gl:WrapS>
+                <gl:WrapT>Repeat</gl:WrapT>
+                <gl:MinFilter>Linear</gl:MinFilter>
+                <gl:MagFilter>Linear</gl:MagFilter>
+                <gl:FileName>ImageDatabase\Img%04d.jpg</gl:FileName>
+                <gl:FlipMode>Vertical</gl:FlipMode>
+                <gl:FrameCount xsi:nil="true" />
+                <gl:StartPosition>0</gl:StartPosition>
+              </gl:TextureConfiguration>
+            </gl:Textures>
+          </Combinator>
+        </Builder>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:UpdateRenderState">
@@ -1905,8 +1456,8 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateDiscreteUniform">
-                      <p2:Lower>30</p2:Lower>
-                      <p2:Upper>60</p2:Upper>
+                      <p2:Lower>50</p2:Lower>
+                      <p2:Upper>80</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1980,7 +1531,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="FloatProperty">
-                                  <Value>86</Value>
+                                  <Value>116</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -2586,7 +2137,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Divide">
               <Operand xsi:type="FloatProperty">
-                <Value>4.81873131</Value>
+                <Value>4.7</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="MemberSelector">
@@ -2872,7 +2423,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-38.5497</TranslationZ>
+                          <TranslationZ>-99.25787</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2949,7 +2500,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-238.5497</TranslationZ>
+                          <TranslationZ>-299.257874</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3026,7 +2577,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-10338.55</TranslationZ>
+                          <TranslationZ>-10399.2578</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3103,7 +2654,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>161.4503</TranslationZ>
+                          <TranslationZ>100.742126</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3206,7 +2757,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>100</Value>
+                      <Value>64</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -3222,7 +2773,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>15</Value>
+                      <Value>12.5</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3257,57 +2808,44 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Property Name="ScaleX" />
                           <Property Name="ScaleY" />
                         </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="ExternalizedMapping">
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>tex_Stim_Left</Name>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
                             <Property Name="TextureName" />
-                          </Builder>
+                          </PropertyMappings>
                         </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>StimContrast</Name>
-                          </Builder>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>StimContrast</Name>
                         </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Index" />
-                            </PropertyMappings>
-                          </Builder>
+                        <Expression xsi:type="Multiply">
+                          <Operand xsi:type="IntProperty">
+                            <Value>100</Value>
+                          </Operand>
                         </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>tex_Stim_Left</Name>
-                          </Builder>
+                        <Expression xsi:type="scr:ExpressionTransform">
+                          <scr:Expression>Convert.ToInt64(Math.Round(it))</scr:Expression>
                         </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="TextureName" />
-                            </PropertyMappings>
-                          </Builder>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="Index" />
+                          </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
-                            <gl:ShaderName>Image</gl:ShaderName>
+                            <gl:ShaderName>TexturedModel</gl:ShaderName>
                             <gl:TextureName>A</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>1</gl:Index>
+                            <gl:Index>0</gl:Index>
                           </Combinator>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
-                            <Combinator xsi:type="gl:BindTexture">
-                              <gl:TextureSlot>Texture0</gl:TextureSlot>
-                              <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            </Combinator>
-                          </Builder>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.49</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-115</TranslationZ>
-                          <ScaleX>30</ScaleX>
+                          <TranslationZ>-76.51202</TranslationZ>
+                          <ScaleX>25</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -3334,14 +2872,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="7" Label="Source1" />
+                        <Edge From="0" To="8" Label="Source1" />
                         <Edge From="1" To="9" Label="Source2" />
-                        <Edge From="2" To="8" Label="Source2" />
-                        <Edge From="3" To="4" Label="Source1" />
-                        <Edge From="4" To="7" Label="Source2" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="8" Label="Source3" />
+                        <Edge From="4" To="5" Label="Source1" />
                         <Edge From="5" To="6" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source3" />
-                        <Edge From="7" To="8" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source2" />
                         <Edge From="8" To="9" Label="Source1" />
                         <Edge From="9" To="10" Label="Source1" />
                       </Edges>
@@ -3440,7 +2978,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-38.5497</TranslationZ>
+                          <TranslationZ>-99.25787</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3517,7 +3055,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-238.5497</TranslationZ>
+                          <TranslationZ>-299.257874</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3594,7 +3132,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-10338.55</TranslationZ>
+                          <TranslationZ>-10399.2578</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3671,7 +3209,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>161.4503</TranslationZ>
+                          <TranslationZ>100.742126</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3759,14 +3297,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                     <Name>Source1</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>tex_Stim_Right</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="TextureName" Selector="it" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
                     <Name>StimStart</Name>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3776,7 +3306,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>100</Value>
+                      <Value>64</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -3792,7 +3322,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>15</Value>
+                      <Value>12.5</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3827,8 +3357,29 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Property Name="ScaleX" />
                           <Property Name="ScaleY" />
                         </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="TextureName" />
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>StimContrast</Name>
+                        </Expression>
+                        <Expression xsi:type="Multiply">
+                          <Operand xsi:type="IntProperty">
+                            <Value>100</Value>
+                          </Operand>
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionTransform">
+                          <scr:Expression>Convert.ToInt64(Math.Round(it))</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="Index" />
+                          </PropertyMappings>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>tex_Stim_Right</Name>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="TextureName" />
+                          </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="gl:BindTexture">
@@ -3836,13 +3387,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
                             <gl:TextureName>A</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
+                            <gl:Index>0</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.49</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-115</TranslationZ>
-                          <ScaleX>30</ScaleX>
+                          <TranslationZ>-76.51202</TranslationZ>
+                          <ScaleX>25</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
@@ -3869,30 +3421,33 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="3" Label="Source1" />
-                        <Edge From="1" To="4" Label="Source2" />
-                        <Edge From="2" To="3" Label="Source2" />
+                        <Edge From="0" To="8" Label="Source1" />
+                        <Edge From="1" To="9" Label="Source2" />
+                        <Edge From="2" To="3" Label="Source1" />
                         <Edge From="3" To="4" Label="Source1" />
                         <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="8" Label="Source2" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source3" />
+                        <Edge From="8" To="9" Label="Source1" />
+                        <Edge From="9" To="10" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="5" Label="Source2" />
+                  <Edge From="0" To="3" Label="Source2" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="13" Label="Source2" />
-                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="3" To="7" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="9" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source2" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source2" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="10" To="13" Label="Source1" />
-                  <Edge From="11" To="13" Label="Source3" />
-                  <Edge From="12" To="13" Label="Source4" />
+                  <Edge From="8" To="11" Label="Source1" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source3" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -3932,7 +3487,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>7</TranslationY>
-                    <TranslationZ>150</TranslationZ>
+                    <TranslationZ>150.012009</TranslationZ>
                     <ScaleX>15</ScaleX>
                     <ScaleY>10000</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -4527,7 +4082,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>161.4503</TranslationZ>
+                          <TranslationZ>100.742126</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4604,7 +4159,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>-38.5497</TranslationZ>
+                          <TranslationZ>-99.25787</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4681,7 +4236,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>-238.5497</TranslationZ>
+                          <TranslationZ>-299.257874</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4758,7 +4313,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>-10338.55</TranslationZ>
+                          <TranslationZ>-10399.2578</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4831,6 +4386,61 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                 </Edges>
               </Workflow>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw3DStim</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>-2</TranslationX>
+              <TranslationY>0</TranslationY>
+              <TranslationZ>0</TranslationZ>
+              <ScaleX>10</ScaleX>
+              <ScaleY>10</ScaleY>
+              <ScaleZ>10</ScaleZ>
+              <MeshName>Plane</MeshName>
+              <Ambient>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.2</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <RotationZ>0</RotationZ>
+              <RotationY>0</RotationY>
+              <RotationX>0</RotationX>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw3DStim</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawQuad.bonsai">
+              <ExtentX>1</ExtentX>
+              <ExtentY>1</ExtentY>
+              <LocationX>0</LocationX>
+              <LocationY>0</LocationY>
+              <Layer>0</Layer>
+              <Angle>0</Angle>
+              <ColorR>1</ColorR>
+              <ColorG>1</ColorG>
+              <ColorB>1</ColorB>
+              <ColorA>1</ColorA>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.SphereMapping.bonsai">
+              <FaceSize xsi:nil="true" />
+              <ClearColor>Gray</ClearColor>
+              <Width xsi:nil="true" />
+              <Height xsi:nil="true" />
+              <RotationZ>0</RotationZ>
+              <RotationY>0</RotationY>
+              <RotationX>0</RotationX>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -4885,6 +4495,9 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             <Edge From="34" To="35" Label="Source3" />
             <Edge From="36" To="37" Label="Source2" />
             <Edge From="38" To="39" Label="Source2" />
+            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -5121,7 +4734,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="GreaterThan">
               <Operand xsi:type="FloatProperty">
-                <Value>200</Value>
+                <Value>89</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -5134,7 +4747,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="LessThan">
               <Operand xsi:type="FloatProperty">
-                <Value>250</Value>
+                <Value>114</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">

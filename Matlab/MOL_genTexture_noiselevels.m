@@ -50,6 +50,11 @@ BGnoise = BGnoise - min(BGnoise(:)); BGnoise = (BGnoise / max(BGnoise(:)))*255;
 BGnoise = BGnoise(52:end,:);
 
 figure; imshow(uint8([BGnoise; BGnoise])')
+save(fullfile(rootDir,'BG.mat'),'BGnoise');
+
+%% load background image:
+
+load(fullfile(rootDir,'BG.mat'),'BGnoise');
 
 %% Show histogram of pixel intensities:
 
@@ -93,8 +98,16 @@ for iC = 1:length(contrasts)
 end
 
 %% Save background:
-iMerge = uint8(0 * double(imdata(:,:,iM)) + 1 * double(BGnoise));
+% figure; imshow(uint8([BGnoise; BGnoise])')
+nreps = 8;
+
+BG_Textures = uint8(repmat(BGnoise,nreps,1))' ;
+% iMerge = uint8(0 * double(imdata(:,:,iOri)) + 1 * double(BGnoise));
 filename = fullfile(rootDir,'BG_Textures.jpg');
-imwrite(uint8(iMerge)',filename);
+imwrite(BG_Textures,filename);
+
+% iMerge = uint8(0 * double(imdata(:,:,iM)) + 1 * double(BGnoise));
+% filename = fullfile(rootDir,'BG_Textures.jpg');
+% imwrite(uint8(iMerge)',filename);
 
 

@@ -80,6 +80,11 @@ BGnoise = BGnoise(52:end,:);
 
 % figure; imshow(uint8([BGnoise; BGnoise])')
 figure; imshow(uint8(BGnoise)')
+save(fullfile(rootDir,'BG.mat'),'BGnoise');
+
+%% load background image:
+
+load(fullfile(rootDir,'BG.mat'),'BGnoise');
 
 %% Show histogram of pixel intensities:
 
@@ -124,8 +129,13 @@ for iC = 1:length(contrasts)
 end
 
 %% Save background:
-iMerge = uint8(0 * double(imdata(:,:,iOri)) + 1 * double(BGnoise));
+
+% figure; imshow(uint8([BGnoise; BGnoise])')
+nreps = 8;
+
+BG_gratings = uint8(repmat(BGnoise,nreps,1))' ;
+% iMerge = uint8(0 * double(imdata(:,:,iOri)) + 1 * double(BGnoise));
 filename = fullfile(rootDir,'BG_gratings.jpg');
-imwrite(uint8(iMerge)',filename);
+imwrite(BG_gratings,filename);
 
 
