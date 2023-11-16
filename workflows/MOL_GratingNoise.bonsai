@@ -278,12 +278,12 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>test</Value>
+                <Value>LPE10919</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>test</Value>
+                <Value>LPE10919</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -343,7 +343,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_10_23\\GN\Behavior\GN_test_harp_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_11_16\\GN\Behavior\GN_test_harp_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -367,7 +367,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\test\2023_10_23\\GN\Behavior\GN_test_rawharp_.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\test\2023_11_16\\GN\Behavior\GN_test_rawharp_.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -396,7 +396,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_10_23\\GN\Behavior\GN_test_cameracsv_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_11_16\\GN\Behavior\GN_test_cameracsv_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -423,7 +423,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_10_23\\GN\Behavior\GN_test_triggerdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_11_16\\GN\Behavior\GN_test_triggerdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -512,7 +512,7 @@
     Item2 as tOffset)</scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_10_23\\GN\Behavior\GN_test_trialdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_11_16\\GN\Behavior\GN_test_trialdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -536,7 +536,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\test\2023_10_23\\GN\Behavior\GN_test_camera_.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\test\2023_11_16\\GN\Behavior\GN_test_camera_.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -626,7 +626,7 @@
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
           <gl:WindowState>Fullscreen</gl:WindowState>
-          <gl:DisplayDevice>First</gl:DisplayDevice>
+          <gl:DisplayDevice>Second</gl:DisplayDevice>
           <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
           <gl:RenderState />
@@ -761,9 +761,6 @@
         <Right>135</Right>
         <Bottom>-40</Bottom>
         <Top>67</Top>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
       </Expression>
       <Expression xsi:type="BehaviorSubject">
         <Name>DrawStimuli</Name>
@@ -930,7 +927,7 @@
               <Property Name="FileName" />
             </Expression>
             <Expression xsi:type="io:CsvReader">
-              <io:FileName>Protocols\OriGratings\MOL_OriGrating_gaussNoise_v2.csv</io:FileName>
+              <io:FileName>Protocols\OriGratings\MOL_OriGrating_gaussNoise_v3.csv</io:FileName>
               <io:ListSeparator />
               <io:ScanPattern>%f,%f,%f,%f,%f,%f,%f</io:ScanPattern>
               <io:SkipRows>1</io:SkipRows>
@@ -1057,9 +1054,9 @@
                     <LocationX>0</LocationX>
                     <LocationY>0</LocationY>
                     <Layer>0</Layer>
-                    <Angle>31.6099072</Angle>
-                    <SpatialFrequency>0.0524543151</SpatialFrequency>
-                    <TemporalFrequency>2.9554565</TemporalFrequency>
+                    <Angle>83.18342</Angle>
+                    <SpatialFrequency>0.067660965</SpatialFrequency>
+                    <TemporalFrequency>4.11695147</TemporalFrequency>
                     <Phase>0</Phase>
                     <SquareWave>false</SquareWave>
                     <Contrast>0.7</Contrast>
@@ -1683,22 +1680,21 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
       <Edge From="10" To="11" Label="Source1" />
       <Edge From="11" To="12" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
+      <Edge From="12" To="16" Label="Source1" />
+      <Edge From="12" To="18" Label="Source1" />
       <Edge From="13" To="14" Label="Source1" />
-      <Edge From="13" To="17" Label="Source1" />
-      <Edge From="13" To="19" Label="Source1" />
       <Edge From="14" To="15" Label="Source1" />
-      <Edge From="15" To="16" Label="Source1" />
-      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
       <Edge From="19" To="20" Label="Source1" />
-      <Edge From="20" To="21" Label="Source1" />
-      <Edge From="22" To="27" Label="Source1" />
-      <Edge From="23" To="25" Label="Source1" />
-      <Edge From="24" To="25" Label="Source2" />
-      <Edge From="25" To="26" Label="Source1" />
-      <Edge From="26" To="27" Label="Source2" />
+      <Edge From="21" To="26" Label="Source1" />
+      <Edge From="22" To="24" Label="Source1" />
+      <Edge From="23" To="24" Label="Source2" />
+      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="25" To="26" Label="Source2" />
+      <Edge From="26" To="27" Label="Source1" />
       <Edge From="27" To="28" Label="Source1" />
       <Edge From="28" To="29" Label="Source1" />
-      <Edge From="29" To="30" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
