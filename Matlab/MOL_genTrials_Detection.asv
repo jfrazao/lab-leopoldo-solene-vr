@@ -19,31 +19,35 @@ trials.contrast     = par.contrasts(randi(length(par.contrasts),par.number_trial
 par.fraction0       = 0.15;
 trials.contrast(randsample(par.number_trials,round(par.fraction0*par.number_trials))) = 0;
 
-D = diff([0; trials.contrast])==0;
-trials.contrast(D==1);
-trials.contrast(trials.contrast==0);
-trials.contrast(D==1 & trials.contrast==0) = 100;
+D = diff([0; trials.contrast]==0)
+trials.contrast(D==0)
+trials.contrast(D==0 & trials.contrast'==0) = 100;
+trials.contrast(D==0 & trials.contrast'==0) = 100;
 
+V = trials.contrast';
+% V = trials.contrast'==0;
+D = diff([false,diff(V)==0,false]);
+% D = [0,diff(V)==0];
+
+% trials.contrast(D==0 & trials.contrast'==0) = 100;
+
+g = arrayfun(@(a,b)V(a:b),find(D>0),find(D<0),'uni',0)
 
 %% trials.reward
 trials.RewardTrial = trials.contrast > 0;
 
 %% Create and save the table:
 table_trials = struct2table(trials);
-writetable(table_trials,fullfile(protocoldir,'MOL_trialseq_detection_maxonly.csv'))
+writetable(table_trials,'MOL_trialseq_detection_maxonly.csv')
 
 %% Psychometric 5 levels including 0 contrast: 
-par.contrasts       = [0 5 15 30 50 100]; %
+par.contrasts       = [0 10 20 50 70 100]; %
+
+% trials.contrast = randsample(par.contrasts,par.number_trials,true)';
 
 trials.contrast = par.contrasts(randi(length(par.contrasts),par.number_trials,1))';
 
 trials.contrast(1) = par.contrasts(end); %make first trial max saliency
-
-%set consecutive catch trials to max: 
-D = diff([0; trials.contrast])==0;
-trials.contrast(D==1);
-trials.contrast(trials.contrast==0);
-trials.contrast(D==1 & trials.contrast==0) = 100;
 
 %% trials.reward
 trials.RewardTrial = trials.contrast > 0;
