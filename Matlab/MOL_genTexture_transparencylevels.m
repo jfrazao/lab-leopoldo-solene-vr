@@ -162,6 +162,14 @@ for iA = 1:length(alphas)
     end
 end
 
+%% Save full contrast .jpg to compare to alpha = 100
+for iOri=1:Noris
+%     imagedata = uint8(imdata(:,:,iOri));
+    imagedata = uint8(repmat(imdata(:,:,iOri),1,1,3));
+    filename = fullfile(rootDir,sprintf('Ori%d',oris(iOri)),sprintf('Ori%d.png',oris(iOri)));
+    imwrite(imagedata,filename,'jpg');
+end
+
 
 % contrasts = 0:0.01:1;
 % 
