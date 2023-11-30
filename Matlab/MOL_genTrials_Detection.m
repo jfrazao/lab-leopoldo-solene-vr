@@ -1,11 +1,9 @@
 %% Define parameters:
 par.number_trials   = 2000;
+par.blocklength     = 10; %every 10 trials contain shuffled percentage of each condition
 
 protocoldir = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
 % protocoldir = 'C:\Users\EphysPC\Desktop\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
-
-% par.textures        = {'stimA' 'stimB' 'stimC' 'stimD'};
-% par.tex_BG          = 'fwn1_25';
 
 %% Generate CSV
 trials = struct();
@@ -14,9 +12,11 @@ trials = struct();
 trials.trialnum = transpose(1:par.number_trials);
 
 %% Only full signal: 
+
+
 par.signals       = [100]; %
 trials.signal     = par.signals(randi(length(par.signals),par.number_trials,1));
-par.fraction0       = 0.15;
+par.fraction0       = 0.2;
 trials.signal(randsample(par.number_trials,round(par.fraction0*par.number_trials))) = 0;
 
 D = diff([0; trials.signal])==0;
@@ -52,7 +52,7 @@ trials.RewardTrial = trials.signal > 0;
 table_trials = struct2table(trials);
 writetable(table_trials,fullfile(protocoldir,'MOL_trialseq_detection_5levels.csv'))
 
-%% Only full signal: 
+%% With noise distribution around threshold stimulus: 
 par.centersignal    = 15; %
 par.stdsignal       = 15; %
 par.fraction0       = 0.1;

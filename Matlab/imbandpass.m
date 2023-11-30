@@ -150,7 +150,7 @@ image_out=squeeze(image_out);
 %make sure return type is an image, 1 or 3 channel
 %should be doubles in range 0 to 255 at this point
 %enforce and convert to uint8
-image_out=max(0,min(255,cast(image_out,'uint8')));
+% image_out=max(0,min(255,cast(image_out,'uint8')));
 end
 
 function mask = gaussianMask(masksize_x, masksize_y, low_cutoff_ratio, high_cutoff_ratio)
