@@ -19,6 +19,12 @@ par.signals         = [0 100];
 
 trials.signal   = createDetectionTrialVector(par);
 
+% %force consecutive 0% trials to be 100% signal:
+% D = diff([0; trials.signal])==0;
+% trials.signal(D==1);
+% trials.signal(trials.signal==0);
+% trials.signal(D==1 & trials.signal==0) = 100;
+
 %% trials.reward
 trials.RewardTrial = trials.signal > 0;
 
@@ -33,6 +39,12 @@ nconds          = length(par.signals);
 par.fracs       = repmat(1/nconds,nconds,1);
 
 trials.signal   = createDetectionTrialVector(par);
+
+%set consecutive catch trials to max: 
+% D = diff([0; trials.signal])==0;
+% trials.signal(D==1);
+% trials.signal(trials.signal==0);
+% trials.signal(D==1 & trials.signal==0) = 100;
 
 %% trials.reward
 trials.RewardTrial = trials.signal > 0;
@@ -50,10 +62,16 @@ par.fracs       = [0.1 0.7 0.2];
 
 trials.signal   = createDetectionTrialVector(par);
 
-idx = trials.signal == par.centersignal;
-trials.signal(idx) = trials.signal(idx) + (rand(sum(idx),1)-0.5)*par.stdsignal;
+temp = temp(1:par.number_trials);
+idx = temp == par.centersignal;
+temp(idx) = temp(idx) + (rand(sum(idx),1)-0.5)*par.stdsignal;
 
-trials.signal       = round(trials.signal);
+trials.signal       = temp(randperm(par.number_trials));
+
+D = diff([0; trials.signal])==0;
+trials.signal(D==1);
+trials.signal(trials.signal==0);
+trials.signal(D==1 & trials.signal==0) = 100;
 
 %% trials.reward
 trials.RewardTrial = trials.signal > 0;
