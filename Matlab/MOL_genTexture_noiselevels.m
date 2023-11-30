@@ -20,6 +20,7 @@ imagefiles = {'D3_c.o.jpg','sd1000_5472.o.jpg', 'poly_grad.o.jpg', 'D20_c.o.jpg'
 
 Nimages = length(imagefiles);
 
+
 %% for images:
 imdata = NaN(Nsx,Nsy,Nimages);
 for i=1:Nimages
@@ -81,6 +82,7 @@ BGnoise = [BGnoise(size(BGnoise,1)-49:size(BGnoise,1),:); BGnoise; BGnoise(1:50,
 
 win = fspecial('gaussian',Nwindow,Nsmoothing);
 BGnoise = conv2(BGnoise,win,'valid');
+
 BGnoise = BGnoise - min(BGnoise(:)); BGnoise = (BGnoise / max(BGnoise(:)))*255; 
 
 BGnoise = BGnoise(52:end,:);
