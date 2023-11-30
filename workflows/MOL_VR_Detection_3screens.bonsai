@@ -2,8 +2,8 @@
 <WorkflowBuilder Version="2.6.2"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
-                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:p1="clr-namespace:Bonsai.Harp.CF;assembly=Bonsai.Harp.CF"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
@@ -14,9 +14,7 @@
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:p2="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:bv="clr-namespace:BonVision;assembly=BonVision"
-                 xmlns:p3="clr-namespace:OpenTK;assembly=OpenTK"
-                 xmlns:p4="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
+                 xmlns:p3="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -29,7 +27,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="IntProperty">
-                <Value>4</Value>
+                <Value>3</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -42,12 +40,6 @@
               <Name>HarpDevice</Name>
               <Workflow>
                 <Nodes>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>z pos</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>TrialNumber</Name>
-                  </Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Name" />
                   </Expression>
@@ -74,9 +66,6 @@
                   <Expression xsi:type="harp:DeviceEvent">
                     <harp:Type>MessageTimestamp</harp:Type>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
                   <Expression xsi:type="MulticastSubject">
                     <Name>HarpTimestamp</Name>
                   </Expression>
@@ -87,20 +76,20 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
                   </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>z pos</Name>
+                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
                   </Expression>
-                  <Expression xsi:type="PublishSubject">
-                    <Name>rawData</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>MessageBytes</Selector>
-                  </Expression>
-                  <Expression xsi:type="BehaviorSubject">
-                    <Name>RawHarpData</Name>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>RunSpeed</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>TrialNumber</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
@@ -120,30 +109,206 @@
                   <Expression xsi:type="BehaviorSubject">
                     <Name>HarpData</Name>
                   </Expression>
+                  <Expression xsi:type="PublishSubject">
+                    <Name>rawData</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>MessageBytes</Selector>
+                  </Expression>
+                  <Expression xsi:type="BehaviorSubject">
+                    <Name>RawHarpData</Name>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>z pos</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>TrialNumber</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>RunSpeed</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>LickActivity</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>RewTimestamp</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="BehaviorSubject">
+                      <Name>HarpData</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>z pos</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>TrialNumber</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="harp:DeviceEvent">
+                      <harp:Type>MessageTimestamp</harp:Type>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MulticastSubject">
+                      <Name>HarpTimestamp</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="p1:BehaviorEvent">
+                      <p1:Type>AnalogInput</p1:Type>
+                      <p1:Mask>Port0</p1:Mask>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="PublishSubject">
+                      <Name>rawData</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>RunSpeed</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>LickActivity</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>RewTimestamp</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="BehaviorSubject">
+                      <Name>HarpData</Name>
+                    </Builder>
+                  </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="11" Label="Source2" />
-                  <Edge From="1" To="7" Label="Source2" />
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="2" To="6" Label="Source1" />
+                  <Edge From="2" To="20" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source2" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="4" To="9" Label="Source1" />
-                  <Edge From="4" To="13" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
                   <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="6" To="8" Label="Source1" />
-                  <Edge From="7" To="10" Label="Source2" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="9" To="12" Label="Source1" />
-                  <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="11" To="16" Label="Source1" />
-                  <Edge From="13" To="14" Label="Source1" />
-                  <Edge From="15" To="16" Label="Source2" />
-                  <Edge From="16" To="18" Label="Source1" />
-                  <Edge From="17" To="18" Label="Source2" />
-                  <Edge From="18" To="20" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source2" />
+                  <Edge From="6" To="19" Label="Source1" />
+                  <Edge From="7" To="9" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="11" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source2" />
+                  <Edge From="11" To="13" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source2" />
+                  <Edge From="13" To="15" Label="Source1" />
+                  <Edge From="14" To="15" Label="Source2" />
+                  <Edge From="15" To="17" Label="Source1" />
+                  <Edge From="16" To="17" Label="Source2" />
+                  <Edge From="17" To="18" Label="Source1" />
                   <Edge From="20" To="21" Label="Source1" />
+                  <Edge From="22" To="26" Label="Source2" />
+                  <Edge From="23" To="25" Label="Source2" />
+                  <Edge From="24" To="25" Label="Source1" />
+                  <Edge From="25" To="26" Label="Source1" />
+                  <Edge From="26" To="28" Label="Source1" />
+                  <Edge From="27" To="28" Label="Source2" />
+                  <Edge From="28" To="30" Label="Source1" />
+                  <Edge From="29" To="30" Label="Source2" />
+                  <Edge From="30" To="32" Label="Source1" />
+                  <Edge From="31" To="32" Label="Source2" />
+                  <Edge From="32" To="33" Label="Source1" />
+                  <Edge From="34" To="41" Label="Source2" />
+                  <Edge From="35" To="40" Label="Source2" />
+                  <Edge From="36" To="37" Label="Source1" />
+                  <Edge From="36" To="39" Label="Source2" />
+                  <Edge From="38" To="39" Label="Source1" />
+                  <Edge From="38" To="42" Label="Source1" />
+                  <Edge From="39" To="40" Label="Source1" />
+                  <Edge From="40" To="41" Label="Source1" />
+                  <Edge From="41" To="44" Label="Source1" />
+                  <Edge From="43" To="44" Label="Source2" />
+                  <Edge From="44" To="46" Label="Source1" />
+                  <Edge From="45" To="46" Label="Source2" />
+                  <Edge From="46" To="48" Label="Source1" />
+                  <Edge From="47" To="48" Label="Source2" />
+                  <Edge From="48" To="49" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -192,7 +357,7 @@
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
               <MemberName>TextureName</MemberName>
-              <Value>BG</Value>
+              <Value>BG_0.04_0.32_100</Value>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
               <Name>tex_BG_1</Name>
@@ -205,14 +370,14 @@
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
               <MemberName>TextureName</MemberName>
-              <Value>A</Value>
+              <Value>stim</Value>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
               <Name>tex_Stim_Left</Name>
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
               <MemberName>TextureName</MemberName>
-              <Value>A</Value>
+              <Value>stim</Value>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
               <Name>tex_Stim_Right</Name>
@@ -239,7 +404,7 @@
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
-              <Name>StimContrast</Name>
+              <Name>Signal</Name>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="IntProperty">
@@ -373,7 +538,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>50</Value>
+                <Value>40</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -422,7 +587,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="BooleanProperty">
-                <Value>true</Value>
+                <Value>false</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -435,6 +600,36 @@
             </Expression>
             <Expression xsi:type="BehaviorSubject">
               <Name>TimeOutTimestamp</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="tex_Stim" />
+            </Expression>
+            <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
+              <MemberName>TextureName</MemberName>
+              <Value>Ori45</Value>
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>tex_Stim</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="tex_Floor" />
+            </Expression>
+            <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
+              <MemberName>TextureName</MemberName>
+              <Value>rocks</Value>
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>tex_Floor</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="tex_Ceiling" />
+            </Expression>
+            <Expression xsi:type="PropertySource" TypeArguments="gl:BindTexture,sys:String">
+              <MemberName>TextureName</MemberName>
+              <Value>clouds</Value>
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>tex_Ceiling</Name>
             </Expression>
           </Nodes>
           <Edges>
@@ -483,11 +678,18 @@
             <Edge From="76" To="77" Label="Source1" />
             <Edge From="77" To="78" Label="Source1" />
             <Edge From="79" To="80" Label="Source1" />
+            <Edge From="81" To="82" Label="Source1" />
+            <Edge From="82" To="83" Label="Source1" />
+            <Edge From="84" To="85" Label="Source1" />
+            <Edge From="85" To="86" Label="Source1" />
+            <Edge From="87" To="88" Label="Source1" />
+            <Edge From="88" To="89" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
         <Property Name="MouseName" />
+        <Property Name="Protocol_ID" />
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>Logger</Name>
@@ -504,11 +706,6 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
                 <Value>test</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="StringProperty">
-                <Value>VR</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -530,6 +727,14 @@
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>Item1.ToString() + "_" + Item2.ToString("D2") + "_" + Item3.ToString("D2") + "\"</scr:Expression>
             </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="Protocol_ID" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>DM</Value>
+              </Combinator>
+            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Zip" />
             </Expression>
@@ -542,6 +747,15 @@
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>HarpData</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(Item1.Item1.Item1.Item1.Item1.Item1 as rawvoltage,
+    Item1.Item1.Item1.Item1.Item1.Item2 as ts,
+    Item1.Item1.Item1.Item1.Item2 as zpos,
+    Item1.Item1.Item1.Item2 as runspeed,
+    Item1.Item1.Item2 as trialnumber,
+    Item1.Item2 as lick,
+    Item2 as reward)</scr:Expression>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>SaveFilename</Name>
@@ -557,7 +771,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_11_08\\VR\Behavior\VR_test_harp_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_11_30\\DE\Behavior\DE_test_harp_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -581,7 +795,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\test\2023_11_08\\VR\Behavior\VR_test_rawharp_.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\test\2023_11_30\\DE\Behavior\DE_test_rawharp_.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -623,16 +837,16 @@
               <Name>nLicks</Name>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>StimContrast</Name>
+              <Name>Signal</Name>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>tex_Stim_Left</Name>
+              <Name>tex_Stim</Name>
             </Expression>
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>it.ToString()</scr:Expression>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>tex_Stim_Right</Name>
+              <Name>tex_Stim</Name>
             </Expression>
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>it.ToString()</scr:Expression>
@@ -698,7 +912,7 @@
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>new(Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1 as TrialNumber,
     Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item2 as tEnd,
-    Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item2 as trialType,
+    Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item2 as Signal,
     Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item2 as Reward,
     Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item2 as StimStart,
     Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item2 as StimEnd,
@@ -712,7 +926,7 @@
 </scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_11_08\\VR\Behavior\VR_test_trialdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_11_30\\DE\Behavior\DE_test_trialdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -736,7 +950,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\test\2023_11_08\\VR\Behavior\VR_test_camera_.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\test\2023_11_30\\DE\Behavior\DE_test_camera_.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -772,7 +986,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_11_08\\VR\Behavior\VR_test_cameracsv_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_11_30\\DE\Behavior\DE_test_cameracsv_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -780,6 +994,10 @@
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>TriggerData</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(Item1 as trigger, 
+    Item2 as ts)</scr:Expression>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>SaveFilename</Name>
@@ -795,7 +1013,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_11_08\\VR\Behavior\VR_test_triggerdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_11_30\\DE\Behavior\DE_test_triggerdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -805,74 +1023,77 @@
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="0" To="2" Label="Source1" />
-            <Edge From="1" To="9" Label="Source2" />
-            <Edge From="2" To="9" Label="Source6" />
-            <Edge From="3" To="9" Label="Source4" />
-            <Edge From="4" To="9" Label="Source1" />
-            <Edge From="4" To="6" Label="Source1" />
-            <Edge From="5" To="9" Label="Source5" />
+            <Edge From="1" To="10" Label="Source2" />
+            <Edge From="2" To="10" Label="Source6" />
+            <Edge From="3" To="10" Label="Source1" />
+            <Edge From="3" To="5" Label="Source1" />
+            <Edge From="4" To="10" Label="Source5" />
+            <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="9" Label="Source3" />
-            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="7" To="10" Label="Source3" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source4" />
             <Edge From="10" To="11" Label="Source1" />
-            <Edge From="12" To="16" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
             <Edge From="13" To="14" Label="Source1" />
-            <Edge From="14" To="15" Label="Source1" />
-            <Edge From="15" To="16" Label="Source2" />
-            <Edge From="17" To="21" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
-            <Edge From="20" To="21" Label="Source2" />
-            <Edge From="22" To="29" Label="Source2" />
-            <Edge From="23" To="41" Label="Source2" />
-            <Edge From="24" To="42" Label="Source2" />
-            <Edge From="25" To="48" Label="Source2" />
-            <Edge From="26" To="49" Label="Source2" />
-            <Edge From="27" To="28" Label="Source1" />
-            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="14" To="18" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="18" Label="Source2" />
+            <Edge From="19" To="23" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="22" To="23" Label="Source2" />
+            <Edge From="24" To="31" Label="Source2" />
+            <Edge From="25" To="43" Label="Source2" />
+            <Edge From="26" To="44" Label="Source2" />
+            <Edge From="27" To="50" Label="Source2" />
+            <Edge From="28" To="51" Label="Source2" />
             <Edge From="29" To="30" Label="Source1" />
-            <Edge From="30" To="39" Label="Source1" />
-            <Edge From="31" To="50" Label="Source2" />
-            <Edge From="32" To="51" Label="Source2" />
-            <Edge From="33" To="40" Label="Source2" />
-            <Edge From="34" To="35" Label="Source1" />
-            <Edge From="35" To="54" Label="Source2" />
+            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="32" To="41" Label="Source1" />
+            <Edge From="33" To="52" Label="Source2" />
+            <Edge From="34" To="53" Label="Source2" />
+            <Edge From="35" To="42" Label="Source2" />
             <Edge From="36" To="37" Label="Source1" />
-            <Edge From="37" To="55" Label="Source2" />
-            <Edge From="38" To="39" Label="Source2" />
-            <Edge From="39" To="40" Label="Source1" />
-            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="37" To="56" Label="Source2" />
+            <Edge From="38" To="39" Label="Source1" />
+            <Edge From="39" To="57" Label="Source2" />
+            <Edge From="40" To="41" Label="Source2" />
             <Edge From="41" To="42" Label="Source1" />
-            <Edge From="42" To="47" Label="Source1" />
+            <Edge From="42" To="43" Label="Source1" />
             <Edge From="43" To="44" Label="Source1" />
-            <Edge From="44" To="45" Label="Source1" />
-            <Edge From="45" To="57" Label="Source1" />
-            <Edge From="46" To="47" Label="Source2" />
-            <Edge From="47" To="48" Label="Source1" />
-            <Edge From="48" To="49" Label="Source1" />
+            <Edge From="44" To="49" Label="Source1" />
+            <Edge From="45" To="46" Label="Source1" />
+            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="47" To="59" Label="Source1" />
+            <Edge From="48" To="49" Label="Source2" />
             <Edge From="49" To="50" Label="Source1" />
             <Edge From="50" To="51" Label="Source1" />
-            <Edge From="51" To="53" Label="Source1" />
-            <Edge From="52" To="53" Label="Source2" />
-            <Edge From="53" To="54" Label="Source1" />
-            <Edge From="54" To="55" Label="Source1" />
+            <Edge From="51" To="52" Label="Source1" />
+            <Edge From="52" To="53" Label="Source1" />
+            <Edge From="53" To="55" Label="Source1" />
+            <Edge From="54" To="55" Label="Source2" />
             <Edge From="55" To="56" Label="Source1" />
-            <Edge From="56" To="57" Label="Source2" />
-            <Edge From="58" To="62" Label="Source1" />
-            <Edge From="59" To="60" Label="Source1" />
-            <Edge From="60" To="61" Label="Source1" />
-            <Edge From="61" To="62" Label="Source2" />
-            <Edge From="63" To="65" Label="Source1" />
-            <Edge From="64" To="65" Label="Source2" />
-            <Edge From="65" To="69" Label="Source1" />
-            <Edge From="66" To="67" Label="Source1" />
-            <Edge From="67" To="68" Label="Source1" />
-            <Edge From="68" To="69" Label="Source2" />
-            <Edge From="70" To="74" Label="Source1" />
-            <Edge From="71" To="72" Label="Source1" />
+            <Edge From="56" To="57" Label="Source1" />
+            <Edge From="57" To="58" Label="Source1" />
+            <Edge From="58" To="59" Label="Source2" />
+            <Edge From="60" To="64" Label="Source1" />
+            <Edge From="61" To="62" Label="Source1" />
+            <Edge From="62" To="63" Label="Source1" />
+            <Edge From="63" To="64" Label="Source2" />
+            <Edge From="65" To="67" Label="Source1" />
+            <Edge From="66" To="67" Label="Source2" />
+            <Edge From="67" To="71" Label="Source1" />
+            <Edge From="68" To="69" Label="Source1" />
+            <Edge From="69" To="70" Label="Source1" />
+            <Edge From="70" To="71" Label="Source2" />
             <Edge From="72" To="73" Label="Source1" />
-            <Edge From="73" To="74" Label="Source2" />
+            <Edge From="73" To="77" Label="Source1" />
+            <Edge From="74" To="75" Label="Source1" />
+            <Edge From="75" To="76" Label="Source1" />
+            <Edge From="76" To="77" Label="Source2" />
           </Edges>
         </Workflow>
       </Expression>
@@ -888,7 +1109,7 @@
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
           <gl:WindowState>Fullscreen</gl:WindowState>
-          <gl:DisplayDevice>First</gl:DisplayDevice>
+          <gl:DisplayDevice>Second</gl:DisplayDevice>
           <gl:TargetRenderFrequency>0</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
           <gl:RenderState />
@@ -1000,7 +1221,7 @@
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
             <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-              <gl:Name>BG</gl:Name>
+              <gl:Name>BG_0</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
               <gl:InternalFormat>Rgba</gl:InternalFormat>
@@ -1008,11 +1229,102 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\detection_stim\BG_gratings.jpg</gl:FileName>
+              <gl:FileName>Textures\detection_stim\background\BG_0.png</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>BG_25</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\background\BG_25.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>BG_50</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\background\BG_50.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>BG_75</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\background\BG_75.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>BG_100</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\background\BG_100.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>fog</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\fog.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>gray128</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\gray128.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>stim</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\white.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
               <gl:Name>A</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
@@ -1021,12 +1333,11 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\detection_stim\A\jpg\A_%03d.jpg</gl:FileName>
+              <gl:FileName>Textures\white.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
-              <gl:FrameCount xsi:nil="true" />
-              <gl:StartPosition>0</gl:StartPosition>
             </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
               <gl:Name>B</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
@@ -1035,12 +1346,11 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\detection_stim\B\B_%03d.jpg</gl:FileName>
+              <gl:FileName>Textures\white.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
-              <gl:FrameCount xsi:nil="true" />
-              <gl:StartPosition>0</gl:StartPosition>
             </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
               <gl:Name>C</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
@@ -1049,12 +1359,11 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\detection_stim\C\C_%03d.jpg</gl:FileName>
+              <gl:FileName>Textures\white.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
-              <gl:FrameCount xsi:nil="true" />
-              <gl:StartPosition>0</gl:StartPosition>
             </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
               <gl:Name>D</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
@@ -1063,12 +1372,11 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\detection_stim\D\D_%03d.jpg</gl:FileName>
+              <gl:FileName>Textures\white.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
-              <gl:FrameCount xsi:nil="true" />
-              <gl:StartPosition>0</gl:StartPosition>
             </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
               <gl:Name>Ori45</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
@@ -1077,12 +1385,11 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\detection_stim\Ori45\Ori45_%03d.jpg</gl:FileName>
+              <gl:FileName>Textures\stim\stimA.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
-              <gl:FrameCount xsi:nil="true" />
-              <gl:StartPosition>0</gl:StartPosition>
             </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
               <gl:Name>Ori135</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
@@ -1091,13 +1398,12 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>Textures\detection_stim\Ori135\Ori135_%03d.jpg</gl:FileName>
+              <gl:FileName>Textures\white.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
-              <gl:FrameCount xsi:nil="true" />
-              <gl:StartPosition>0</gl:StartPosition>
             </gl:TextureConfiguration>
-            <gl:TextureConfiguration xsi:type="gl:Texture2D">
-              <gl:Name>Cat</gl:Name>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>clouds</gl:Name>
               <gl:Width xsi:nil="true" />
               <gl:Height xsi:nil="true" />
               <gl:InternalFormat>Rgba</gl:InternalFormat>
@@ -1105,137 +1411,38 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\clouds.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>rocks</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\rocks.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>BG_0.04_0.32_100</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\detection_stim\background\BG_0.04_0.32_100.png</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
           </gl:Textures>
         </Combinator>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:TextureResources">
-            <gl:Textures>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>gray</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\gray.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>BG</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\BG_gratings.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>A</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\A\A_%03d.png</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>B</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\B\B_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>C</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\C\C_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>D</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\D\D_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>Ori45</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\Ori45\Ori45_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>Ori135</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\Ori135\Ori135_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:Texture2D">
-                <gl:Name>Cat</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-              </gl:TextureConfiguration>
-            </gl:Textures>
-          </Combinator>
-        </Builder>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:UpdateRenderState">
@@ -1453,7 +1660,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
         </Combinator>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
-        <Property Name="FileName" DisplayName="ProtocolName" />
+        <Property Name="FileName" DisplayName="ProtocolFile" />
       </Expression>
       <Expression xsi:type="SelectMany">
         <Name>NewTrial</Name>
@@ -1463,7 +1670,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
               <Property Name="FileName" />
             </Expression>
             <Expression xsi:type="io:CsvReader">
-              <io:FileName>Protocols\VR_Detection\MOL_trialseq_detection_5levels.csv</io:FileName>
+              <io:FileName>Protocols\VR_Detection\MOL_trialseq_detection_maxonly.csv</io:FileName>
               <io:ListSeparator />
               <io:ScanPattern>%f,%f,%f</io:ScanPattern>
               <io:SkipRows>1</io:SkipRows>
@@ -1489,7 +1696,75 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                     <Selector>Item2</Selector>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
-                    <Name>StimContrast</Name>
+                    <Name>Signal</Name>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>int32(it)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>RewardZoneLength</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>RewardZoneOffset</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>StimIntervalEnd</Name>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="Upper" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>StimIntervalStart</Name>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="Lower" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>StimSize</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="StringProperty">
+                      <Value>C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>tex_Stim</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>Item1.Item2 + Item2 + "\" + Item2 + "_" + Item1.Item1.ToString("D3") + ".png"</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
+                    <PropertyMappings>
+                      <Property Name="FileName" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:LoadImage">
+                      <cv:FileName>C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\Ori45\Ori45_100.png</cv:FileName>
+                      <cv:Mode>Unchanged</cv:Mode>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Flip">
+                      <cv:Mode>Vertical</cv:Mode>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="gl:UpdateTexture">
+                      <gl:TextureName>stim</gl:TextureName>
+                      <gl:TextureTarget>Texture2D</gl:TextureTarget>
+                      <gl:InternalFormat>Rgba</gl:InternalFormat>
+                    </Combinator>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Item3</Selector>
@@ -1518,31 +1793,9 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                       <num:Seed xsi:nil="true" />
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>RewardZoneLength</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>RewardZoneOffset</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>StimIntervalEnd</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Upper" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>StimIntervalStart</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Lower" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateDiscreteUniform">
-                      <p2:Lower>50</p2:Lower>
+                      <p2:Lower>40</p2:Lower>
                       <p2:Upper>80</p2:Upper>
                     </Combinator>
                   </Expression>
@@ -1573,9 +1826,6 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
                     <Name>TunnelLength</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>StimSize</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
@@ -1617,7 +1867,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="FloatProperty">
-                                  <Value>103</Value>
+                                  <Value>124</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -1910,10 +2160,6 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>RewardSize</Name>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:WithLatestFrom" />
-                        </Expression>
-                        <Expression xsi:type="Divide" />
                         <Expression xsi:type="io:CsvReader">
                           <io:FileName>PCVars\RewardCalibration.csv</io:FileName>
                           <io:ListSeparator />
@@ -1926,7 +2172,11 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
                         </Expression>
-                        <Expression xsi:type="Add" />
+                        <Expression xsi:type="Subtract" />
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Divide" />
                         <Expression xsi:type="Multiply">
                           <Operand xsi:type="FloatProperty">
                             <Value>10000</Value>
@@ -1939,7 +2189,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT0.0461128S</rx:DueTime>
+                            <rx:DueTime>PT0.0137142S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="p1:BehaviorCommand">
@@ -1984,12 +2234,12 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Edge From="3" To="20" Label="Source2" />
                         <Edge From="4" To="26" Label="Source2" />
                         <Edge From="5" To="6" Label="Source1" />
-                        <Edge From="6" To="8" Label="Source2" />
-                        <Edge From="7" To="8" Label="Source1" />
+                        <Edge From="6" To="12" Label="Source2" />
+                        <Edge From="7" To="10" Label="Source1" />
                         <Edge From="8" To="9" Label="Source1" />
-                        <Edge From="9" To="12" Label="Source1" />
+                        <Edge From="9" To="10" Label="Source2" />
                         <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="12" Label="Source2" />
+                        <Edge From="11" To="12" Label="Source1" />
                         <Edge From="12" To="13" Label="Source1" />
                         <Edge From="13" To="14" Label="Source1" />
                         <Edge From="14" To="15" Label="Source1" />
@@ -2008,57 +2258,72 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                       </Edges>
                     </Workflow>
                   </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="StringProperty">
+                      <Value>C:\Users\2p_behavior\Desktop\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\</Value>
+                    </Combinator>
+                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
                   <Edge From="1" To="4" Label="Source1" />
-                  <Edge From="1" To="6" Label="Source1" />
-                  <Edge From="1" To="8" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="1" To="12" Label="Source1" />
+                  <Edge From="1" To="23" Label="Source1" />
+                  <Edge From="1" To="25" Label="Source1" />
+                  <Edge From="1" To="27" Label="Source1" />
+                  <Edge From="1" To="29" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="12" To="19" Label="Source1" />
-                  <Edge From="13" To="25" Label="Source2" />
-                  <Edge From="14" To="22" Label="Source2" />
-                  <Edge From="15" To="16" Label="Source1" />
-                  <Edge From="16" To="19" Label="Source3" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="15" Label="Source1" />
+                  <Edge From="7" To="36" Label="Source2" />
+                  <Edge From="8" To="33" Label="Source2" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="30" Label="Source3" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="30" Label="Source2" />
+                  <Edge From="13" To="41" Label="Source2" />
+                  <Edge From="14" To="15" Label="Source2" />
+                  <Edge From="15" To="17" Label="Source1" />
+                  <Edge From="16" To="17" Label="Source2" />
                   <Edge From="17" To="18" Label="Source1" />
-                  <Edge From="18" To="19" Label="Source2" />
+                  <Edge From="18" To="19" Label="Source1" />
                   <Edge From="19" To="20" Label="Source1" />
                   <Edge From="20" To="21" Label="Source1" />
                   <Edge From="21" To="22" Label="Source1" />
-                  <Edge From="21" To="31" Label="Source1" />
-                  <Edge From="22" To="23" Label="Source1" />
                   <Edge From="23" To="24" Label="Source1" />
-                  <Edge From="24" To="25" Label="Source1" />
                   <Edge From="25" To="26" Label="Source1" />
-                  <Edge From="26" To="27" Label="Source1" />
                   <Edge From="27" To="28" Label="Source1" />
-                  <Edge From="28" To="29" Label="Source1" />
-                  <Edge From="30" To="31" Label="Source2" />
+                  <Edge From="29" To="30" Label="Source1" />
+                  <Edge From="30" To="31" Label="Source1" />
                   <Edge From="31" To="32" Label="Source1" />
                   <Edge From="32" To="33" Label="Source1" />
+                  <Edge From="32" To="41" Label="Source1" />
+                  <Edge From="33" To="34" Label="Source1" />
                   <Edge From="34" To="35" Label="Source1" />
                   <Edge From="35" To="36" Label="Source1" />
-                  <Edge From="35" To="37" Label="Source1" />
-                  <Edge From="35" To="40" Label="Source1" />
-                  <Edge From="35" To="43" Label="Source1" />
-                  <Edge From="35" To="46" Label="Source1" />
+                  <Edge From="36" To="37" Label="Source1" />
                   <Edge From="37" To="38" Label="Source1" />
                   <Edge From="38" To="39" Label="Source1" />
-                  <Edge From="40" To="41" Label="Source1" />
+                  <Edge From="39" To="40" Label="Source1" />
                   <Edge From="41" To="42" Label="Source1" />
-                  <Edge From="43" To="44" Label="Source1" />
+                  <Edge From="42" To="43" Label="Source1" />
                   <Edge From="44" To="45" Label="Source1" />
-                  <Edge From="46" To="47" Label="Source1" />
+                  <Edge From="45" To="46" Label="Source1" />
+                  <Edge From="45" To="47" Label="Source1" />
+                  <Edge From="45" To="50" Label="Source1" />
+                  <Edge From="45" To="53" Label="Source1" />
+                  <Edge From="45" To="56" Label="Source1" />
                   <Edge From="47" To="48" Label="Source1" />
-                  <Edge From="49" To="50" Label="Source1" />
+                  <Edge From="48" To="49" Label="Source1" />
                   <Edge From="50" To="51" Label="Source1" />
+                  <Edge From="51" To="52" Label="Source1" />
+                  <Edge From="53" To="54" Label="Source1" />
+                  <Edge From="54" To="55" Label="Source1" />
+                  <Edge From="56" To="57" Label="Source1" />
+                  <Edge From="57" To="58" Label="Source1" />
+                  <Edge From="59" To="60" Label="Source1" />
+                  <Edge From="60" To="61" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -2210,7 +2475,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Subtract">
               <Operand xsi:type="FloatProperty">
-                <Value>0.1</Value>
+                <Value>0.0251762345</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -2223,7 +2488,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Divide">
               <Operand xsi:type="FloatProperty">
-                <Value>4.7</Value>
+                <Value>4.838872</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="MemberSelector">
@@ -2236,7 +2501,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Add">
               <Operand xsi:type="FloatProperty">
-                <Value>0</Value>
+                <Value>8</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2341,17 +2606,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
         <Name>MainRoom</Name>
         <Workflow>
           <Nodes>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>z pos</Name>
-            </Expression>
-            <Expression xsi:type="scr:ExpressionTransform">
-              <scr:Expression>-it+150</scr:Expression>
-            </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="TranslationZ" />
-              </PropertyMappings>
-            </Expression>
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="Value" DisplayName="TunnelWidth" />
             </Expression>
@@ -2396,24 +2650,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
               <PropertyMappings>
                 <Property Name="TranslationY" />
               </PropertyMappings>
-            </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="Value" />
-              </PropertyMappings>
-            </Expression>
-            <Expression xsi:type="Add">
-              <Operand xsi:type="FloatProperty">
-                <Value>3</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="TranslationY" />
-              </PropertyMappings>
-            </Expression>
-            <Expression xsi:type="scr:ExpressionTransform">
-              <scr:Expression>it/2</scr:Expression>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -2502,14 +2738,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>BG_0.04_0.32_100</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-72.35745</TranslationZ>
+                          <TranslationZ>60.918396</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2579,14 +2815,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>BG_0.04_0.32_100</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-272.357452</TranslationZ>
+                          <TranslationZ>-139.0816</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2656,14 +2892,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>BG_0.04_0.32_100</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-10372.3574</TranslationZ>
+                          <TranslationZ>-10239.082</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2733,14 +2969,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>BG_0.04_0.32_100</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>127.642548</TranslationZ>
+                          <TranslationZ>260.9184</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2843,7 +3079,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>51</Value>
+                      <Value>72</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -2860,6 +3096,11 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
                       <Value>12.5</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="Subtract">
+                    <Operand xsi:type="FloatProperty">
+                      <Value>11.5</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -2881,282 +3122,8 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                     <Name>Left_Stim</Name>
                     <Workflow>
                       <Nodes>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>Draw3DStim</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="ExternalizedMapping">
-                            <Property Name="TranslationZ" />
-                            <Property Name="TranslationX" />
-                            <Property Name="TranslationY" />
-                            <Property Name="RotationZ" />
-                            <Property Name="RotationY" />
-                            <Property Name="RotationX" />
-                            <Property Name="ScaleX" />
-                            <Property Name="ScaleY" />
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>tex_Stim_Left</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="TextureName" />
-                            </PropertyMappings>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>StimContrast</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Multiply">
-                            <Operand xsi:type="IntProperty">
-                              <Value>100</Value>
-                            </Operand>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToInt64(Math.Round(it))</scr:Expression>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Index" />
-                            </PropertyMappings>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
-                            <Combinator xsi:type="gl:BindTexture">
-                              <gl:TextureSlot>Texture0</gl:TextureSlot>
-                              <gl:ShaderName>TexturedModel</gl:ShaderName>
-                              <gl:TextureName>A</gl:TextureName>
-                              <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                              <gl:Index>10</gl:Index>
-                            </Combinator>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>tex_Stim_Left</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="TextureName" />
-                            </PropertyMappings>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
-                            <Combinator xsi:type="gl:BindTexture">
-                              <gl:TextureSlot>Texture0</gl:TextureSlot>
-                              <gl:ShaderName>TexturedModel</gl:ShaderName>
-                              <gl:TextureName>A</gl:TextureName>
-                              <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            </Combinator>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
-                            <Combinator xsi:type="gl:BindTexture">
-                              <gl:TextureSlot>Texture0</gl:TextureSlot>
-                              <gl:ShaderName>TexturedModel</gl:ShaderName>
-                              <gl:TextureName>A_000</gl:TextureName>
-                              <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            </Combinator>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                            <TranslationX>-7.49</TranslationX>
-                            <TranslationY>3</TranslationY>
-                            <TranslationZ>-63.4744949</TranslationZ>
-                            <ScaleX>25</ScaleX>
-                            <ScaleY>8</ScaleY>
-                            <ScaleZ>0</ScaleZ>
-                            <MeshName>Plane</MeshName>
-                            <Ambient>
-                              <X>1</X>
-                              <Y>1</Y>
-                              <Z>1</Z>
-                            </Ambient>
-                            <Diffuse>
-                              <X>0</X>
-                              <Y>0</Y>
-                              <Z>0</Z>
-                            </Diffuse>
-                            <Specular>
-                              <X>1</X>
-                              <Y>1</Y>
-                              <Z>1</Z>
-                            </Specular>
-                            <SpecularExponent>10</SpecularExponent>
-                            <RotationZ>0</RotationZ>
-                            <RotationY>90</RotationY>
-                            <RotationX>0</RotationX>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="WorkflowOutput" />
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="ExternalizedMapping">
-                            <Property Name="TranslationZ" />
-                            <Property Name="TranslationX" />
-                            <Property Name="TranslationY" />
-                            <Property Name="RotationZ" />
-                            <Property Name="RotationY" />
-                            <Property Name="RotationX" />
-                            <Property Name="ScaleX" />
-                            <Property Name="ScaleY" />
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="ExternalizedMapping">
-                            <Property Name="Name" />
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>Textures</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="MemberSelector">
-                            <Selector>Id</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
-                            <Combinator xsi:type="gl:BindTexture">
-                              <gl:TextureSlot>Texture0</gl:TextureSlot>
-                              <gl:ShaderName>TexturedModel</gl:ShaderName>
-                              <gl:TextureName />
-                              <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            </Combinator>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                            <TranslationX>-7.49</TranslationX>
-                            <TranslationY>3</TranslationY>
-                            <TranslationZ>8.552452</TranslationZ>
-                            <ScaleX>25</ScaleX>
-                            <ScaleY>8</ScaleY>
-                            <ScaleZ>0</ScaleZ>
-                            <MeshName>Plane</MeshName>
-                            <Ambient>
-                              <X>1</X>
-                              <Y>1</Y>
-                              <Z>1</Z>
-                            </Ambient>
-                            <Diffuse>
-                              <X>0</X>
-                              <Y>0</Y>
-                              <Z>0</Z>
-                            </Diffuse>
-                            <Specular>
-                              <X>1</X>
-                              <Y>1</Y>
-                              <Z>1</Z>
-                            </Specular>
-                            <SpecularExponent>10</SpecularExponent>
-                            <RotationZ>0</RotationZ>
-                            <RotationY>90</RotationY>
-                            <RotationX>0</RotationX>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="WorkflowOutput" />
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="ExternalizedMapping">
-                            <Property Name="TranslationZ" />
-                            <Property Name="TranslationX" />
-                            <Property Name="TranslationY" />
-                            <Property Name="RotationZ" />
-                            <Property Name="RotationY" />
-                            <Property Name="RotationX" />
-                            <Property Name="ScaleX" />
-                            <Property Name="ScaleY" />
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="ExternalizedMapping">
-                            <Property Name="Name" />
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>Textures</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="MemberSelector">
-                            <Selector>Id</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
-                            <Combinator xsi:type="gl:BindTexture">
-                              <gl:TextureSlot>Texture0</gl:TextureSlot>
-                              <gl:ShaderName>TexturedModel</gl:ShaderName>
-                              <gl:TextureName />
-                              <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            </Combinator>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                            <TranslationX>-7.49</TranslationX>
-                            <TranslationY>3</TranslationY>
-                            <TranslationZ>8.552452</TranslationZ>
-                            <ScaleX>25</ScaleX>
-                            <ScaleY>8</ScaleY>
-                            <ScaleZ>0</ScaleZ>
-                            <MeshName>Plane</MeshName>
-                            <Ambient>
-                              <X>1</X>
-                              <Y>1</Y>
-                              <Z>1</Z>
-                            </Ambient>
-                            <Diffuse>
-                              <X>0</X>
-                              <Y>0</Y>
-                              <Z>0</Z>
-                            </Diffuse>
-                            <Specular>
-                              <X>1</X>
-                              <Y>1</Y>
-                              <Z>1</Z>
-                            </Specular>
-                            <SpecularExponent>10</SpecularExponent>
-                            <RotationZ>0</RotationZ>
-                            <RotationY>90</RotationY>
-                            <RotationX>0</RotationX>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="WorkflowOutput" />
-                        </Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>Draw3DStim</Name>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="ExternalizedMapping">
-                            <Property Name="Name" />
-                          </Builder>
                         </Expression>
                         <Expression xsi:type="ExternalizedMapping">
                           <Property Name="TranslationZ" />
@@ -3169,31 +3136,25 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Property Name="ScaleY" />
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>Textures</Name>
+                          <Name>tex_Stim_Left</Name>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:WithLatestFrom" />
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject" TypeArguments="gl:Texture">
-                            <Name>Textures</Name>
-                          </Builder>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="TextureName" />
+                          </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName />
+                            <gl:TextureName>Ori45</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.49</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>8.552452</TranslationZ>
+                          <TranslationZ>-3.83255768</TranslationZ>
                           <ScaleX>25</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3219,47 +3180,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <RotationX>0</RotationX>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
-                        <Expression xsi:type="SubscribeSubject" TypeArguments="gl:Texture">
-                          <Name>Textures</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector" />
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="8" Label="Source1" />
-                        <Edge From="1" To="13" Label="Source2" />
+                        <Edge From="0" To="4" Label="Source1" />
+                        <Edge From="1" To="5" Label="Source2" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="8" Label="Source3" />
+                        <Edge From="3" To="4" Label="Source2" />
                         <Edge From="4" To="5" Label="Source1" />
                         <Edge From="5" To="6" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source1" />
-                        <Edge From="7" To="8" Label="Source2" />
-                        <Edge From="8" To="11" Label="Source1" />
-                        <Edge From="9" To="10" Label="Source1" />
-                        <Edge From="10" To="11" Label="Source2" />
-                        <Edge From="11" To="12" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="13" To="14" Label="Source1" />
-                        <Edge From="15" To="20" Label="Source2" />
-                        <Edge From="16" To="17" Label="Source1" />
-                        <Edge From="17" To="18" Label="Source1" />
-                        <Edge From="18" To="19" Label="Source1" />
-                        <Edge From="19" To="20" Label="Source1" />
-                        <Edge From="20" To="21" Label="Source1" />
-                        <Edge From="22" To="27" Label="Source2" />
-                        <Edge From="23" To="24" Label="Source1" />
-                        <Edge From="24" To="25" Label="Source1" />
-                        <Edge From="25" To="26" Label="Source1" />
-                        <Edge From="26" To="27" Label="Source1" />
-                        <Edge From="27" To="28" Label="Source1" />
-                        <Edge From="29" To="33" Label="Source1" />
-                        <Edge From="30" To="35" Label="Source2" />
-                        <Edge From="31" To="37" Label="Source2" />
-                        <Edge From="32" To="33" Label="Source2" />
-                        <Edge From="33" To="34" Label="Source1" />
-                        <Edge From="34" To="35" Label="Source1" />
-                        <Edge From="35" To="36" Label="Source1" />
-                        <Edge From="36" To="37" Label="Source1" />
-                        <Edge From="37" To="38" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -3270,13 +3198,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   <Edge From="2" To="3" Label="Source1" />
                   <Edge From="3" To="7" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
                   <Edge From="6" To="7" Label="Source2" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="8" To="11" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source2" />
-                  <Edge From="10" To="11" Label="Source3" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="12" Label="Source1" />
+                  <Edge From="10" To="12" Label="Source2" />
+                  <Edge From="11" To="12" Label="Source3" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -3349,14 +3278,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>BG_0.04_0.32_100</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-72.35745</TranslationZ>
+                          <TranslationZ>60.918396</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3426,14 +3355,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>BG_0.04_0.32_100</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-272.357452</TranslationZ>
+                          <TranslationZ>-139.0816</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3503,14 +3432,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>BG_0.04_0.32_100</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-10372.3574</TranslationZ>
+                          <TranslationZ>-10239.082</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3580,14 +3509,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>BG_0.04_0.32_100</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>127.642548</TranslationZ>
+                          <TranslationZ>260.9184</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3684,7 +3613,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>51</Value>
+                      <Value>72</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -3701,6 +3630,11 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
                       <Value>12.5</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="Subtract">
+                    <Operand xsi:type="FloatProperty">
+                      <Value>11.5</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -3736,22 +3670,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Property Name="ScaleY" />
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>StimContrast</Name>
-                        </Expression>
-                        <Expression xsi:type="Multiply">
-                          <Operand xsi:type="IntProperty">
-                            <Value>100</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="scr:ExpressionTransform">
-                          <scr:Expression>Convert.ToInt64(Math.Round(it))</scr:Expression>
-                        </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="Index" />
-                          </PropertyMappings>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
                           <Name>tex_Stim_Right</Name>
                         </Expression>
                         <Expression xsi:type="PropertyMapping">
@@ -3763,15 +3681,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>A</gl:TextureName>
+                            <gl:TextureName>stim</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>30</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.49</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-63.4744949</TranslationZ>
+                          <TranslationZ>-3.83255768</TranslationZ>
                           <ScaleX>25</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3799,16 +3716,12 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="8" Label="Source1" />
-                        <Edge From="1" To="9" Label="Source2" />
+                        <Edge From="0" To="4" Label="Source1" />
+                        <Edge From="1" To="5" Label="Source2" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source2" />
                         <Edge From="4" To="5" Label="Source1" />
-                        <Edge From="5" To="8" Label="Source2" />
-                        <Edge From="6" To="7" Label="Source1" />
-                        <Edge From="7" To="8" Label="Source3" />
-                        <Edge From="8" To="9" Label="Source1" />
-                        <Edge From="9" To="10" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -3819,571 +3732,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   <Edge From="2" To="3" Label="Source1" />
                   <Edge From="3" To="7" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
                   <Edge From="6" To="7" Label="Source2" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="8" To="11" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source2" />
-                  <Edge From="10" To="11" Label="Source3" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="ScaleX" />
-              </PropertyMappings>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>Ceiling</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Draw3DStim</Name>
-                  </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="TranslationZ" />
-                    <Property Name="TranslationX" />
-                    <Property Name="TranslationY" />
-                    <Property Name="RotationZ" />
-                    <Property Name="RotationY" />
-                    <Property Name="RotationX" />
-                    <Property Name="ScaleX" />
-                    <Property Name="ScaleY" />
-                  </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="TextureName" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="gl:BindTexture">
-                      <gl:TextureSlot>Texture0</gl:TextureSlot>
-                      <gl:ShaderName>TexturedModel</gl:ShaderName>
-                      <gl:TextureName>gray</gl:TextureName>
-                      <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                    <TranslationX>0</TranslationX>
-                    <TranslationY>7</TranslationY>
-                    <TranslationZ>149.974487</TranslationZ>
-                    <ScaleX>15</ScaleX>
-                    <ScaleY>10000</ScaleY>
-                    <ScaleZ>0</ScaleZ>
-                    <MeshName>Plane</MeshName>
-                    <Ambient>
-                      <X>1</X>
-                      <Y>1</Y>
-                      <Z>1</Z>
-                    </Ambient>
-                    <Diffuse>
-                      <X>0</X>
-                      <Y>0</Y>
-                      <Z>0</Z>
-                    </Diffuse>
-                    <Specular>
-                      <X>1</X>
-                      <Y>1</Y>
-                      <Z>1</Z>
-                    </Specular>
-                    <SpecularExponent>10</SpecularExponent>
-                    <RotationZ>0</RotationZ>
-                    <RotationY>0</RotationY>
-                    <RotationX>90</RotationX>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="GroupWorkflow">
-                      <Name>DrawStripeModel</Name>
-                      <Description>Draws a textured and transformed 3D model stimulus.</Description>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="WorkflowInput">
-                            <Name>Source1</Name>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>ViewMatrix</Selector>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="X" DisplayName="TranslationX" />
-                            <Property Name="Y" DisplayName="TranslationY" />
-                            <Property Name="Z" DisplayName="TranslationZ" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:Translate">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:X>0</gl:X>
-                              <gl:Y>6</gl:Y>
-                              <gl:Z>52</gl:Z>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="X" DisplayName="ScaleX" />
-                            <Property Name="Y" DisplayName="ScaleY" />
-                            <Property Name="Z" DisplayName="ScaleZ" />
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="RotationZ" Description="The rotation about the z-axis." />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="bv:AngleProperty">
-                              <bv:Value>0</bv:Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Angle" />
-                            </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:RotateZ">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:Angle>0</gl:Angle>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="RotationY" Description="The rotation about the y-axis." />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="bv:AngleProperty">
-                              <bv:Value>0</bv:Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Angle" />
-                            </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:RotateY">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:Angle>0</gl:Angle>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="RotationX" Description="The rotation about the x-axis." />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="bv:AngleProperty">
-                              <bv:Value>90</bv:Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Angle" />
-                            </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:RotateX">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:Angle>1.57079637</gl:Angle>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:Scale">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:X>20</gl:X>
-                              <gl:Y>900</gl:Y>
-                              <gl:Z>0</gl:Z>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="ShaderName" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:UpdateUniform">
-                              <gl:UniformName>modelview</gl:UniformName>
-                              <gl:ShaderName>ColorModel</gl:ShaderName>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>ProjectionMatrix</Selector>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="MeshName" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:UpdateUniform">
-                              <gl:UniformName>projection</gl:UniformName>
-                              <gl:ShaderName>ColorModel</gl:ShaderName>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="Scale" />
-                          </Expression>
-                          <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix2,p3:Vector2">
-                            <MemberName>Row1</MemberName>
-                            <Value>
-                              <X>1</X>
-                              <Y>1</Y>
-                            </Value>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="Color" />
-                          </Expression>
-                          <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix4,p3:Vector4">
-                            <MemberName>Row0</MemberName>
-                            <Value>
-                              <X>0.3</X>
-                              <Y>0.3</Y>
-                              <Z>0.3</Z>
-                              <W>1</W>
-                            </Value>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:UpdateUniform">
-                              <gl:UniformName>color</gl:UniformName>
-                              <gl:ShaderName>ColorModel</gl:ShaderName>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="BackColor" />
-                          </Expression>
-                          <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix4,p3:Vector4">
-                            <MemberName>Row0</MemberName>
-                            <Value>
-                              <X>1</X>
-                              <Y>1</Y>
-                              <Z>1</Z>
-                              <W>1</W>
-                            </Value>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:DrawMesh">
-                              <gl:ShaderName>ColorModel</gl:ShaderName>
-                              <gl:MeshName>Plane</gl:MeshName>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="0" To="20" Label="Source1" />
-                          <Edge From="1" To="3" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source2" />
-                          <Edge From="3" To="8" Label="Source1" />
-                          <Edge From="4" To="17" Label="Source2" />
-                          <Edge From="5" To="6" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                          <Edge From="7" To="8" Label="Source2" />
-                          <Edge From="8" To="12" Label="Source1" />
-                          <Edge From="9" To="10" Label="Source1" />
-                          <Edge From="10" To="11" Label="Source1" />
-                          <Edge From="11" To="12" Label="Source2" />
-                          <Edge From="12" To="16" Label="Source1" />
-                          <Edge From="13" To="14" Label="Source1" />
-                          <Edge From="14" To="15" Label="Source1" />
-                          <Edge From="15" To="16" Label="Source2" />
-                          <Edge From="16" To="17" Label="Source1" />
-                          <Edge From="17" To="19" Label="Source1" />
-                          <Edge From="18" To="19" Label="Source2" />
-                          <Edge From="18" To="31" Label="Source2" />
-                          <Edge From="18" To="22" Label="Source2" />
-                          <Edge From="18" To="28" Label="Source2" />
-                          <Edge From="19" To="23" Label="Source1" />
-                          <Edge From="20" To="22" Label="Source1" />
-                          <Edge From="21" To="31" Label="Source3" />
-                          <Edge From="22" To="23" Label="Source2" />
-                          <Edge From="23" To="25" Label="Source1" />
-                          <Edge From="24" To="25" Label="Source2" />
-                          <Edge From="25" To="27" Label="Source1" />
-                          <Edge From="26" To="27" Label="Source2" />
-                          <Edge From="27" To="28" Label="Source1" />
-                          <Edge From="28" To="30" Label="Source1" />
-                          <Edge From="29" To="30" Label="Source2" />
-                          <Edge From="30" To="31" Label="Source1" />
-                          <Edge From="31" To="32" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="SubscribeSubject">
-                      <Name>Draw3DStim</Name>
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="ExternalizedMapping">
-                      <Property Name="TextureName" />
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="Combinator">
-                      <Combinator xsi:type="gl:BindTexture">
-                        <gl:TextureSlot>Texture0</gl:TextureSlot>
-                        <gl:ShaderName>TexturedModel</gl:ShaderName>
-                        <gl:TextureName>gray</gl:TextureName>
-                        <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                      </Combinator>
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="ExternalizedMapping">
-                      <Property Name="TranslationZ" />
-                      <Property Name="TranslationX" />
-                      <Property Name="TranslationY" />
-                      <Property Name="RotationZ" />
-                      <Property Name="RotationY" />
-                      <Property Name="RotationX" />
-                      <Property Name="ScaleX" />
-                      <Property Name="ScaleY" />
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                      <TranslationX>0</TranslationX>
-                      <TranslationY>-6</TranslationY>
-                      <TranslationZ>312</TranslationZ>
-                      <ScaleX>20</ScaleX>
-                      <ScaleY>1500</ScaleY>
-                      <ScaleZ>0</ScaleZ>
-                      <MeshName>Plane</MeshName>
-                      <Ambient>
-                        <X>1</X>
-                        <Y>1</Y>
-                        <Z>1</Z>
-                      </Ambient>
-                      <Diffuse>
-                        <X>0</X>
-                        <Y>0</Y>
-                        <Z>0</Z>
-                      </Diffuse>
-                      <Specular>
-                        <X>1</X>
-                        <Y>1</Y>
-                        <Z>1</Z>
-                      </Specular>
-                      <SpecularExponent>10</SpecularExponent>
-                      <RotationZ>0</RotationZ>
-                      <RotationY>0</RotationY>
-                      <RotationX>90</RotationX>
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="WorkflowOutput" />
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="GroupWorkflow">
-                      <Name>DrawStripeModel</Name>
-                      <Description>Draws a textured and transformed 3D model stimulus.</Description>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="WorkflowInput">
-                            <Name>Source1</Name>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>ViewMatrix</Selector>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="X" DisplayName="TranslationX" />
-                            <Property Name="Y" DisplayName="TranslationY" />
-                            <Property Name="Z" DisplayName="TranslationZ" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:Translate">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:X>0</gl:X>
-                              <gl:Y>-6</gl:Y>
-                              <gl:Z>148</gl:Z>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="X" DisplayName="ScaleX" />
-                            <Property Name="Y" DisplayName="ScaleY" />
-                            <Property Name="Z" DisplayName="ScaleZ" />
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="RotationZ" Description="The rotation about the z-axis." />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="bv:AngleProperty">
-                              <bv:Value>0</bv:Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Angle" />
-                            </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:RotateZ">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:Angle>0</gl:Angle>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="RotationY" Description="The rotation about the y-axis." />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="bv:AngleProperty">
-                              <bv:Value>0</bv:Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Angle" />
-                            </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:RotateY">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:Angle>0</gl:Angle>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="RotationX" Description="The rotation about the x-axis." />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="bv:AngleProperty">
-                              <bv:Value>90</bv:Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Angle" />
-                            </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:RotateX">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:Angle>1.57079637</gl:Angle>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:Scale">
-                              <gl:Order>Prepend</gl:Order>
-                              <gl:X>20</gl:X>
-                              <gl:Y>1500</gl:Y>
-                              <gl:Z>0</gl:Z>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="ShaderName" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:UpdateUniform">
-                              <gl:UniformName>modelview</gl:UniformName>
-                              <gl:ShaderName>ColorModel</gl:ShaderName>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>ProjectionMatrix</Selector>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="MeshName" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:UpdateUniform">
-                              <gl:UniformName>projection</gl:UniformName>
-                              <gl:ShaderName>ColorModel</gl:ShaderName>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="Scale" />
-                          </Expression>
-                          <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix2,p3:Vector2">
-                            <MemberName>Row1</MemberName>
-                            <Value>
-                              <X>1</X>
-                              <Y>1</Y>
-                            </Value>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="Color" />
-                          </Expression>
-                          <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix4,p3:Vector4">
-                            <MemberName>Row0</MemberName>
-                            <Value>
-                              <X>0.3</X>
-                              <Y>0.3</Y>
-                              <Z>0.3</Z>
-                              <W>1</W>
-                            </Value>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:UpdateUniform">
-                              <gl:UniformName>color</gl:UniformName>
-                              <gl:ShaderName>ColorModel</gl:ShaderName>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="BackColor" />
-                          </Expression>
-                          <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix4,p3:Vector4">
-                            <MemberName>Row0</MemberName>
-                            <Value>
-                              <X>1</X>
-                              <Y>1</Y>
-                              <Z>1</Z>
-                              <W>1</W>
-                            </Value>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:DrawMesh">
-                              <gl:ShaderName>ColorModel</gl:ShaderName>
-                              <gl:MeshName>Plane</gl:MeshName>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="0" To="20" Label="Source1" />
-                          <Edge From="1" To="3" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source2" />
-                          <Edge From="3" To="8" Label="Source1" />
-                          <Edge From="4" To="17" Label="Source2" />
-                          <Edge From="5" To="6" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                          <Edge From="7" To="8" Label="Source2" />
-                          <Edge From="8" To="12" Label="Source1" />
-                          <Edge From="9" To="10" Label="Source1" />
-                          <Edge From="10" To="11" Label="Source1" />
-                          <Edge From="11" To="12" Label="Source2" />
-                          <Edge From="12" To="16" Label="Source1" />
-                          <Edge From="13" To="14" Label="Source1" />
-                          <Edge From="14" To="15" Label="Source1" />
-                          <Edge From="15" To="16" Label="Source2" />
-                          <Edge From="16" To="17" Label="Source1" />
-                          <Edge From="17" To="19" Label="Source1" />
-                          <Edge From="18" To="19" Label="Source2" />
-                          <Edge From="18" To="31" Label="Source2" />
-                          <Edge From="18" To="22" Label="Source2" />
-                          <Edge From="18" To="28" Label="Source2" />
-                          <Edge From="19" To="23" Label="Source1" />
-                          <Edge From="20" To="22" Label="Source1" />
-                          <Edge From="21" To="31" Label="Source3" />
-                          <Edge From="22" To="23" Label="Source2" />
-                          <Edge From="23" To="25" Label="Source1" />
-                          <Edge From="24" To="25" Label="Source2" />
-                          <Edge From="25" To="27" Label="Source1" />
-                          <Edge From="26" To="27" Label="Source2" />
-                          <Edge From="27" To="28" Label="Source1" />
-                          <Edge From="28" To="30" Label="Source1" />
-                          <Edge From="29" To="30" Label="Source2" />
-                          <Edge From="30" To="31" Label="Source1" />
-                          <Edge From="31" To="32" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
-                  </Expression>
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="3" Label="Source1" />
-                  <Edge From="1" To="4" Label="Source2" />
-                  <Edge From="2" To="3" Label="Source2" />
-                  <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="7" To="9" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source2" />
-                  <Edge From="9" To="11" Label="Source1" />
-                  <Edge From="10" To="11" Label="Source2" />
-                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="12" Label="Source1" />
+                  <Edge From="10" To="12" Label="Source2" />
+                  <Edge From="11" To="12" Label="Source3" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -4413,7 +3769,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                     <Property Name="TranslationX" />
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>tex_BG_1</Name>
+                    <Name>tex_Floor</Name>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -4453,14 +3809,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>rocks</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>127.642548</TranslationZ>
+                          <TranslationZ>260.9184</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4530,14 +3886,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>rocks</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>-72.35745</TranslationZ>
+                          <TranslationZ>60.918396</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4607,14 +3963,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>rocks</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>-272.357452</TranslationZ>
+                          <TranslationZ>-139.0816</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4684,14 +4040,14 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>TexturedModel</gl:ShaderName>
-                            <gl:TextureName>BG</gl:TextureName>
+                            <gl:TextureName>rocks</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>-10372.3574</TranslationZ>
+                          <TranslationZ>-10239.082</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4764,128 +4120,558 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="SubscribeSubject">
-                <Name>Draw3DStim</Name>
-              </Builder>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TotDistance</Name>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                <TranslationX>-2</TranslationX>
-                <TranslationY>0</TranslationY>
-                <TranslationZ>0</TranslationZ>
-                <ScaleX>10</ScaleX>
-                <ScaleY>10</ScaleY>
-                <ScaleZ>10</ScaleZ>
-                <MeshName>Plane</MeshName>
-                <Ambient>
-                  <X>0.2</X>
-                  <Y>0.2</Y>
-                  <Z>0.2</Z>
-                </Ambient>
-                <Diffuse>
-                  <X>0.8</X>
-                  <Y>0.8</Y>
-                  <Z>0.8</Z>
-                </Diffuse>
-                <Specular>
-                  <X>0.8</X>
-                  <Y>0.8</Y>
-                  <Z>0.8</Z>
-                </Specular>
-                <SpecularExponent>10</SpecularExponent>
-                <RotationZ>0</RotationZ>
-                <RotationY>0</RotationY>
-                <RotationX>0</RotationX>
-              </Builder>
+            <Expression xsi:type="Mod">
+              <Operand xsi:type="FloatProperty">
+                <Value>3000</Value>
+              </Operand>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="SubscribeSubject">
-                <Name>Draw3DStim</Name>
-              </Builder>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>Ceiling</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Subtract">
+                    <Operand xsi:type="FloatProperty">
+                      <Value>1500</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TranslationZ" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>tex_Ceiling</Name>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TextureName" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="GroupWorkflow">
+                    <Name>Ceiling_0</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Draw3DStim</Name>
+                        </Expression>
+                        <Expression xsi:type="ExternalizedMapping">
+                          <Property Name="TranslationZ" />
+                          <Property Name="TranslationX" />
+                          <Property Name="TranslationY" />
+                          <Property Name="RotationZ" />
+                          <Property Name="RotationY" />
+                          <Property Name="RotationX" />
+                          <Property Name="ScaleX" />
+                          <Property Name="ScaleY" />
+                        </Expression>
+                        <Expression xsi:type="ExternalizedMapping">
+                          <Property Name="TextureName" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="gl:BindTexture">
+                            <gl:TextureSlot>Texture0</gl:TextureSlot>
+                            <gl:ShaderName>TexturedModel</gl:ShaderName>
+                            <gl:TextureName>clouds</gl:TextureName>
+                            <gl:TextureTarget>Texture2D</gl:TextureTarget>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+                          <TranslationX>0</TranslationX>
+                          <TranslationY>150</TranslationY>
+                          <TranslationZ>-939.0816</TranslationZ>
+                          <ScaleX>3000</ScaleX>
+                          <ScaleY>3000</ScaleY>
+                          <ScaleZ>0</ScaleZ>
+                          <MeshName>Plane</MeshName>
+                          <Ambient>
+                            <X>1</X>
+                            <Y>1</Y>
+                            <Z>1</Z>
+                          </Ambient>
+                          <Diffuse>
+                            <X>0</X>
+                            <Y>0</Y>
+                            <Z>0</Z>
+                          </Diffuse>
+                          <Specular>
+                            <X>1</X>
+                            <Y>1</Y>
+                            <Z>1</Z>
+                          </Specular>
+                          <SpecularExponent>10</SpecularExponent>
+                          <RotationZ>0</RotationZ>
+                          <RotationY>0</RotationY>
+                          <RotationX>90</RotationX>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="3" Label="Source1" />
+                        <Edge From="1" To="4" Label="Source2" />
+                        <Edge From="2" To="3" Label="Source2" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="Subtract">
+                    <Operand xsi:type="FloatProperty">
+                      <Value>4500</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TranslationZ" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="GroupWorkflow">
+                    <Name>Ceiling_1</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Draw3DStim</Name>
+                        </Expression>
+                        <Expression xsi:type="ExternalizedMapping">
+                          <Property Name="TranslationZ" />
+                          <Property Name="TranslationX" />
+                          <Property Name="TranslationY" />
+                          <Property Name="RotationZ" />
+                          <Property Name="RotationY" />
+                          <Property Name="RotationX" />
+                          <Property Name="ScaleX" />
+                          <Property Name="ScaleY" />
+                        </Expression>
+                        <Expression xsi:type="ExternalizedMapping">
+                          <Property Name="TextureName" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="gl:BindTexture">
+                            <gl:TextureSlot>Texture0</gl:TextureSlot>
+                            <gl:ShaderName>TexturedModel</gl:ShaderName>
+                            <gl:TextureName>clouds</gl:TextureName>
+                            <gl:TextureTarget>Texture2D</gl:TextureTarget>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+                          <TranslationX>0</TranslationX>
+                          <TranslationY>250</TranslationY>
+                          <TranslationZ>-3939.08154</TranslationZ>
+                          <ScaleX>3000</ScaleX>
+                          <ScaleY>3000</ScaleY>
+                          <ScaleZ>0</ScaleZ>
+                          <MeshName>Plane</MeshName>
+                          <Ambient>
+                            <X>1</X>
+                            <Y>1</Y>
+                            <Z>1</Z>
+                          </Ambient>
+                          <Diffuse>
+                            <X>0</X>
+                            <Y>0</Y>
+                            <Z>0</Z>
+                          </Diffuse>
+                          <Specular>
+                            <X>1</X>
+                            <Y>1</Y>
+                            <Z>1</Z>
+                          </Specular>
+                          <SpecularExponent>10</SpecularExponent>
+                          <RotationZ>0</RotationZ>
+                          <RotationY>0</RotationY>
+                          <RotationX>90</RotationX>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="3" Label="Source1" />
+                        <Edge From="1" To="4" Label="Source2" />
+                        <Edge From="2" To="3" Label="Source2" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>Draw3DStim</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="ExternalizedMapping">
+                      <Property Name="TranslationZ" />
+                      <Property Name="TranslationX" />
+                      <Property Name="TranslationY" />
+                      <Property Name="RotationZ" />
+                      <Property Name="RotationY" />
+                      <Property Name="RotationX" />
+                      <Property Name="ScaleX" />
+                      <Property Name="ScaleY" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="ExternalizedMapping">
+                      <Property Name="TextureName" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="gl:BindTexture">
+                        <gl:TextureSlot>Texture0</gl:TextureSlot>
+                        <gl:ShaderName>TexturedModel</gl:ShaderName>
+                        <gl:TextureName>clouds</gl:TextureName>
+                        <gl:TextureTarget>Texture2D</gl:TextureTarget>
+                      </Combinator>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+                      <TranslationX>0</TranslationX>
+                      <TranslationY>200</TranslationY>
+                      <TranslationZ>218.854263</TranslationZ>
+                      <ScaleX>5000</ScaleX>
+                      <ScaleY>5000</ScaleY>
+                      <ScaleZ>0</ScaleZ>
+                      <MeshName>Plane</MeshName>
+                      <Ambient>
+                        <X>1</X>
+                        <Y>1</Y>
+                        <Z>1</Z>
+                      </Ambient>
+                      <Diffuse>
+                        <X>0</X>
+                        <Y>0</Y>
+                        <Z>0</Z>
+                      </Diffuse>
+                      <Specular>
+                        <X>1</X>
+                        <Y>1</Y>
+                        <Z>1</Z>
+                      </Specular>
+                      <SpecularExponent>10</SpecularExponent>
+                      <RotationZ>0</RotationZ>
+                      <RotationY>0</RotationY>
+                      <RotationX>90</RotationX>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="WorkflowOutput" />
+                  </Expression>
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="0" To="6" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="5" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="9" To="12" Label="Source1" />
+                  <Edge From="10" To="13" Label="Source2" />
+                  <Edge From="11" To="12" Label="Source2" />
+                  <Edge From="12" To="13" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source1" />
+                </Edges>
+              </Workflow>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawQuad.bonsai">
-                <ExtentX>1</ExtentX>
-                <ExtentY>1</ExtentY>
-                <LocationX>0</LocationX>
-                <LocationY>0</LocationY>
-                <Layer>0</Layer>
-                <Angle>0</Angle>
-                <ColorR>1</ColorR>
-                <ColorG>1</ColorG>
-                <ColorB>1</ColorB>
-                <ColorA>1</ColorA>
-              </Builder>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw3DStim</Name>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.SphereMapping.bonsai">
-                <FaceSize xsi:nil="true" />
-                <ClearColor>Gray</ClearColor>
-                <Width xsi:nil="true" />
-                <Height xsi:nil="true" />
-                <RotationZ>0</RotationZ>
-                <RotationY>0</RotationY>
-                <RotationX>0</RotationX>
-              </Builder>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>fog</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>-7.48</TranslationX>
+              <TranslationY>3</TranslationY>
+              <TranslationZ>-20</TranslationZ>
+              <ScaleX>40</ScaleX>
+              <ScaleY>8</ScaleY>
+              <ScaleZ>0</ScaleZ>
+              <MeshName>Plane</MeshName>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Diffuse>
+              <Specular>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <RotationZ>0</RotationZ>
+              <RotationY>90</RotationY>
+              <RotationX>0</RotationX>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw3DStim</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>fog</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>7.48</TranslationX>
+              <TranslationY>3</TranslationY>
+              <TranslationZ>-20</TranslationZ>
+              <ScaleX>40</ScaleX>
+              <ScaleY>8</ScaleY>
+              <ScaleZ>0</ScaleZ>
+              <MeshName>Plane</MeshName>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Diffuse>
+              <Specular>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <RotationZ>0</RotationZ>
+              <RotationY>90</RotationY>
+              <RotationX>0</RotationX>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw3DStim</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>fog</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>0</TranslationX>
+              <TranslationY>-0.9</TranslationY>
+              <TranslationZ>-20</TranslationZ>
+              <ScaleX>40</ScaleX>
+              <ScaleY>20</ScaleY>
+              <ScaleZ>0</ScaleZ>
+              <MeshName>Plane</MeshName>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Diffuse>
+              <Specular>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <RotationZ>0</RotationZ>
+              <RotationY>90</RotationY>
+              <RotationX>90</RotationX>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw3DStim</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>gray128</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>-7.47</TranslationX>
+              <TranslationY>3</TranslationY>
+              <TranslationZ>-140</TranslationZ>
+              <ScaleX>200</ScaleX>
+              <ScaleY>8</ScaleY>
+              <ScaleZ>0</ScaleZ>
+              <MeshName>Plane</MeshName>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Diffuse>
+              <Specular>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <RotationZ>0</RotationZ>
+              <RotationY>90</RotationY>
+              <RotationX>0</RotationX>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw3DStim</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>gray128</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>7.48</TranslationX>
+              <TranslationY>3</TranslationY>
+              <TranslationZ>-140</TranslationZ>
+              <ScaleX>200</ScaleX>
+              <ScaleY>8</ScaleY>
+              <ScaleZ>0</ScaleZ>
+              <MeshName>Plane</MeshName>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Diffuse>
+              <Specular>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <RotationZ>0</RotationZ>
+              <RotationY>90</RotationY>
+              <RotationX>0</RotationX>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw3DStim</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>gray128</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>0</TranslationX>
+              <TranslationY>-0.9</TranslationY>
+              <TranslationZ>-140</TranslationZ>
+              <ScaleX>200</ScaleX>
+              <ScaleY>20</ScaleY>
+              <ScaleZ>0</ScaleZ>
+              <MeshName>Plane</MeshName>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Diffuse>
+              <Specular>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <RotationZ>0</RotationZ>
+              <RotationY>90</RotationY>
+              <RotationX>90</RotationX>
             </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="37" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="1" To="18" Label="Source1" />
+            <Edge From="1" To="23" Label="Source1" />
+            <Edge From="1" To="26" Label="Source1" />
+            <Edge From="1" To="29" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="17" Label="Source1" />
             <Edge From="4" To="5" Label="Source1" />
-            <Edge From="4" To="25" Label="Source1" />
-            <Edge From="4" To="30" Label="Source1" />
-            <Edge From="4" To="33" Label="Source1" />
-            <Edge From="4" To="36" Label="Source1" />
-            <Edge From="4" To="38" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="24" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="5" To="7" Label="Source1" />
+            <Edge From="6" To="17" Label="Source2" />
+            <Edge From="6" To="25" Label="Source1" />
+            <Edge From="6" To="22" Label="Source1" />
+            <Edge From="6" To="28" Label="Source1" />
+            <Edge From="7" To="12" Label="Source1" />
             <Edge From="8" To="9" Label="Source1" />
-            <Edge From="8" To="10" Label="Source1" />
-            <Edge From="8" To="17" Label="Source1" />
-            <Edge From="9" To="24" Label="Source2" />
-            <Edge From="9" To="32" Label="Source1" />
-            <Edge From="9" To="29" Label="Source1" />
-            <Edge From="9" To="35" Label="Source1" />
-            <Edge From="10" To="15" Label="Source1" />
-            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="9" To="11" Label="Source1" />
+            <Edge From="10" To="17" Label="Source3" />
+            <Edge From="10" To="25" Label="Source2" />
+            <Edge From="10" To="22" Label="Source2" />
+            <Edge From="10" To="28" Label="Source2" />
+            <Edge From="11" To="12" Label="Source2" />
             <Edge From="12" To="13" Label="Source1" />
-            <Edge From="12" To="14" Label="Source1" />
-            <Edge From="12" To="18" Label="Source1" />
-            <Edge From="13" To="24" Label="Source3" />
-            <Edge From="13" To="32" Label="Source2" />
-            <Edge From="13" To="29" Label="Source2" />
-            <Edge From="13" To="35" Label="Source2" />
-            <Edge From="14" To="15" Label="Source2" />
+            <Edge From="13" To="30" Label="Source1" />
+            <Edge From="14" To="17" Label="Source4" />
+            <Edge From="14" To="25" Label="Source3" />
             <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="39" Label="Source1" />
-            <Edge From="17" To="19" Label="Source2" />
+            <Edge From="16" To="17" Label="Source5" />
+            <Edge From="16" To="25" Label="Source5" />
+            <Edge From="16" To="30" Label="Source3" />
             <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
-            <Edge From="20" To="37" Label="Source3" />
-            <Edge From="21" To="24" Label="Source4" />
-            <Edge From="21" To="32" Label="Source3" />
-            <Edge From="22" To="23" Label="Source1" />
-            <Edge From="23" To="24" Label="Source5" />
-            <Edge From="23" To="32" Label="Source5" />
-            <Edge From="23" To="39" Label="Source3" />
-            <Edge From="25" To="26" Label="Source1" />
-            <Edge From="26" To="29" Label="Source3" />
-            <Edge From="27" To="35" Label="Source4" />
-            <Edge From="28" To="29" Label="Source4" />
-            <Edge From="30" To="31" Label="Source1" />
-            <Edge From="31" To="32" Label="Source4" />
-            <Edge From="33" To="34" Label="Source1" />
-            <Edge From="34" To="35" Label="Source3" />
-            <Edge From="36" To="37" Label="Source2" />
-            <Edge From="38" To="39" Label="Source2" />
+            <Edge From="19" To="22" Label="Source3" />
+            <Edge From="20" To="28" Label="Source4" />
+            <Edge From="21" To="22" Label="Source4" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="25" Label="Source4" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="27" To="28" Label="Source3" />
+            <Edge From="29" To="30" Label="Source2" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="38" To="39" Label="Source1" />
             <Edge From="40" To="41" Label="Source1" />
-            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="41" To="42" Label="Source1" />
             <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="45" Label="Source1" />
+            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="47" To="48" Label="Source1" />
+            <Edge From="49" To="50" Label="Source1" />
+            <Edge From="50" To="51" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -4894,9 +4680,9 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
         <Workflow>
           <Nodes>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p4:FlyCapture">
-                <p4:Index>0</p4:Index>
-                <p4:ColorProcessing>Default</p4:ColorProcessing>
+              <Combinator xsi:type="p3:FlyCapture">
+                <p3:Index>0</p3:Index>
+                <p3:ColorProcessing>Default</p3:ColorProcessing>
               </Combinator>
             </Expression>
             <Expression xsi:type="MemberSelector">
@@ -4911,10 +4697,10 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:Crop">
                 <cv:RegionOfInterest>
-                  <cv:X>722</cv:X>
-                  <cv:Y>695</cv:Y>
-                  <cv:Width>31</cv:Width>
-                  <cv:Height>35</cv:Height>
+                  <cv:X>388</cv:X>
+                  <cv:Y>648</cv:Y>
+                  <cv:Width>100</cv:Width>
+                  <cv:Height>123</cv:Height>
                 </cv:RegionOfInterest>
               </Combinator>
             </Expression>
@@ -4926,7 +4712,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="GreaterThan">
               <Operand xsi:type="DoubleProperty">
-                <Value>50</Value>
+                <Value>25</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -5122,7 +4908,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="GreaterThan">
               <Operand xsi:type="FloatProperty">
-                <Value>76</Value>
+                <Value>97</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -5135,7 +4921,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="LessThan">
               <Operand xsi:type="FloatProperty">
-                <Value>101</Value>
+                <Value>122</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -5432,7 +5218,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
           <Nodes>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="wie:KeyDown">
-                <wie:Filter>A</wie:Filter>
+                <wie:Filter>RButton ShiftKey Menu B P R Control</wie:Filter>
                 <wie:SuppressRepetitions>true</wie:SuppressRepetitions>
               </Combinator>
             </Expression>
@@ -5731,375 +5517,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="cv:LoadImage">
-            <cv:FileName>C:\Users\Admin\Downloads\alphademo\5a37f4c7817733.6274047015136165835303.png</cv:FileName>
-            <cv:Mode>Unchanged</cv:Mode>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="cv:Flip">
-            <cv:Mode>Vertical</cv:Mode>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:UpdateTexture">
-            <gl:TextureName>Cat</gl:TextureName>
-            <gl:TextureTarget>Texture2D</gl:TextureTarget>
-            <gl:InternalFormat>Rgba</gl:InternalFormat>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="ExternalizedMapping">
-        <Property Name="Textures" />
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:TextureResources">
-            <gl:Textures />
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:UpdateTexture">
-            <gl:TextureTarget>Texture2D</gl:TextureTarget>
-            <gl:InternalFormat>Rgba</gl:InternalFormat>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="io:GetFiles">
-            <io:Path>Textures\detection_stim\A</io:Path>
-            <io:SearchPattern>*.png</io:SearchPattern>
-            <io:SearchOption>TopDirectoryOnly</io:SearchOption>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Concat" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PropertyMapping">
-          <PropertyMappings>
-            <Property Name="FileName" />
-          </PropertyMappings>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="cv:LoadImage">
-            <cv:FileName>Textures\detection_stim\A\A_000.png</cv:FileName>
-            <cv:Mode>Unchanged</cv:Mode>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="cv:Flip">
-            <cv:Mode>Vertical</cv:Mode>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="io:GetFileName" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PropertyMapping">
-          <PropertyMappings>
-            <Property Name="TextureName" />
-          </PropertyMappings>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:UpdateTexture">
-            <gl:TextureName>A_100.png</gl:TextureName>
-            <gl:TextureTarget>Texture2D</gl:TextureTarget>
-            <gl:InternalFormat>Rgba</gl:InternalFormat>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="AsyncSubject" TypeArguments="sys:String[]" />
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="io:CsvReader">
-          <io:SkipRows>0</io:SkipRows>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="SubscribeSubject">
-          <Name>Textures</Name>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:UpdateTexture">
-            <gl:TextureTarget>Texture2D</gl:TextureTarget>
-            <gl:InternalFormat>Rgba</gl:InternalFormat>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="ExternalizedMapping">
-          <Property Name="TextureName" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="io:GetFiles">
-          <io:Path>Textures\detection_stim\A</io:Path>
-          <io:SearchPattern>*.png</io:SearchPattern>
-          <io:SearchOption>TopDirectoryOnly</io:SearchOption>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Concat" />
-      </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="FileName" />
-        </PropertyMappings>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:LoadImage">
-          <gl:Width xsi:nil="true" />
-          <gl:Height xsi:nil="true" />
-          <gl:InternalFormat>Rgba</gl:InternalFormat>
-          <gl:WrapS>Repeat</gl:WrapS>
-          <gl:WrapT>Repeat</gl:WrapT>
-          <gl:MinFilter>Linear</gl:MinFilter>
-          <gl:MagFilter>Linear</gl:MagFilter>
-          <gl:FileName>Textures\detection_stim\A\A_100.png</gl:FileName>
-          <gl:ColorType>Unchanged</gl:ColorType>
-          <gl:FlipMode>Vertical</gl:FlipMode>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="BehaviorSubject">
-        <Name>Textures</Name>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:TextureResources">
-            <gl:Textures />
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:UpdateTexture">
-            <gl:TextureName>AG</gl:TextureName>
-            <gl:TextureTarget>Texture2D</gl:TextureTarget>
-            <gl:InternalFormat>Rgba</gl:InternalFormat>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="io:GetFiles">
-            <io:Path>Textures\detection_stim\A</io:Path>
-            <io:SearchPattern>*.png</io:SearchPattern>
-            <io:SearchOption>TopDirectoryOnly</io:SearchOption>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Delay">
-            <rx:DueTime>PT1S</rx:DueTime>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Concat" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PropertyMapping">
-          <PropertyMappings>
-            <Property Name="FileName" />
-          </PropertyMappings>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="cv:LoadImage">
-            <cv:FileName>Textures\detection_stim\A\A_000.png</cv:FileName>
-            <cv:Mode>Unchanged</cv:Mode>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="cv:Flip">
-            <cv:Mode>Vertical</cv:Mode>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:BindTexture">
-            <gl:TextureSlot>Texture0</gl:TextureSlot>
-            <gl:TextureTarget>Texture2D</gl:TextureTarget>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:TextureResources">
-            <gl:Textures>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>gray</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\gray.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageTexture">
-                <gl:Name>BG</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\BG_gratings.jpg</gl:FileName>
-                <gl:ColorType>Unchanged</gl:ColorType>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>A</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\A\jpg\A_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>B</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\B\B_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>C</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\C\C_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>D</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\D\D_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>Ori45</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\Ori45\Ori45_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>Ori135</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>Textures\detection_stim\Ori135\Ori135_%03d.jpg</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:Texture2D">
-                <gl:Name>Cat</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-              </gl:TextureConfiguration>
-            </gl:Textures>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="res:LoadResources" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="io:GetFileName" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PropertyMapping">
-          <PropertyMappings>
-            <Property Name="TextureName" />
-          </PropertyMappings>
-        </Builder>
-      </Expression>
     </Nodes>
     <Edges>
       <Edge From="1" To="2" Label="Source1" />
@@ -6109,58 +5526,26 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
       <Edge From="6" To="7" Label="Source1" />
       <Edge From="7" To="8" Label="Source1" />
       <Edge From="8" To="9" Label="Source1" />
-      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
       <Edge From="11" To="12" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
       <Edge From="13" To="14" Label="Source1" />
       <Edge From="14" To="15" Label="Source1" />
+      <Edge From="14" To="17" Label="Source1" />
+      <Edge From="14" To="19" Label="Source1" />
+      <Edge From="14" To="21" Label="Source1" />
       <Edge From="15" To="16" Label="Source1" />
-      <Edge From="15" To="18" Label="Source1" />
-      <Edge From="15" To="20" Label="Source1" />
-      <Edge From="15" To="22" Label="Source1" />
-      <Edge From="16" To="17" Label="Source1" />
-      <Edge From="18" To="19" Label="Source1" />
-      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
       <Edge From="22" To="23" Label="Source1" />
-      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
-      <Edge From="26" To="27" Label="Source1" />
-      <Edge From="27" To="29" Label="Source1" />
-      <Edge From="28" To="29" Label="Source2" />
+      <Edge From="26" To="28" Label="Source1" />
+      <Edge From="27" To="28" Label="Source2" />
+      <Edge From="28" To="29" Label="Source1" />
       <Edge From="29" To="30" Label="Source1" />
       <Edge From="30" To="31" Label="Source1" />
-      <Edge From="31" To="32" Label="Source1" />
-      <Edge From="44" To="45" Label="Source1" />
-      <Edge From="45" To="46" Label="Source1" />
-      <Edge From="46" To="48" Label="Source1" />
-      <Edge From="47" To="48" Label="Source2" />
-      <Edge From="48" To="49" Label="Source1" />
-      <Edge From="50" To="51" Label="Source1" />
-      <Edge From="51" To="52" Label="Source1" />
-      <Edge From="51" To="55" Label="Source1" />
-      <Edge From="52" To="53" Label="Source1" />
-      <Edge From="53" To="54" Label="Source1" />
-      <Edge From="54" To="57" Label="Source1" />
-      <Edge From="55" To="56" Label="Source1" />
-      <Edge From="56" To="57" Label="Source2" />
-      <Edge From="60" To="61" Label="Source1" />
-      <Edge From="62" To="69" Label="Source2" />
-      <Edge From="63" To="64" Label="Source1" />
-      <Edge From="64" To="65" Label="Source1" />
-      <Edge From="65" To="66" Label="Source1" />
-      <Edge From="66" To="67" Label="Source1" />
-      <Edge From="67" To="68" Label="Source1" />
-      <Edge From="68" To="69" Label="Source1" />
-      <Edge From="70" To="71" Label="Source1" />
-      <Edge From="71" To="72" Label="Source1" />
-      <Edge From="72" To="73" Label="Source1" />
-      <Edge From="72" To="79" Label="Source1" />
-      <Edge From="73" To="74" Label="Source1" />
-      <Edge From="74" To="75" Label="Source1" />
-      <Edge From="75" To="76" Label="Source1" />
-      <Edge From="76" To="77" Label="Source1" />
-      <Edge From="77" To="78" Label="Source1" />
-      <Edge From="79" To="80" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
