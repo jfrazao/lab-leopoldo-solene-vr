@@ -2,8 +2,8 @@
 par.number_trials   = 2000;
 
 protocoldir = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
-% protocoldir = 'C:\Users\EphysPC\Desktop\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
-protocoldir = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
+protocoldir = 'C:\Users\EphysPC\Desktop\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
+% protocoldir = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
 
 %% Generate CSV
 trials = struct();
@@ -28,7 +28,8 @@ writetable(table_trials,fullfile(protocoldir,'MOL_trialseq_detection_maxonly.csv
 
 %% Psychometric 5 levels including 0 signal: 
 
-par.signals     = [0    5   20    50   100]; %
+% par.signals     = [0      5   20  50  100]; %
+par.signals     = [0        7   12  25  100]; %
 nconds          = length(par.signals);
 par.fracs       = repmat(1/nconds,nconds,1);
 
@@ -42,7 +43,7 @@ table_trials = struct2table(trials);
 writetable(table_trials,fullfile(protocoldir,'MOL_trialseq_detection_5levels.csv'))
 
 %% With noise distribution around threshold stimulus:
-par.centersignal    = 15; %
+par.centersignal    = 12; %
 par.stdsignal       = 15; %
 
 par.signals     = [0   par.centersignal   100]; %
