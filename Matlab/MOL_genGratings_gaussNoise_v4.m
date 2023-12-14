@@ -12,7 +12,7 @@ nSpeeds             = length(par.speed);
 
 %Noise dimensions (ori and speed)
 par.stdOri          = 20; %deg (span of degrees around center orientation)
-par.stdSpeed        = 0.12; %in percent of deg/s %on logarithmic scale
+par.stdSpeed        = 0.15; %in percent of deg/s %on logarithmic scale
 par.stdContr        = 0; %0-1 contrast
 par.stdPhase        = 0; %
 
@@ -40,31 +40,25 @@ par.ntrials         = nOris * nSpeeds * par.nrep;
 %% decomposition of speed into TF and SF is based on these anchorpoints:
 par.TF              = [1 2.5 4]; %Hz
 par.SF              = [5/30 3/30 1/30]; %cpd
-par.SF              = [0.12 0.08 0.04]; %cpd
+% par.SF              = [5/25 3/25 1/25]; %cpd
+% par.SF              = [0.12 0.08 0.04]; %cpd
 %these are fit with a linear regression and the equation is used to map
 %speed to TF and SF
-par.TF./par.SF
+% par.TF./par.SF
+par.speed           = par.TF./par.SF;    %center speeds
 
-%% decomposition of speed into TF and SF is based on these anchorpoints:
-par.TF              = [1.5 3.75 6]; %Hz
-par.SF              = [0.12 0.075 0.03]; %cpd
-%these are fit with a linear regression and the equation is used to map
-%speed to TF and SF
-
-
-%%
+%% Plot SF and TF combination, fit regression line to get fixed combination to obtain speed
 figure(); hold all;
 plot(par.SF,par.TF,'k.','MarkerSize',20)
 set(gca,'Xlim',[0 0.15],'Ylim',[0 8])
-% plot(par.SF,par.TF,'b-','LineWidth',0.5)
+set(gca,'Xlim',[0 0.2],'Ylim',[0 6])
 
 tbl = table(par.SF',par.TF');
 b = fitlm(tbl);
 coef = table2array(b.Coefficients);
 plot(b)
 
-% coef = [-50;7.5];
-coef = [7.5;-50];
+% coef = [7.5;-50];
 targetspeed = 67;
 SF =  coef(1,1) / (targetspeed - coef(2,1));
 TF = coef(2,1)*SF + coef(1,1);
@@ -127,11 +121,12 @@ trials.Phase        = repmat(par.Phase,par.ntrials,1)    + (rand(par.ntrials,1)-
 
 %% Create and save the table:
 table_trials = struct2table(trials);
-writetable(table_trials,'MOL_OriGrating_gaussNoise_v3.csv')
+writetable(table_trials,'MOL_OriGrating_gaussNoise_v4.csv')
 
 %% Show results:
 figure(); set(gcf,'color','w')
 scatter(trials.Orientation,trials.Speed,10,'k.')
 set(gca,'yscale','log','Xlim',[0 180],'Ylim',[5 300])
+set(gca,'yscale','log','Xlim',[0 180],'Ylim',[3 200])
 xlabel('Orientation')
 ylabel('Speed')
