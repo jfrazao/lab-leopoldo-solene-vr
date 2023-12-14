@@ -27,7 +27,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="IntProperty">
-                <Value>5</Value>
+                <Value>4</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -441,7 +441,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>20</Value>
+                <Value>10</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -538,7 +538,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>50</Value>
+                <Value>60</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -549,7 +549,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>90</Value>
+                <Value>100</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -587,7 +587,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="BooleanProperty">
-                <Value>false</Value>
+                <Value>true</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -723,7 +723,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>DP</Value>
+                <Value>DN</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -771,7 +771,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_11_30\\DP\Behavior\DP_test_harp_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_12_14\\DN\Behavior\DN_test_harp_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -795,7 +795,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\test\2023_11_30\\DP\Behavior\DP_test_rawharp_.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\test\2023_12_14\\DN\Behavior\DN_test_rawharp_.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -926,7 +926,7 @@
 </scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_11_30\\DP\Behavior\DP_test_trialdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_12_14\\DN\Behavior\DN_test_trialdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -950,7 +950,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\test\2023_11_30\\DP\Behavior\DP_test_camera_.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\test\2023_12_14\\DN\Behavior\DN_test_camera_.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -986,7 +986,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_11_30\\DP\Behavior\DP_test_cameracsv_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_12_14\\DN\Behavior\DN_test_cameracsv_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -1013,7 +1013,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2023_11_30\\DP\Behavior\DP_test_triggerdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2023_12_14\\DN\Behavior\DN_test_triggerdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -1109,7 +1109,7 @@
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
           <gl:WindowState>Fullscreen</gl:WindowState>
-          <gl:DisplayDevice>Second</gl:DisplayDevice>
+          <gl:DisplayDevice>First</gl:DisplayDevice>
           <gl:TargetRenderFrequency>0</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
           <gl:RenderState />
@@ -1630,7 +1630,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
               <Property Name="FileName" />
             </Expression>
             <Expression xsi:type="io:CsvReader">
-              <io:FileName>Protocols\VR_Detection\MOL_trialseq_detection_5levels.csv</io:FileName>
+              <io:FileName>Protocols\VR_Detection\MOL_trialseq_detection_center10_noise10.csv</io:FileName>
               <io:ListSeparator />
               <io:ScanPattern>%f,%f,%f</io:ScanPattern>
               <io:SkipRows>1</io:SkipRows>
@@ -1710,7 +1710,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:LoadImage">
-                      <cv:FileName>C:\Users\2p_behavior\Desktop\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\Ori45\Ori45_050.png</cv:FileName>
+                      <cv:FileName>C:\Users\2p_behavior\Desktop\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\Ori45\Ori45_008.png</cv:FileName>
                       <cv:Mode>Unchanged</cv:Mode>
                     </Combinator>
                   </Expression>
@@ -1755,8 +1755,8 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateDiscreteUniform">
-                      <p2:Lower>40</p2:Lower>
-                      <p2:Upper>80</p2:Upper>
+                      <p2:Lower>60</p2:Lower>
+                      <p2:Upper>100</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1827,7 +1827,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="FloatProperty">
-                                  <Value>110</Value>
+                                  <Value>191</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -2149,7 +2149,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT0.0366S</rx:DueTime>
+                            <rx:DueTime>PT0.0279043S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="p1:BehaviorCommand">
@@ -2435,7 +2435,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Subtract">
               <Operand xsi:type="FloatProperty">
-                <Value>0.0138469283</Value>
+                <Value>0.0125881173</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -2461,7 +2461,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Add">
               <Operand xsi:type="FloatProperty">
-                <Value>30</Value>
+                <Value>6</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2705,7 +2705,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>27.1831055</TranslationZ>
+                          <TranslationZ>-76.487915</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2782,7 +2782,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-172.8169</TranslationZ>
+                          <TranslationZ>-276.4879</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2859,7 +2859,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-10272.8164</TranslationZ>
+                          <TranslationZ>-10376.4883</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2936,7 +2936,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>227.1831</TranslationZ>
+                          <TranslationZ>123.512085</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3039,7 +3039,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>58</Value>
+                      <Value>159</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -3114,7 +3114,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-7.49</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>16.5115356</TranslationZ>
+                          <TranslationZ>8.091141</TranslationZ>
                           <ScaleX>20</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3245,7 +3245,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>27.1831055</TranslationZ>
+                          <TranslationZ>-76.487915</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3322,7 +3322,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-172.8169</TranslationZ>
+                          <TranslationZ>-276.4879</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3399,7 +3399,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-10272.8164</TranslationZ>
+                          <TranslationZ>-10376.4883</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3476,7 +3476,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.5</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>227.1831</TranslationZ>
+                          <TranslationZ>123.512085</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3573,7 +3573,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                   </Expression>
                   <Expression xsi:type="Subtract">
                     <Operand xsi:type="FloatProperty">
-                      <Value>58</Value>
+                      <Value>159</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -3648,7 +3648,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>7.49</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>16.5115356</TranslationZ>
+                          <TranslationZ>8.091141</TranslationZ>
                           <ScaleX>20</ScaleX>
                           <ScaleY>8</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3776,7 +3776,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>227.1831</TranslationZ>
+                          <TranslationZ>123.512085</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3853,7 +3853,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>27.1831055</TranslationZ>
+                          <TranslationZ>-76.487915</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3930,7 +3930,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>-172.8169</TranslationZ>
+                          <TranslationZ>-276.4879</TranslationZ>
                           <ScaleX>200</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4007,7 +4007,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-1</TranslationY>
-                          <TranslationZ>-10272.8164</TranslationZ>
+                          <TranslationZ>-10376.4883</TranslationZ>
                           <ScaleX>20000</ScaleX>
                           <ScaleY>15</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4144,7 +4144,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>150</TranslationY>
-                          <TranslationZ>427.1831</TranslationZ>
+                          <TranslationZ>-1076.48792</TranslationZ>
                           <ScaleX>3000</ScaleX>
                           <ScaleY>3000</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4221,7 +4221,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>250</TranslationY>
-                          <TranslationZ>-2572.817</TranslationZ>
+                          <TranslationZ>-4076.48779</TranslationZ>
                           <ScaleX>3000</ScaleX>
                           <ScaleY>3000</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -4657,10 +4657,10 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:Crop">
                 <cv:RegionOfInterest>
-                  <cv:X>388</cv:X>
-                  <cv:Y>648</cv:Y>
-                  <cv:Width>100</cv:Width>
-                  <cv:Height>123</cv:Height>
+                  <cv:X>472</cv:X>
+                  <cv:Y>213</cv:Y>
+                  <cv:Width>360</cv:Width>
+                  <cv:Height>349</cv:Height>
                 </cv:RegionOfInterest>
               </Combinator>
             </Expression>
@@ -4868,7 +4868,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="GreaterThan">
               <Operand xsi:type="FloatProperty">
-                <Value>83</Value>
+                <Value>179</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -4881,7 +4881,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="LessThan">
               <Operand xsi:type="FloatProperty">
-                <Value>108</Value>
+                <Value>189</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -5327,29 +5327,76 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
         <Workflow>
           <Nodes>
             <Expression xsi:type="SubscribeSubject">
-              <Name>RewardTrial</Name>
+              <Name>z pos</Name>
             </Expression>
-            <Expression xsi:type="Equal">
-              <Operand xsi:type="IntProperty">
-                <Value>0</Value>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StimStart</Name>
+            </Expression>
+            <Expression xsi:type="Subtract">
+              <Operand xsi:type="FloatProperty">
+                <Value>50</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="GreaterThan" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StimStart</Name>
+            </Expression>
+            <Expression xsi:type="Subtract">
+              <Operand xsi:type="FloatProperty">
+                <Value>25</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>lickResponse</Name>
+              <Name>RewardZoneLength</Name>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RewardZoneOffset</Name>
             </Expression>
-            <Expression xsi:type="LogicalAnd" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StimStart</Name>
+            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>UseTimeOut</Name>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>LickActivity</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>z pos</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="LessThan" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="BitwiseAnd" />
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:WithLatestFrom" />
             </Expression>
             <Expression xsi:type="LogicalAnd" />
+            <Expression xsi:type="Condition">
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:DistinctUntilChanged" />
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Item2</Selector>
             </Expression>
             <Expression xsi:type="Condition">
               <Workflow>
@@ -5364,9 +5411,6 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>HarpTimestamp</Name>
-            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:WithLatestFrom" />
             </Expression>
@@ -5374,106 +5418,71 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
               <Selector>Item2</Selector>
             </Expression>
             <Expression xsi:type="Add">
-              <Operand xsi:type="DoubleProperty">
-                <Value>10</Value>
+              <Operand xsi:type="FloatProperty">
+                <Value>20</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="MulticastSubject">
-              <Name>TimeOutTimestamp</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>Draw3DStim</Name>
-            </Expression>
-            <Expression xsi:type="Condition">
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>TimeOut</Name>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="1" To="2" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:BindTexture">
-                <gl:TextureSlot>Texture0</gl:TextureSlot>
-                <gl:ShaderName>TexturedModel</gl:ShaderName>
-                <gl:TextureName>red</gl:TextureName>
-                <gl:TextureTarget>Texture2D</gl:TextureTarget>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-              <TranslationX>1</TranslationX>
-              <TranslationY>1</TranslationY>
-              <TranslationZ>-1</TranslationZ>
-              <ScaleX>1000</ScaleX>
-              <ScaleY>1000</ScaleY>
-              <ScaleZ>1000</ScaleZ>
-              <MeshName>Plane</MeshName>
-              <Ambient>
-                <X>1</X>
-                <Y>1</Y>
-                <Z>1</Z>
-              </Ambient>
-              <Diffuse>
-                <X>0</X>
-                <Y>0</Y>
-                <Z>0</Z>
-              </Diffuse>
-              <Specular>
-                <X>1</X>
-                <Y>1</Y>
-                <Z>1</Z>
-              </Specular>
-              <SpecularExponent>10</SpecularExponent>
-              <RotationZ>0</RotationZ>
-              <RotationY>0</RotationY>
-              <RotationX>0</RotationX>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-            <Expression xsi:type="SubscribeSubject">
-              <Name>HarpTimestamp</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>TimeOutTimestamp</Name>
+              <Name>StimStart</Name>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:WithLatestFrom" />
             </Expression>
-            <Expression xsi:type="LessThan" />
+            <Expression xsi:type="Add" />
             <Expression xsi:type="MulticastSubject">
-              <Name>TimeOut</Name>
+              <Name>RewardZoneStart</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="Add" />
+            <Expression xsi:type="MulticastSubject">
+              <Name>RewardZoneEnd</Name>
+            </Expression>
+            <Expression xsi:type="Add">
+              <Operand xsi:type="FloatProperty">
+                <Value>2</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>TunnelLength</Name>
             </Expression>
           </Nodes>
           <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="1" To="3" Label="Source2" />
-            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="0" To="3" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source2" />
             <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="6" Label="Source1" />
-            <Edge From="5" To="6" Label="Source2" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="11" Label="Source1" />
-            <Edge From="10" To="11" Label="Source2" />
-            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="4" To="15" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="13" Label="Source2" />
+            <Edge From="7" To="30" Label="Source2" />
+            <Edge From="8" To="27" Label="Source2" />
+            <Edge From="9" To="23" Label="Source2" />
+            <Edge From="10" To="17" Label="Source2" />
+            <Edge From="11" To="20" Label="Source2" />
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source2" />
             <Edge From="15" To="16" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
             <Edge From="17" To="18" Label="Source1" />
             <Edge From="18" To="19" Label="Source1" />
-            <Edge From="20" To="22" Label="Source1" />
-            <Edge From="21" To="22" Label="Source2" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
             <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="25" Label="Source1" />
+            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="29" To="30" Label="Source1" />
+            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="33" To="34" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
