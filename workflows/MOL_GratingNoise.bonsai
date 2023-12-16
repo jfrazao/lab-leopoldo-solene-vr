@@ -278,12 +278,12 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>LPE10919</Value>
+                <Value>LPE11086</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>LPE10919</Value>
+                <Value>LPE11086</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -927,7 +927,7 @@
               <Property Name="FileName" />
             </Expression>
             <Expression xsi:type="io:CsvReader">
-              <io:FileName>Protocols\OriGratings\MOL_OriGrating_gaussNoise_v3.csv</io:FileName>
+              <io:FileName>Protocols\OriGratings\MOL_OriGrating_gaussNoise_v4.csv</io:FileName>
               <io:ListSeparator />
               <io:ScanPattern>%f,%f,%f,%f,%f,%f,%f</io:ScanPattern>
               <io:SkipRows>1</io:SkipRows>
