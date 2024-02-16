@@ -3,7 +3,7 @@ par.number_trials   = 2000;
 
 protocoldir = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
 protocoldir = 'C:\Users\EphysPC\Desktop\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
-% protocoldir = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
+protocoldir = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\VR_Detection\';
 
 %% Generate CSV
 trials = struct();
@@ -26,6 +26,23 @@ trials.RewardTrial = trials.signal > 0;
 %% Create and save the table:
 table_trials = struct2table(trials);
 writetable(table_trials,fullfile(protocoldir,'MOL_trialseq_detection_maxonly.csv'))
+
+
+%% SUPEREASY psychometric 5 levels including 0 signal: 
+
+par.signals     = [0    12  25  50  100]; %
+nconds          = length(par.signals);
+par.fracs       = repmat(1/nconds,nconds,1);
+
+trials.signal   = createDetectionTrialVector(par);
+trials.signal(1:5) = par.signals(end); %first trial max signal
+
+%% trials.reward
+trials.RewardTrial = trials.signal > 0;
+
+%% Create and save the table:
+table_trials = struct2table(trials);
+writetable(table_trials,fullfile(protocoldir,'MOL_trialseq_detection_5levels_supereasy.csv'))
 
 %% EASY psychometric 5 levels including 0 signal: 
 
