@@ -81,7 +81,7 @@ par.centersignal    = 10; %
 par.stdsignal       = 10; %
 
 par.signals     = [0   par.centersignal   100]; %
-par.fracs       = [0.1 0.7 0.2];
+par.fracs       = [0.1 0.45 0.45];
 
 trials.signal   = createDetectionTrialVector(par);
 
@@ -105,7 +105,7 @@ par.centersignal    = 7; %
 par.stdsignal       = 8; %
 
 par.signals     = [0   par.centersignal   100]; %
-par.fracs       = [0.1 0.7 0.2];
+par.fracs       = [0.1 0.45 0.45];
 
 trials.signal   = createDetectionTrialVector(par);
 
