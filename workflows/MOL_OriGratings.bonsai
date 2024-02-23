@@ -1596,7 +1596,7 @@ Item2.Accumulation.Turns + (Item2.Accumulation.Diference == Item1 ? 0 : ((Item1 
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timer">
-                <rx:DueTime>PT3S</rx:DueTime>
+                <rx:DueTime>PT5S</rx:DueTime>
                 <rx:Period>PT2S</rx:Period>
               </Combinator>
             </Expression>
