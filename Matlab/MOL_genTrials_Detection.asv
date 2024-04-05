@@ -27,6 +27,7 @@ trials.RewardTrial = trials.signal > 0;
 table_trials = struct2table(trials);
 writetable(table_trials,fullfile(protocoldir,'MOL_trialseq_detection_maxonly.csv'))
 
+
 %% SUPEREASY psychometric 5 levels including 0 signal: 
 
 par.signals     = [0    12  25  50  100]; %
@@ -34,9 +35,6 @@ nconds          = length(par.signals);
 par.fracs       = repmat(1/nconds,nconds,1);
 
 trials.signal   = createDetectionTrialVector(par);
-
-trials   = removeTrialTypeRepetitions(trials);
-
 trials.signal(1:10) = par.signals(end); %first trial max signal
 
 %% trials.reward
@@ -53,7 +51,6 @@ nconds          = length(par.signals);
 par.fracs       = repmat(1/nconds,nconds,1);
 
 trials.signal   = createDetectionTrialVector(par);
-trials          = removeTrialTypeRepetitions(trials);
 trials.signal(1:10) = par.signals(end); %first 15 trials max signal
 
 %% trials.reward
@@ -70,7 +67,6 @@ nconds          = length(par.signals);
 par.fracs       = repmat(1/nconds,nconds,1);
 
 trials.signal   = createDetectionTrialVector(par);
-trials          = removeTrialTypeRepetitions(trials);
 trials.signal(1:10) = par.signals(end); %first 15 trials max signal
 
 %% trials.reward
@@ -91,11 +87,18 @@ trials.signal       = createDetectionTrialVector(par);
 
 idx                 = trials.signal == par.centersignal;
 trials.signal(idx)  = trials.signal(idx) + (rand(sum(idx),1)-0.5)*par.stdsignal;
-trials.signal       = round(trials.signal);
+signals = unique(trials.signal);
 
-trials              = removeTrialTypeRepetitions(trials);
+for i= 3:par.number_trials
+    if trials.signal(i) == trials.signal(i-1) && trials.signal(i) == trials.signal(i-2)
+        c = histcounts(trials.signal(max(1,i-15):i),signals)
+        trials.signal(i) = [min(c)
+    end
+end
+
 
 fprintf('\nJitter ranges from %2.0f to %2.0f %% signal\n',min(trials.signal(idx)),max(trials.signal(idx)))
+trials.signal       = round(trials.signal);
 trials.signal(1:10) = par.signals(end); %first 15 trials max signal
 
 %% trials.reward
@@ -112,15 +115,13 @@ par.stdsignal       = 10; %
 par.signals     = [0   par.centersignal   100]; %
 par.fracs       = [0.15 0.45 0.4];
 
-trials.signal       = createDetectionTrialVector(par);
+trials.signal   = createDetectionTrialVector(par);
 
-idx                 = trials.signal == par.centersignal;
-trials.signal(idx)  = trials.signal(idx) + (rand(sum(idx),1)-0.5)*par.stdsignal;
-trials.signal       = round(trials.signal);
-
-trials              = removeTrialTypeRepetitions(trials);
+idx = trials.signal == par.centersignal;
+trials.signal(idx) = trials.signal(idx) + (rand(sum(idx),1)-0.5)*par.stdsignal;
 
 fprintf('\nJitter ranges from %2.0f to %2.0f %% signal\n',min(trials.signal(idx)),max(trials.signal(idx)))
+trials.signal       = round(trials.signal);
 trials.signal(1:10) = par.signals(end); %first 15 trials max signal
 
 %% trials.reward
