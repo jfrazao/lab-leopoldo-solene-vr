@@ -7,12 +7,15 @@ Nsx             = stimlength * pixpercm;	% Size of image is Nsy x Nsx
 Nsy             = stimheight * pixpercm;	
 
 % Texture params:
-rootDir         = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
-% rootDir         = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
+% rootDir         = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
+rootDir         = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
 % imagefiles = {'seamless-circle-pattern-6543320.jpg','sawtooth-grating.o.jpg','d30_1923.o.jpg','30D_3500.o.jpg'};
 
 % imagefiles = {'seamless-circle-pattern-6543320.jpg','sd1000_5472.o.jpg', 'poly_grad.o.jpg', 'D20_c.o.jpg'};
-imagefiles = {'D3_c.o.jpg','sd1000_5472.o.jpg', 'poly_grad.o.jpg', 'D20_c.o.jpg'};
+imagefiles = {'D3_c.o.jpg','sd1000_5472.o.jpg',...
+            'D75_s.o.jpg', 'D20_c.o.jpg',...
+            'bullseye.o.jpg','checkerboard.o.jpg', ...
+            'seamless-circle-pattern-6543320.jpg', 'sawtooth-wiggle.o.jpg'};
 Nimages = length(imagefiles);
 
 %for the transparency, value that is fully opaque:
@@ -82,6 +85,10 @@ for i=1:Nimages
     semilogy(f1,Pf)
 end
 
+% %% Binarize images:
+% imdata(imdata<128) = 0;
+% imdata(imdata>128) = 255;
+
 %% Show histogram of pixel intensities:
 figure; set(gcf,'color','w','units','normalized','Position',[0.2,0.5,0.4,0.3]); hold all;
 for iM=1:Nimages
@@ -113,7 +120,7 @@ end
 
 alphas = [0.01 0.01:0.01:1];
 for iA = 1:length(alphas)
-    for iM=1:Nimages
+    for iM=3
 %         imagedata = uint8(imdata(:,:,iM));
         imagedata = uint8(repmat(imdata(:,:,iM),1,1,3));
         alphadata = uint8(repmat(alphas(iA),Nsy,Nsx)*alphamax);

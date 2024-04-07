@@ -321,7 +321,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2024_01_26\\IM\Behavior\IM_test_harp_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2024_03_06\\IM\Behavior\IM_test_harp_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -345,7 +345,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Data\MOL\test\2024_01_26\\IM\Behavior\IM_test_rawharp_.bin</dsp:Path>
+                <dsp:Path>C:\Data\MOL\test\2024_03_06\\IM\Behavior\IM_test_rawharp_.bin</dsp:Path>
                 <dsp:Suffix>Timestamp</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -374,7 +374,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2024_01_26\\IM\Behavior\IM_test_cameracsv_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2024_03_06\\IM\Behavior\IM_test_cameracsv_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -401,7 +401,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2024_01_26\\IM\Behavior\IM_test_triggerdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2024_03_06\\IM\Behavior\IM_test_triggerdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -463,7 +463,7 @@
 </scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Data\MOL\test\2024_01_26\\IM\Behavior\IM_test_trialdata_.csv</io:FileName>
+              <io:FileName>C:\Data\MOL\test\2024_03_06\\IM\Behavior\IM_test_trialdata_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -487,7 +487,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:VideoWriter">
-                <cv:FileName>C:\Data\MOL\test\2024_01_26\\IM\Behavior\IM_test_camera_.avi</cv:FileName>
+                <cv:FileName>C:\Data\MOL\test\2024_03_06\\IM\Behavior\IM_test_camera_.avi</cv:FileName>
                 <cv:Suffix>Timestamp</cv:Suffix>
                 <cv:Buffered>true</cv:Buffered>
                 <cv:Overwrite>true</cv:Overwrite>
@@ -874,7 +874,7 @@
                       <gl:ShaderName>Image</gl:ShaderName>
                       <gl:TextureName>Database</gl:TextureName>
                       <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                      <gl:Index>1932</gl:Index>
+                      <gl:Index>1837</gl:Index>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
@@ -895,7 +895,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Timer">
-                      <rx:DueTime>PT0.75S</rx:DueTime>
+                      <rx:DueTime>PT0.5S</rx:DueTime>
                       <rx:Period>PT0S</rx:Period>
                     </Combinator>
                   </Expression>
@@ -944,7 +944,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="TimeSpanProperty">
-                      <Value>PT0.0691355S</Value>
+                      <Value>PT1.25S</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -954,7 +954,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT0.0691355S</rx:DueTime>
+                      <rx:DueTime>PT1.25S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />

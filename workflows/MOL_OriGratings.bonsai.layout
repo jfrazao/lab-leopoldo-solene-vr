@@ -1710,12 +1710,12 @@
         <EditorDialogSettings>
           <Visible>true</Visible>
           <Location>
-            <X>331</X>
-            <Y>431</Y>
+            <X>208</X>
+            <Y>208</Y>
           </Location>
           <Size>
-            <Width>803</Width>
-            <Height>839</Height>
+            <Width>316</Width>
+            <Height>239</Height>
           </Size>
           <WindowState>Normal</WindowState>
         </EditorDialogSettings>

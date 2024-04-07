@@ -383,7 +383,7 @@
       </Location>
       <Size>
         <Width>668</Width>
-        <Height>1723</Height>
+        <Height>1736</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -1308,8 +1308,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>407</X>
-        <Y>628</Y>
+        <X>489</X>
+        <Y>690</Y>
       </Location>
       <Size>
         <Width>294</Width>
@@ -1380,12 +1380,12 @@
         <EditorDialogSettings>
           <Visible>true</Visible>
           <Location>
-            <X>178</X>
-            <Y>813</Y>
+            <X>335</X>
+            <Y>824</Y>
           </Location>
           <Size>
-            <Width>875</Width>
-            <Height>895</Height>
+            <Width>641</Width>
+            <Height>586</Height>
           </Size>
           <WindowState>Normal</WindowState>
         </EditorDialogSettings>
@@ -1881,7 +1881,7 @@
       </Location>
       <Size>
         <Width>668</Width>
-        <Height>1723</Height>
+        <Height>1736</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -1917,7 +1917,7 @@
           </Location>
           <Size>
             <Width>668</Width>
-            <Height>1723</Height>
+            <Height>1736</Height>
           </Size>
           <WindowState>Normal</WindowState>
         </EditorDialogSettings>
@@ -2422,7 +2422,7 @@
       </Location>
       <Size>
         <Width>668</Width>
-        <Height>1723</Height>
+        <Height>1736</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -2512,7 +2512,7 @@
       </Location>
       <Size>
         <Width>668</Width>
-        <Height>1723</Height>
+        <Height>1736</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -2842,7 +2842,7 @@
       </Location>
       <Size>
         <Width>668</Width>
-        <Height>1723</Height>
+        <Height>1736</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
