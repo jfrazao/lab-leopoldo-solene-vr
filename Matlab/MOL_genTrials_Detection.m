@@ -130,3 +130,29 @@ trials.RewardTrial = trials.signal > 0;
 table_trials = struct2table(trials);
 writetable(table_trials,fullfile(protocoldir,sprintf('MOL_trialseq_detection_center%d_noise%d.csv',par.centersignal,par.stdsignal)))
 
+
+%% With noise distribution around threshold stimulus:
+par.centersignal    = 20; %
+par.stdsignal       = 15; %
+
+par.signals     = [0   par.centersignal   100]; %
+par.fracs       = [0.15 0.7 0.15];
+
+trials.signal       = createDetectionTrialVector(par);
+
+idx                 = trials.signal == par.centersignal;
+trials.signal(idx)  = trials.signal(idx) + (rand(sum(idx),1)-0.5)*par.stdsignal;
+trials.signal       = round(trials.signal);
+
+trials              = removeTrialTypeRepetitions(trials);
+
+fprintf('\nJitter ranges from %2.0f to %2.0f %% signal\n',min(trials.signal(idx)),max(trials.signal(idx)))
+trials.signal(1:10) = par.signals(end); %first 15 trials max signal
+
+%% trials.reward
+trials.RewardTrial = trials.signal > 0;
+
+%% Create and save the table:
+table_trials = struct2table(trials);
+writetable(table_trials,fullfile(protocoldir,sprintf('MOL_trialseq_detection_center%d_noise%d_frac7.csv',par.centersignal,par.stdsignal)))
+
