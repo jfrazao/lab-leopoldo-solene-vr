@@ -1,6 +1,11 @@
 [file,path] = uigetfile('*.csv');
 
 trialdata = readtable(fullfile(path,file));
+% trialdata = trialdata(1:74,:);
+
+if any("trialType" == string(trialdata.Properties.VariableNames))
+    trialdata.Signal = trialdata.trialType;
+end
 
 signals = unique(trialdata.Signal);
 nsignals = length(signals);
@@ -20,8 +25,4 @@ ylim([0,1])
 xlabel('Signal')
 ylabel('Response')
 title(strrep(file,'_','-'))
-
-
-
-
 
