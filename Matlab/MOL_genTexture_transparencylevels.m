@@ -7,8 +7,8 @@ Nsx             = stimlength * pixpercm;	% Size of image is Nsy x Nsx
 Nsy             = stimheight * pixpercm;	
 
 % Texture params:
-% rootDir         = 'T:\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
-rootDir         = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
+rootDir         = 'D:\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
+% rootDir         = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Textures\detection_stim\';
 % imagefiles = {'seamless-circle-pattern-6543320.jpg','sawtooth-grating.o.jpg','d30_1923.o.jpg','30D_3500.o.jpg'};
 
 % imagefiles = {'seamless-circle-pattern-6543320.jpg','sd1000_5472.o.jpg', 'poly_grad.o.jpg', 'D20_c.o.jpg'};
@@ -115,6 +115,21 @@ for iA = 1:length(alphas)
     end
 end
 % tightfig
+
+
+%% Save full image version:
+for iM=1:Nimages
+%         imagedata = uint8(imdata(:,:,iM));
+    imagedata = uint8(repmat(imdata(:,:,iM),1,1,3));
+%     alphadata = uint8(repmat(alphas(iA),Nsy,Nsx)*alphamax);
+    alphadata(1,1) = 255;
+    if ~exist(fullfile(rootDir,char(iM + 64)),'dir')
+        mkdir(fullfile(rootDir,char(iM + 64)))
+    end
+    filename = fullfile(rootDir,char(iM + 64),sprintf('%s_Full.png',char(iM + 64)));
+    imwrite(imagedata,filename,'png','Alpha',alphadata);
+%         imwrite(imagedata,filename,'png','Alpha',alphadata,'Background',0.5);
+end
 
 %% Save transparency versions:
 
