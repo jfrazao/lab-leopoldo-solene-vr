@@ -65,7 +65,6 @@ TF = coef(2,1)*SF + coef(1,1);
 
 plot([0 SF],[0 TF],'b-','LineWidth',0.5)
 plot(SF,TF,'b.','MarkerSize',15)
-
 % if targetspeed = 200:
 % TF + 50*SF = 7.5
 % TF - 200*SF = 0
@@ -124,9 +123,11 @@ table_trials = struct2table(trials);
 writetable(table_trials,'MOL_OriGrating_gaussNoise_v4.csv')
 
 %% Show results:
-figure(); set(gcf,'color','w')
+figure(); set(gcf,'color','w','unit','normalized')
 scatter(trials.Orientation,trials.Speed,10,'k.')
 set(gca,'yscale','log','Xlim',[0 180],'Ylim',[5 300])
 set(gca,'yscale','log','Xlim',[0 180],'Ylim',[3 200])
 xlabel('Orientation')
 ylabel('Speed')
+xticks(par.ori)
+yticks(par.speed)
