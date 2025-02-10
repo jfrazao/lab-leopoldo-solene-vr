@@ -43,7 +43,6 @@ plot(histcounts(trials.imagenum,0:par.nTotal_images+par.nMEIs+5))
 
 %% Create and save the table:
 table_trials = struct2table(trials);
-% writetable(table_trials,sprintf('C:\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\ImageDatabase\MOL_meiseq_%s.csv',sesid))
-writetable(table_trials,fullfile('C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\ImageDatabase',['MOL_meiseq_' sesid '.csv']))
-% writetable(table_trials,['MOL_meiseq_' sesid '.csv'])
-
+writetable(table_trials,sprintf('E:\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\ImageDatabase\MOL_meiseq_%s.csv',sesid))
+writetable(table_trials,['E:\Bonsai\lab-leopoldo-solene-vr\workflows\Protocols\ImageDatabase\MOL_meiseq_%s.csv',sesid))
+filename = [mypath num2str(m) '.wav'];
