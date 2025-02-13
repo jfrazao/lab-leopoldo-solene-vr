@@ -1,9 +1,9 @@
 %% Copy images and rename:
-sesid = 'LPE10884_2023_10_20';
+sesid = 'LPE11086_2024_01_09';
 meidir = fullfile('C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\MEIs',sesid,'\*.jpg');
 outdir = 'C:\Users\Admin\Desktop\Bonsai\lab-leopoldo-solene-vr\workflows\ImageDatabase';
 files  = dir(meidir);
-% filenames = {files.name};
+filenames = {files.name};
 nMEIs = length(filenames);
 for iF=1:nMEIs
     outfile = fullfile(outdir,sprintf('Img%4.0d.jpg',iF+2800));
